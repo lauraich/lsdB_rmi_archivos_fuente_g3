@@ -33,37 +33,41 @@ public class GUIConectarServidor1 extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
         lblDireccionIp1 = new javax.swing.JLabel();
         txtDireccionIp1 = new javax.swing.JTextField();
         lblTituloCnx1 = new javax.swing.JLabel();
         lblPuerto1 = new javax.swing.JLabel();
         txtPuerto1 = new javax.swing.JTextField();
         btnConectarS1 = new javax.swing.JButton();
+        lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setPreferredSize(new java.awt.Dimension(423, 250));
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.png"))); // NOI18N
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblDireccionIp1.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         lblDireccionIp1.setForeground(new java.awt.Color(255, 255, 255));
         lblDireccionIp1.setText("Cual es el la dirección ip donde se encuentra  el n_s");
+        jPanel1.add(lblDireccionIp1, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 79, -1, -1));
 
         txtDireccionIp1.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         txtDireccionIp1.setText("localhost");
+        jPanel1.add(txtDireccionIp1, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 117, 227, -1));
 
         lblTituloCnx1.setFont(new java.awt.Font("Yu Gothic UI", 1, 18)); // NOI18N
         lblTituloCnx1.setForeground(new java.awt.Color(204, 204, 204));
         lblTituloCnx1.setText("Conexion Servidor");
+        jPanel1.add(lblTituloCnx1, new org.netbeans.lib.awtextra.AbsoluteConstraints(122, 36, -1, -1));
 
         lblPuerto1.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         lblPuerto1.setForeground(new java.awt.Color(255, 255, 255));
         lblPuerto1.setText("Cual es el número de puerto por el cual escucha el n_s");
+        jPanel1.add(lblPuerto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 172, -1, -1));
 
         txtPuerto1.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         txtPuerto1.setText("2021");
+        jPanel1.add(txtPuerto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(94, 210, 224, -1));
 
         btnConectarS1.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
         btnConectarS1.setText("Conectar");
@@ -72,70 +76,20 @@ public class GUIConectarServidor1 extends javax.swing.JFrame {
                 btnConectarS1ActionPerformed(evt);
             }
         });
+        jPanel1.add(btnConectarS1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 267, -1, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(54, 54, 54)
-                        .addComponent(lblDireccionIp1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(122, 122, 122)
-                        .addComponent(lblTituloCnx1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(97, 97, 97)
-                        .addComponent(txtDireccionIp1, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addComponent(lblPuerto1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(94, 94, 94)
-                        .addComponent(txtPuerto1, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(160, 160, 160)
-                        .addComponent(btnConectarS1)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(lblTituloCnx1)
-                .addGap(18, 18, 18)
-                .addComponent(lblDireccionIp1)
-                .addGap(18, 18, 18)
-                .addComponent(txtDireccionIp1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addComponent(lblPuerto1)
-                .addGap(18, 18, 18)
-                .addComponent(txtPuerto1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addComponent(btnConectarS1)
-                .addContainerGap(94, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addComponent(jLabel2)
-                    .addGap(0, 22, Short.MAX_VALUE)))
-        );
+        lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.png"))); // NOI18N
+        jPanel1.add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, 0, 420, 340));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -158,9 +112,9 @@ public class GUIConectarServidor1 extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConectarS1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblDireccionIp1;
+    private javax.swing.JLabel lblFondo;
     private javax.swing.JLabel lblPuerto1;
     private javax.swing.JLabel lblTituloCnx1;
     private javax.swing.JTextField txtDireccionIp1;

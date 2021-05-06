@@ -33,104 +33,63 @@ public class GUIConectarCliente extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        lblfondo = new javax.swing.JLabel();
         lblTituloCnxC = new javax.swing.JLabel();
         lblDireccionIpclnt = new javax.swing.JLabel();
         txtDireccionIpclnt = new javax.swing.JTextField();
         lblPuertoclnt = new javax.swing.JLabel();
         txtPuertoclnt = new javax.swing.JTextField();
         btnConectarC = new javax.swing.JButton();
+        lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lblfondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.png"))); // NOI18N
+        jPanel1.setPreferredSize(new java.awt.Dimension(425, 341));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblTituloCnxC.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblTituloCnxC.setFont(new java.awt.Font("Yu Gothic UI", 1, 18)); // NOI18N
+        lblTituloCnxC.setForeground(new java.awt.Color(204, 204, 204));
         lblTituloCnxC.setText("Conexion Cliente");
+        jPanel1.add(lblTituloCnxC, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, -1, -1));
 
-        lblDireccionIpclnt.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lblDireccionIpclnt.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
+        lblDireccionIpclnt.setForeground(new java.awt.Color(255, 255, 255));
         lblDireccionIpclnt.setText("Cual es el la dirección ip donde se encuentra  el n_s");
+        jPanel1.add(lblDireccionIpclnt, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, -1, -1));
 
+        txtDireccionIpclnt.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         txtDireccionIpclnt.setText("localhost");
+        jPanel1.add(txtDireccionIpclnt, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, 227, -1));
 
-        lblPuertoclnt.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lblPuertoclnt.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
+        lblPuertoclnt.setForeground(new java.awt.Color(255, 255, 255));
         lblPuertoclnt.setText("Cual es el número de puerto por el cual escucha el n_s");
+        jPanel1.add(lblPuertoclnt, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, -1, -1));
 
+        txtPuertoclnt.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         txtPuertoclnt.setText("2021");
+        jPanel1.add(txtPuertoclnt, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, 228, -1));
 
+        btnConectarC.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
         btnConectarC.setText("Conectar");
         btnConectarC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnConectarCActionPerformed(evt);
             }
         });
+        jPanel1.add(btnConectarC, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 280, -1, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(72, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblPuertoclnt)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(lblDireccionIpclnt)
-                                .addGap(8, 8, 8)))
-                        .addGap(56, 56, 56))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(txtPuertoclnt, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(97, 97, 97))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(txtDireccionIpclnt, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(96, 96, 96))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(173, 173, 173)
-                        .addComponent(btnConectarC))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(145, 145, 145)
-                        .addComponent(lblTituloCnxC)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addComponent(lblfondo, javax.swing.GroupLayout.PREFERRED_SIZE, 428, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(55, Short.MAX_VALUE)
-                .addComponent(lblTituloCnxC)
-                .addGap(43, 43, 43)
-                .addComponent(lblDireccionIpclnt)
-                .addGap(28, 28, 28)
-                .addComponent(txtDireccionIpclnt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
-                .addComponent(lblPuertoclnt)
-                .addGap(18, 18, 18)
-                .addComponent(txtPuertoclnt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
-                .addComponent(btnConectarC)
-                .addGap(42, 42, 42))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(lblfondo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 308, Short.MAX_VALUE))
-        );
+        lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.png"))); // NOI18N
+        jPanel1.add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 350));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
         );
 
         pack();
@@ -192,9 +151,9 @@ public class GUIConectarCliente extends javax.swing.JFrame {
     private javax.swing.JButton btnConectarC;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblDireccionIpclnt;
+    private javax.swing.JLabel lblFondo;
     private javax.swing.JLabel lblPuertoclnt;
     private javax.swing.JLabel lblTituloCnxC;
-    private javax.swing.JLabel lblfondo;
     private javax.swing.JTextField txtDireccionIpclnt;
     private javax.swing.JTextField txtPuertoclnt;
     // End of variables declaration//GEN-END:variables

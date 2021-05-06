@@ -72,6 +72,9 @@ public class GUIAdmin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        btnCerrarSesion.setBackground(javax.swing.UIManager.getDefaults().getColor("EditorPane.selectionBackground"));
+        btnCerrarSesion.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
+        btnCerrarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/logout.png"))); // NOI18N
         btnCerrarSesion.setText("Cerrar Sesion");
         btnCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -79,9 +82,12 @@ public class GUIAdmin extends javax.swing.JFrame {
             }
         });
 
-        lblMenuAdmin.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblMenuAdmin.setFont(new java.awt.Font("Yu Gothic UI", 1, 24)); // NOI18N
         lblMenuAdmin.setText("Menu Administrador");
 
+        btnRegistrarUsu.setBackground(javax.swing.UIManager.getDefaults().getColor("FormattedTextField.selectionBackground"));
+        btnRegistrarUsu.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
+        btnRegistrarUsu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/registrarUsuario.png"))); // NOI18N
         btnRegistrarUsu.setText("Registrar Usuario");
         btnRegistrarUsu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,6 +95,9 @@ public class GUIAdmin extends javax.swing.JFrame {
             }
         });
 
+        btnModififcarUsu.setBackground(javax.swing.UIManager.getDefaults().getColor("EditorPane.selectionBackground"));
+        btnModififcarUsu.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
+        btnModififcarUsu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/modificarUsuario.png"))); // NOI18N
         btnModififcarUsu.setText("Modificar Info Usuario");
         btnModififcarUsu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,6 +105,9 @@ public class GUIAdmin extends javax.swing.JFrame {
             }
         });
 
+        btnConsultarInfo.setBackground(javax.swing.UIManager.getDefaults().getColor("EditorPane.selectionBackground"));
+        btnConsultarInfo.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
+        btnConsultarInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/consultar-Usuario.png"))); // NOI18N
         btnConsultarInfo.setText("Consultar Info Usuario");
         btnConsultarInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,13 +115,14 @@ public class GUIAdmin extends javax.swing.JFrame {
             }
         });
 
+        tableUsuarios.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         tableUsuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "Identificacion", "Nombre", "Role", "Departamento", "Usuario", "Contraeña"
+                "Identificacion", "Nombre", "Role", "Departamento", "Usuario", "Contraseña"
             }
         ) {
             Class[] types = new Class [] {
@@ -138,40 +151,38 @@ public class GUIAdmin extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(245, 245, 245)
-                        .addComponent(lblMenuAdmin))
+                        .addGap(44, 44, 44)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 604, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 604, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(87, 87, 87)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnConsultarInfo)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(btnCerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(btnRegistrarUsu, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnModififcarUsu, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
-                .addContainerGap(40, Short.MAX_VALUE))
+                        .addGap(208, 208, 208)
+                        .addComponent(lblMenuAdmin)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(btnCerrarSesion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnRegistrarUsu, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnConsultarInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnModififcarUsu, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(31, 31, 31))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(34, 34, 34)
-                .addComponent(btnCerrarSesion)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblMenuAdmin)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnCerrarSesion)
+                    .addComponent(lblMenuAdmin))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(124, 124, 124)
+                        .addGap(99, 99, 99)
                         .addComponent(btnRegistrarUsu)
-                        .addGap(18, 18, 18)
+                        .addGap(36, 36, 36)
                         .addComponent(btnModififcarUsu)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(47, 47, 47)
                         .addComponent(btnConsultarInfo))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(58, 58, 58)
+                        .addGap(33, 33, 33)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(67, Short.MAX_VALUE))
         );
 
         pack();
