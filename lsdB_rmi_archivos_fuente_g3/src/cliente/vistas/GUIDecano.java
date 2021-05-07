@@ -67,9 +67,13 @@ public class GUIDecano extends javax.swing.JFrame {
 
         tabListar = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
+        pnlFondo = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblAnteproyectos = new javax.swing.JTable();
+        lblFondo = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
         jScrollPane6 = new javax.swing.JScrollPane();
         tblAprobados = new javax.swing.JTable();
         lblTitulo = new javax.swing.JLabel();
@@ -108,6 +112,12 @@ public class GUIDecano extends javax.swing.JFrame {
 
         tabListar.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
 
+        pnlFondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Yu Gothic UI", 1, 24)); // NOI18N
+        jLabel1.setText("Listado de Anteproyectos que estan pendientes de resolución");
+        pnlFondo.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 40, -1, 40));
+
         tblAnteproyectos.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         tblAnteproyectos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -128,24 +138,26 @@ public class GUIDecano extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tblAnteproyectos);
 
+        pnlFondo.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, 696, 416));
+
+        lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondoDecano.jpg"))); // NOI18N
+        pnlFondo.add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1070, 640));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(88, 88, 88)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 726, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(148, Short.MAX_VALUE))
+            .addComponent(pnlFondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(109, 109, 109)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(242, Short.MAX_VALUE))
+            .addComponent(pnlFondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         tabListar.addTab("Listar Anteproyectos", jPanel1);
+
+        jPanel3.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tblAprobados.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         tblAprobados.setModel(new javax.swing.table.DefaultTableModel(
@@ -159,33 +171,26 @@ public class GUIDecano extends javax.swing.JFrame {
         ));
         jScrollPane6.setViewportView(tblAprobados);
 
+        jPanel3.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, -1, -1));
+
         lblTitulo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblTitulo.setText("Listado de Anteproyectos aprobados");
+        jPanel3.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 60, -1, -1));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(68, 68, 68)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 756, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(138, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblTitulo)
-                .addGap(325, 325, 325))
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 1075, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addComponent(lblTitulo)
-                .addGap(30, 30, 30)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(119, Short.MAX_VALUE))
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 640, Short.MAX_VALUE)
         );
 
         tabListar.addTab("Consultar Aprobados", jPanel4);
+
+        lblCoDirector.setBackground(new java.awt.Color(204, 204, 204));
 
         tblFormatoA.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         tblFormatoA.setModel(new javax.swing.table.DefaultTableModel(
@@ -290,7 +295,7 @@ public class GUIDecano extends javax.swing.JFrame {
                     .addComponent(jScrollPane4)
                     .addComponent(jScrollPane3)
                     .addComponent(jScrollPane5))
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(145, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, lblCoDirectorLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(lblCoDirectorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -323,7 +328,7 @@ public class GUIDecano extends javax.swing.JFrame {
                 .addComponent(lblFormatoC)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                 .addComponent(lblFormatoD)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -331,6 +336,8 @@ public class GUIDecano extends javax.swing.JFrame {
         );
 
         tabListar.addTab("Consultar Historial", lblCoDirector);
+
+        jPanel2.setBackground(new java.awt.Color(204, 204, 204));
 
         lblCodigo.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         lblCodigo.setText("Selecciones el codigo del anteproyecto:");
@@ -408,7 +415,7 @@ public class GUIDecano extends javax.swing.JFrame {
                 .addGroup(pnlResolucionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblFecha)
                     .addComponent(lblFechaG))
-                .addContainerGap(331, Short.MAX_VALUE))
+                .addContainerGap(334, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -420,7 +427,7 @@ public class GUIDecano extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(pnlResolucion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(709, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(lblCodigo)
                         .addGap(30, 30, 30)
@@ -460,11 +467,11 @@ public class GUIDecano extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(tabListar)
+            .addComponent(tabListar, javax.swing.GroupLayout.PREFERRED_SIZE, 1080, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(tabListar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 671, Short.MAX_VALUE)
+            .addComponent(tabListar, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         pack();
@@ -626,10 +633,12 @@ public class GUIDecano extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnOK;
     private javax.swing.JComboBox<String> cmbCodigo;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -644,6 +653,7 @@ public class GUIDecano extends javax.swing.JFrame {
     private javax.swing.JLabel lblCodigoAnte;
     private javax.swing.JLabel lblFecha;
     private javax.swing.JLabel lblFechaG;
+    private javax.swing.JLabel lblFondo;
     private javax.swing.JLabel lblFormatoA;
     private javax.swing.JLabel lblFormatoB;
     private javax.swing.JLabel lblFormatoC;
@@ -651,6 +661,7 @@ public class GUIDecano extends javax.swing.JFrame {
     private javax.swing.JLabel lblRes;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JLabel lblTituloRes;
+    private javax.swing.JPanel pnlFondo;
     private javax.swing.JPanel pnlResolucion;
     private javax.swing.JTabbedPane tabListar;
     private javax.swing.JTable tblAnteproyectos;

@@ -68,9 +68,11 @@ public class GUICoordinador extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        pnlFondo = new javax.swing.JPanel();
+        lblListado = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblAnteproyectos = new javax.swing.JTable();
-        lblListado = new javax.swing.JLabel();
+        llblFondo = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuRegistrar = new javax.swing.JMenu();
         menuAsignar = new javax.swing.JMenu();
@@ -79,6 +81,12 @@ public class GUICoordinador extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("COORDINADOR");
         setIconImage(getIconImage());
+
+        pnlFondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblListado.setFont(new java.awt.Font("Yu Gothic UI", 1, 24)); // NOI18N
+        lblListado.setText("Listado de anteproyectos");
+        pnlFondo.add(lblListado, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, -1, -1));
 
         tblAnteproyectos.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         tblAnteproyectos.setModel(new javax.swing.table.DefaultTableModel(
@@ -100,8 +108,10 @@ public class GUICoordinador extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tblAnteproyectos);
 
-        lblListado.setFont(new java.awt.Font("Yu Gothic UI", 1, 18)); // NOI18N
-        lblListado.setText("Listado de anteproyectos");
+        pnlFondo.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 436, 250));
+
+        llblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondoCoordinado.png"))); // NOI18N
+        pnlFondo.add(llblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, 350));
 
         jMenuBar1.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
 
@@ -141,24 +151,11 @@ public class GUICoordinador extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 436, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(154, 154, 154)
-                        .addComponent(lblListado)))
-                .addContainerGap(26, Short.MAX_VALUE))
+            .addComponent(pnlFondo, javax.swing.GroupLayout.PREFERRED_SIZE, 534, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(lblListado)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+            .addComponent(pnlFondo, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -219,9 +216,11 @@ public class GUICoordinador extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblListado;
+    private javax.swing.JLabel llblFondo;
     private javax.swing.JMenu menuAsignar;
     private javax.swing.JMenu menuCerrar;
     private javax.swing.JMenu menuRegistrar;
+    private javax.swing.JPanel pnlFondo;
     private javax.swing.JTable tblAnteproyectos;
     // End of variables declaration//GEN-END:variables
 }

@@ -56,9 +56,11 @@ public class GUIEvaluador extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        pnlfondo = new javax.swing.JPanel();
         mainPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblFormatosA = new javax.swing.JTable();
+        lblListado = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -67,6 +69,10 @@ public class GUIEvaluador extends javax.swing.JFrame {
         setTitle("EVALUADOR");
         setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         setIconImage(getIconImage());
+
+        pnlfondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        mainPanel.setBackground(new java.awt.Color(153, 153, 255));
 
         tblFormatosA.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         tblFormatosA.setModel(new javax.swing.table.DefaultTableModel(
@@ -82,22 +88,33 @@ public class GUIEvaluador extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblFormatosA);
 
+        lblListado.setFont(new java.awt.Font("Yu Gothic UI", 1, 18)); // NOI18N
+        lblListado.setText("Listado de anteproyectos");
+
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
         mainPanel.setLayout(mainPanelLayout);
         mainPanelLayout.setHorizontalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblListado)
+                .addGap(273, 273, 273))
             .addGroup(mainPanelLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 611, Short.MAX_VALUE)
-                .addGap(37, 37, 37))
+                .addGap(42, 42, 42)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 728, Short.MAX_VALUE)
+                .addContainerGap())
         );
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainPanelLayout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
-                .addGap(67, 67, 67))
+                .addGap(32, 32, 32)
+                .addComponent(lblListado)
+                .addGap(30, 30, 30)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 301, Short.MAX_VALUE)
+                .addGap(32, 32, 32))
         );
+
+        pnlfondo.add(mainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 0, 780, -1));
 
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/registrarFormato.png"))); // NOI18N
         jMenu1.setText("Registrar Formato B");
@@ -125,17 +142,11 @@ public class GUIEvaluador extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(0, 9, Short.MAX_VALUE)
-                .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 8, Short.MAX_VALUE))
+            .addComponent(pnlfondo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(pnlfondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -192,7 +203,9 @@ public class GUIEvaluador extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblListado;
     private javax.swing.JPanel mainPanel;
+    private javax.swing.JPanel pnlfondo;
     private javax.swing.JTable tblFormatosA;
     // End of variables declaration//GEN-END:variables
 }

@@ -82,6 +82,7 @@ public class GUIAsignarEvaluadores extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         lblCodigo = new javax.swing.JLabel();
         cmbCodigo = new javax.swing.JComboBox<>();
         lblTitulo = new javax.swing.JLabel();
@@ -91,98 +92,71 @@ public class GUIAsignarEvaluadores extends javax.swing.JFrame {
         cmbEvaluadores2 = new javax.swing.JComboBox<>();
         btnAsignar = new javax.swing.JButton();
         btnVolver = new javax.swing.JButton();
+        lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("ASIGNAR EVALUADOR");
         setIconImage(getIconImage());
 
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         lblCodigo.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         lblCodigo.setText("Seleccione el codigo del anteproyecto");
+        jPanel1.add(lblCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, -1, -1));
 
         cmbCodigo.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
+        jPanel1.add(cmbCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 100, 150, -1));
 
-        lblTitulo.setFont(new java.awt.Font("Yu Gothic UI", 1, 18)); // NOI18N
+        lblTitulo.setFont(new java.awt.Font("Yu Gothic UI", 1, 24)); // NOI18N
         lblTitulo.setText("Asignar Evaluadores");
+        jPanel1.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, -1, -1));
 
         lblEvaluador1.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         lblEvaluador1.setText("Seleccione el ID del evaluador 1:");
+        jPanel1.add(lblEvaluador1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
 
         cmbEvaluadores.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
+        jPanel1.add(cmbEvaluadores, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 170, 150, -1));
 
         lblEvaluador2.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         lblEvaluador2.setText("Seleccione el ID del evaluador 2:");
+        jPanel1.add(lblEvaluador2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, -1));
 
         cmbEvaluadores2.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
+        jPanel1.add(cmbEvaluadores2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 240, 150, -1));
 
         btnAsignar.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
+        btnAsignar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/asignarEvaluadores.png"))); // NOI18N
         btnAsignar.setText("Asignar");
         btnAsignar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAsignarActionPerformed(evt);
             }
         });
+        jPanel1.add(btnAsignar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 300, 150, -1));
 
         btnVolver.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
+        btnVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/back.png"))); // NOI18N
         btnVolver.setText("Volver");
         btnVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVolverActionPerformed(evt);
             }
         });
+        jPanel1.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+
+        lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondoAsignarEv.png"))); // NOI18N
+        jPanel1.add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, 0, 460, 370));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(btnVolver)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
-                .addComponent(lblTitulo)
-                .addGap(142, 142, 142))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(51, 51, 51)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblEvaluador1)
-                            .addComponent(lblCodigo)
-                            .addComponent(lblEvaluador2))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(cmbEvaluadores, 0, 142, Short.MAX_VALUE)
-                            .addComponent(cmbCodigo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cmbEvaluadores2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(169, 169, 169)
-                        .addComponent(btnAsignar)))
-                .addContainerGap(28, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 467, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(lblTitulo))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnVolver)))
-                .addGap(36, 36, 36)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCodigo)
-                    .addComponent(cmbCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblEvaluador1)
-                    .addComponent(cmbEvaluadores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblEvaluador2)
-                    .addComponent(cmbEvaluadores2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addComponent(btnAsignar)
-                .addContainerGap(23, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -279,9 +253,11 @@ public class GUIAsignarEvaluadores extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cmbCodigo;
     private javax.swing.JComboBox<String> cmbEvaluadores;
     private javax.swing.JComboBox<String> cmbEvaluadores2;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblCodigo;
     private javax.swing.JLabel lblEvaluador1;
     private javax.swing.JLabel lblEvaluador2;
+    private javax.swing.JLabel lblFondo;
     private javax.swing.JLabel lblTitulo;
     // End of variables declaration//GEN-END:variables
 }

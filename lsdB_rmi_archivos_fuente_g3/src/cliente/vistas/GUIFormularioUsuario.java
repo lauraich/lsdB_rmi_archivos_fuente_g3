@@ -208,7 +208,7 @@ public class GUIFormularioUsuario extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel1.add(panelMain, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, -1, -1));
+        jPanel1.add(panelMain, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, -1, -1));
 
         btnBuscar.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/lupaBuscar.png"))); // NOI18N
@@ -218,7 +218,7 @@ public class GUIFormularioUsuario extends javax.swing.JFrame {
                 btnBuscarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 140, -1, -1));
+        jPanel1.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 130, -1, -1));
 
         btnVolver.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         btnVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/back.png"))); // NOI18N

@@ -66,6 +66,7 @@ public class GUIFC extends javax.swing.JFrame {
 
         buttonGroup = new javax.swing.ButtonGroup();
         buttonGroup1 = new javax.swing.ButtonGroup();
+        jPanel1 = new javax.swing.JPanel();
         lblRegistrarFormatoC = new javax.swing.JLabel();
         mainPanel = new javax.swing.JPanel();
         rbAprobado1 = new javax.swing.JRadioButton();
@@ -86,13 +87,19 @@ public class GUIFC extends javax.swing.JFrame {
         btnGuardar = new javax.swing.JButton();
         cmbCodigoAnteproyecto = new javax.swing.JComboBox<>();
         lblCodigoAnteproyecto = new javax.swing.JLabel();
+        btnVolver = new javax.swing.JButton();
+        lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("REGISTRAR FORMATO C");
         setIconImage(getIconImage());
 
-        lblRegistrarFormatoC.setFont(new java.awt.Font("Yu Gothic UI", 1, 18)); // NOI18N
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblRegistrarFormatoC.setFont(new java.awt.Font("Yu Gothic UI", 1, 24)); // NOI18N
+        lblRegistrarFormatoC.setForeground(new java.awt.Color(51, 51, 51));
         lblRegistrarFormatoC.setText("Registrar Formato C");
+        jPanel1.add(lblRegistrarFormatoC, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 50, -1, -1));
 
         rbAprobado1.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         rbAprobado1.setSelected(true);
@@ -151,9 +158,6 @@ public class GUIFC extends javax.swing.JFrame {
         mainPanelLayout.setHorizontalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1))
-            .addGroup(mainPanelLayout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(mainPanelLayout.createSequentialGroup()
@@ -187,14 +191,21 @@ public class GUIFC extends javax.swing.JFrame {
                             .addContainerGap())
                         .addGroup(mainPanelLayout.createSequentialGroup()
                             .addGap(6, 6, 6)
-                            .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lblObservaciones)
-                                .addComponent(rbAprobado3))
+                            .addComponent(rbAprobado3)
                             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
                         .addGap(125, 125, 125)
                         .addComponent(rbNoAprobado3)
                         .addContainerGap())))
+            .addGroup(mainPanelLayout.createSequentialGroup()
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(mainPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(mainPanelLayout.createSequentialGroup()
+                        .addGap(151, 151, 151)
+                        .addComponent(lblObservaciones)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -219,14 +230,16 @@ public class GUIFC extends javax.swing.JFrame {
                     .addComponent(rbNoAprobado3)
                     .addComponent(rbAprobado3)
                     .addComponent(lblConcepto3))
-                .addGap(18, 18, 18)
+                .addGap(25, 25, 25)
                 .addComponent(lblObservaciones)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
-        btnGuardar.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
+        jPanel1.add(mainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, 350));
+
+        btnGuardar.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
         btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/guardar.png"))); // NOI18N
         btnGuardar.setText("Guardar");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -234,50 +247,39 @@ public class GUIFC extends javax.swing.JFrame {
                 btnGuardarActionPerformed(evt);
             }
         });
+        jPanel1.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 540, -1, -1));
 
         cmbCodigoAnteproyecto.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         cmbCodigoAnteproyecto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar Anteproyecto" }));
+        jPanel1.add(cmbCodigoAnteproyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 110, -1, -1));
 
         lblCodigoAnteproyecto.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
+        lblCodigoAnteproyecto.setForeground(new java.awt.Color(255, 255, 255));
         lblCodigoAnteproyecto.setText("Codigo Anteproyecto: ");
+        jPanel1.add(lblCodigoAnteproyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, -1, -1));
+
+        btnVolver.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
+        btnVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/back.png"))); // NOI18N
+        btnVolver.setText("Volver");
+        btnVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolverActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 110, 40));
+
+        lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondoRC.jpg"))); // NOI18N
+        jPanel1.add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-6, 0, 490, 600));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(lblCodigoAnteproyecto)
-                            .addGap(18, 18, 18)
-                            .addComponent(cmbCodigoAnteproyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(183, 183, 183)
-                                .addComponent(btnGuardar))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(143, 143, 143)
-                        .addComponent(lblRegistrarFormatoC)))
-                .addContainerGap(53, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblRegistrarFormatoC)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cmbCodigoAnteproyecto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblCodigoAnteproyecto))
-                .addGap(36, 36, 36)
-                .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnGuardar)
-                .addGap(18, 18, 18))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -317,6 +319,12 @@ public class GUIFC extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
+    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
+        this.dispose();
+        atrGuiJefe.setVisible(true);
+        atrGuiJefe.cargarFormatos();
+    }//GEN-LAST:event_btnVolverActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -354,15 +362,18 @@ public class GUIFC extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnVolver;
     private javax.swing.ButtonGroup buttonGroup;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> cmbCodigoAnteproyecto;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblCodigoAnteproyecto;
     private javax.swing.JLabel lblConcepto1;
     private javax.swing.JLabel lblConcepto2;
     private javax.swing.JLabel lblConcepto3;
+    private javax.swing.JLabel lblFondo;
     private javax.swing.JLabel lblObservaciones;
     private javax.swing.JLabel lblRegistrarFormatoC;
     private javax.swing.JPanel mainPanel;

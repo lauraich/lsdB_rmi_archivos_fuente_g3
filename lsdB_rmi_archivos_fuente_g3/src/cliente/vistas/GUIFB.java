@@ -81,8 +81,8 @@ public class GUIFB extends javax.swing.JFrame {
         lblRegistrarForatoB = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         cmbCodigoAnteproyecto = new javax.swing.JComboBox<>();
-        lblFondo = new javax.swing.JLabel();
         btnBuscar = new javax.swing.JButton();
+        lblFondo = new javax.swing.JLabel();
 
         jLabel1.setText("jLabel1");
 
@@ -90,6 +90,7 @@ public class GUIFB extends javax.swing.JFrame {
         setTitle("REGISTRAR FORMATO B");
         setIconImage(getIconImage());
 
+        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnVolver.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
@@ -101,7 +102,6 @@ public class GUIFB extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 110, 40));
-        btnVolver.getAccessibleContext().setAccessibleParent(lblFondo);
 
         mainPanel.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -204,12 +204,12 @@ public class GUIFB extends javax.swing.JFrame {
                     .addContainerGap(237, Short.MAX_VALUE)))
         );
 
-        jPanel1.add(mainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, -1));
+        jPanel1.add(mainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
 
         lblRegistrarForatoB.setFont(new java.awt.Font("Yu Gothic UI", 1, 24)); // NOI18N
         lblRegistrarForatoB.setForeground(new java.awt.Color(255, 255, 255));
         lblRegistrarForatoB.setText("Registrar Formato B");
-        jPanel1.add(lblRegistrarForatoB, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, -1, -1));
+        jPanel1.add(lblRegistrarForatoB, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -220,9 +220,6 @@ public class GUIFB extends javax.swing.JFrame {
         cmbCodigoAnteproyecto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "seleccionar Anteproyecto" }));
         jPanel1.add(cmbCodigoAnteproyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, -1, -1));
 
-        lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondoB.jpg"))); // NOI18N
-        jPanel1.add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, 4, 420, 490));
-
         btnBuscar.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/lupaBuscar.png"))); // NOI18N
         btnBuscar.setText("Buscar");
@@ -232,6 +229,10 @@ public class GUIFB extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 130, 110, 40));
+
+        lblFondo.setBackground(new java.awt.Color(102, 102, 102));
+        lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondoB.jpg"))); // NOI18N
+        jPanel1.add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, 4, 420, 490));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
