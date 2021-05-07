@@ -1,2 +1,0 @@
-SSeguimientoAnteproyectos.vistas.GUIConectarServidor2
-SSeguimientoAnteproyectos.vistas.GUIConectarServidor2$1

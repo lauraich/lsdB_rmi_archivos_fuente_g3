@@ -1,1 +1,0 @@
-SSeguimientoAnteproyectos.utilidades.UtilidadesConsola
