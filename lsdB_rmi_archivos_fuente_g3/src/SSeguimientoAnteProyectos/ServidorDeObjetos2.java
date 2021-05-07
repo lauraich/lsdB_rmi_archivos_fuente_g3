@@ -14,7 +14,6 @@ public class ServidorDeObjetos2 {
     public static void main(String args[]) {
         GUIConectarServidor2 vistaS = new GUIConectarServidor2();
         vistaS.setVisible(true);
-
     }
     public ServidorDeObjetos2(String direccionIpNS, int puertoNS) throws RemoteException{
         this.direccionNS = direccionIpNS;

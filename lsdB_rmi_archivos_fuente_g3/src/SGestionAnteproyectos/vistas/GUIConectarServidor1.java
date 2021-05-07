@@ -23,6 +23,7 @@ public class GUIConectarServidor1 extends javax.swing.JFrame {
      */
     public GUIConectarServidor1() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

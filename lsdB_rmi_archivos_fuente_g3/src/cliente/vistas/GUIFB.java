@@ -30,10 +30,12 @@ public class GUIFB extends javax.swing.JFrame {
      */
     public GUIFB() {
         initComponents();
+         this.setLocationRelativeTo(null);
     }
 
     public GUIFB(GUIEvaluador prmGUIEvaluador, List<FormatoBDTO> prmFB) {
         initComponents();
+         this.setLocationRelativeTo(null);
         listFB = prmFB;
         atrGUIEvaluador = prmGUIEvaluador;
         buttonGroup1.add(rbAprobado);

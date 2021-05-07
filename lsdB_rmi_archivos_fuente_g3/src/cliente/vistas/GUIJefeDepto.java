@@ -26,9 +26,11 @@ public class GUIJefeDepto extends javax.swing.JFrame {
      */
     public GUIJefeDepto() {
         initComponents();
+         this.setLocationRelativeTo(null);
     }
     public GUIJefeDepto(GUIInicioSesion prmGUI) {
         initComponents();
+         this.setLocationRelativeTo(null);
         objGuiInicioSesion=prmGUI;
         cargarFormatos();
     }

@@ -30,10 +30,12 @@ public class GUIFormularioUsuario extends javax.swing.JFrame {
      */
     public GUIFormularioUsuario() {
         initComponents();
+         this.setLocationRelativeTo(null);
     }
 
     public GUIFormularioUsuario(GUIAdmin prmGUI, int prmAccion) {
         initComponents();
+         this.setLocationRelativeTo(null);
         atrCreacion = prmAccion;
         atrGUIAdmin = prmGUI;
         if (prmAccion == 1) {
@@ -57,11 +59,13 @@ public class GUIFormularioUsuario extends javax.swing.JFrame {
             btnBuscar.setVisible(true);
         }
     }
-@Override
+
+    @Override
     public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("recursos/iconApp.png"));
         return retValue;
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -89,7 +93,7 @@ public class GUIFormularioUsuario extends javax.swing.JFrame {
         btnGuardar = new javax.swing.JButton();
         btnBuscar = new javax.swing.JButton();
         btnVolver = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("FORULARIO USUARIO");
@@ -230,8 +234,8 @@ public class GUIFormularioUsuario extends javax.swing.JFrame {
         });
         jPanel1.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/FondoRegistroU.jpg"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 570, 440));
+        lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/FondoRegistroU.jpg"))); // NOI18N
+        jPanel1.add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 570, 430));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -258,7 +262,7 @@ public class GUIFormularioUsuario extends javax.swing.JFrame {
             String rol = (String) cmbRole.getSelectedItem();
             UsuarioDTO objUsuario = new UsuarioDTO(id, nombre, rol, departamento, usuario, password);
             if (validarCamposVacios()) {
-                if (atrCO.getObjRemotoUsuarios().consultarUsuario(id) != null || atrCO.getObjRemotoUsuarios().existeUsuario(usuario)) {
+                if (atrCreacion == 1 && (atrCO.getObjRemotoUsuarios().consultarUsuario(id) != null || atrCO.getObjRemotoUsuarios().existeUsuario(usuario))) {
                     JOptionPane.showMessageDialog(this, "Ya existe un usuario con la información suministrada", "ADVERTENCIA", JOptionPane.WARNING_MESSAGE);
                 } else {
                     if (nombre.length() > 65) {
@@ -294,7 +298,7 @@ public class GUIFormularioUsuario extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Se debe diligenciar todos los campos del formulario", "ADVERTENCIA", JOptionPane.WARNING_MESSAGE);
             return false;
         }
-        
+
         return true;
     }
 
@@ -334,22 +338,37 @@ public class GUIFormularioUsuario extends javax.swing.JFrame {
             UsuarioDTO objUsuario = atrCO.getObjRemotoUsuarios().consultarUsuario(id);
             if (objUsuario != null) {
                 if (banderaActualizar) {
-                    if (objUsuario.getRole() == "ADMIN") {
+                    if (objUsuario.getRole().compareTo("ADMIN") == 0) {
                         JOptionPane.showMessageDialog(this, "El usuario ingresado es admin por lo que no se puede modificar su información", "INFO", JOptionPane.INFORMATION_MESSAGE);
+                    } else {
+                        panelMain.setVisible(true);
+                        btnBuscar.setVisible(false);
+                        txtNombre.setText(objUsuario.getNombreCompleto());
+                        cmbRole.setSelectedItem(objUsuario.getRole());
+                        txtDepartamento.setText(objUsuario.getDepartamento());
+                        txtUsuario.setText(objUsuario.getUsuario());
+                        txtPassword.setText(objUsuario.getPassword());
                     }
-                } else {
+                }else{
                     panelMain.setVisible(true);
-                    btnBuscar.setVisible(false);
+                    btnGuardar.setVisible(false);
                     txtNombre.setText(objUsuario.getNombreCompleto());
                     cmbRole.setSelectedItem(objUsuario.getRole());
                     txtDepartamento.setText(objUsuario.getDepartamento());
                     txtUsuario.setText(objUsuario.getUsuario());
                     txtPassword.setText(objUsuario.getPassword());
+                    
+                    txtNombre.setEditable(false);
+                    cmbRole.setEnabled(false);
+                    txtDepartamento.setEditable(false);
+                    txtUsuario.setEditable(false);
+                    txtPassword.setEditable(false);
                 }
             } else {
                 JOptionPane.showMessageDialog(this, "Usuario No Encontrado", "INFO", JOptionPane.INFORMATION_MESSAGE);
             }
         } catch (Exception e) {
+            System.out.println("Error:" + e.getMessage());
         }
 
     }//GEN-LAST:event_btnBuscarActionPerformed
@@ -377,8 +396,8 @@ public class GUIFormularioUsuario extends javax.swing.JFrame {
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnVolver;
     private javax.swing.JComboBox<String> cmbRole;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblFondo;
     private javax.swing.JLabel lblIDepartamento;
     private javax.swing.JLabel lblIdentificacion;
     private javax.swing.JLabel lblNombre;

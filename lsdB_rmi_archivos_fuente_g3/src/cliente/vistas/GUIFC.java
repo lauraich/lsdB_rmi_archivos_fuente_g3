@@ -29,10 +29,12 @@ public class GUIFC extends javax.swing.JFrame {
      */
     public GUIFC() {
         initComponents();
+         this.setLocationRelativeTo(null);
     }
 
     public GUIFC(GUIJefeDepto prmGui, List<FormatoBDTO> prmList) {
         initComponents();
+         this.setLocationRelativeTo(null);
         buttonGroup.add(rbCorrecta);
         buttonGroup.add(rbIncorecta);
         buttonGroup1.add(rbAprobado3);

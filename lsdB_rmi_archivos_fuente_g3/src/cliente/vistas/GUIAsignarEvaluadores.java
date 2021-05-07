@@ -22,6 +22,7 @@ import javax.swing.JOptionPane;
  * @author Laura
  */
 public class GUIAsignarEvaluadores extends javax.swing.JFrame {
+
     GUICoordinador atrGUICOordinador;
     ClienteDeObjetos atrCO;
 
@@ -30,12 +31,17 @@ public class GUIAsignarEvaluadores extends javax.swing.JFrame {
      */
     public GUIAsignarEvaluadores(GUICoordinador prmGUI) {
         initComponents();
+        this.setLocationRelativeTo(null);
         cargarComboBox();
-        atrGUICOordinador=prmGUI;
-                
+        atrGUICOordinador = prmGUI;
+
     }
-    public GUIAsignarEvaluadores(){
-    initComponents();}
+
+    public GUIAsignarEvaluadores() {
+        initComponents();
+        this.setLocationRelativeTo(null);
+    }
+
     @Override
     public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("recursos/iconApp.png"));
@@ -164,7 +170,7 @@ public class GUIAsignarEvaluadores extends javax.swing.JFrame {
 
     private void btnAsignarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAsignarActionPerformed
 
-        if (cmbCodigo.getSelectedItem()==null || cmbEvaluadores.getSelectedItem()==null || cmbEvaluadores2.getSelectedItem()==null) {
+        if (cmbCodigo.getSelectedItem() == null || cmbEvaluadores.getSelectedItem() == null || cmbEvaluadores2.getSelectedItem() == null) {
             JOptionPane.showMessageDialog(this, "Se debe seleccionar un anteproyecto y asignar los evaluadores", "ERROR", JOptionPane.ERROR_MESSAGE);
         } else {
             long codigo = Long.parseLong(cmbCodigo.getSelectedItem().toString());
@@ -186,16 +192,16 @@ public class GUIAsignarEvaluadores extends javax.swing.JFrame {
                         formatoB2.setCodigoAnteproyecto(codigo);
                         formatoB2.setIdEvaluador(idEv2);
                         boolean res2 = atrCO.getObjRemotoAnteproyectos().registrarFormatoB(formatoB2);
-                        System.out.println("res1 "+res1 +" "+"res2 "+res2);
+                        System.out.println("res1 " + res1 + " " + "res2 " + res2);
                         if (res1 == true && res2 == true) {
 
                             JOptionPane.showMessageDialog(this, "Evaluadores asignados correctamente", "INFO", JOptionPane.INFORMATION_MESSAGE);
                             this.dispose();
-                             atrGUICOordinador.setVisible(true);
+                            atrGUICOordinador.setVisible(true);
                         } else {
                             JOptionPane.showMessageDialog(this, "No se pudieron asignasr los evaluadores", "ERROR", JOptionPane.ERROR_MESSAGE);
                             this.dispose();
-                             atrGUICOordinador.setVisible(true);
+                            atrGUICOordinador.setVisible(true);
                         }
                     } catch (Exception e) {
                     }

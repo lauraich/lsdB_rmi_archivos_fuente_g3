@@ -25,9 +25,11 @@ public class GUIEvaluador extends javax.swing.JFrame {
      */
     public GUIEvaluador() {
         initComponents();
+         this.setLocationRelativeTo(null);
     }
     public GUIEvaluador(GUIInicioSesion prmGUI, UsuarioDTO prmUsuario) {
         initComponents();
+         this.setLocationRelativeTo(null);
         objGuiInicioSesion = prmGUI;
         atrUser=prmUsuario;
         cargarFormatos();

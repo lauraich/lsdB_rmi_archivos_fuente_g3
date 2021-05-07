@@ -31,11 +31,13 @@ public class GUIDecano extends javax.swing.JFrame {
      */
     public GUIDecano() {
         initComponents();
+         this.setLocationRelativeTo(null);
 
     }
 
     public GUIDecano(GUIInicioSesion prmGUI) {
         initComponents();
+         this.setLocationRelativeTo(null);
         objGuiInicioSesion = prmGUI;
         llenarTblAprobados();
         llenarTblHistorial();

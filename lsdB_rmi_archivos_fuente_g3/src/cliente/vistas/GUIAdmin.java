@@ -28,9 +28,11 @@ public class GUIAdmin extends javax.swing.JFrame {
      */
     public GUIAdmin() {
         initComponents();
+         this.setLocationRelativeTo(null);
     }
     public GUIAdmin(GUIInicioSesion prmGUI) throws RemoteException {
         initComponents();
+         this.setLocationRelativeTo(null);
         objGuiInicioSesion=prmGUI;
         mostrarUsuarios();
     }

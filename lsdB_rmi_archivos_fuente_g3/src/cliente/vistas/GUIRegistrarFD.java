@@ -31,7 +31,7 @@ public class GUIRegistrarFD extends javax.swing.JFrame {
      */
     public GUIRegistrarFD(GUICoordinador prmGUI) {
         initComponents();
-
+         this.setLocationRelativeTo(null);
         boton_grupo_concepto.add(rbtnAprobado);
         boton_grupo_concepto.add(rbtnNoAprobado);
         boton_grupo_estruc.add(rbtnIncorrecta);
@@ -43,7 +43,7 @@ public class GUIRegistrarFD extends javax.swing.JFrame {
 
     public GUIRegistrarFD() {
         initComponents();
-
+         this.setLocationRelativeTo(null);
         boton_grupo_concepto.add(rbtnAprobado);
         boton_grupo_concepto.add(rbtnNoAprobado);
         boton_grupo_estruc.add(rbtnIncorrecta);
@@ -85,9 +85,9 @@ public class GUIRegistrarFD extends javax.swing.JFrame {
         lblEstructura = new javax.swing.JLabel();
         rbtnCorrecta = new javax.swing.JRadioButton();
         rbtnIncorrecta = new javax.swing.JRadioButton();
-        lblConcepto = new javax.swing.JLabel();
         rbtnAprobado = new javax.swing.JRadioButton();
         rbtnNoAprobado = new javax.swing.JRadioButton();
+        lblConcepto = new javax.swing.JLabel();
         lblObservaciones = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtObservaciones = new javax.swing.JTextArea();
@@ -119,15 +119,15 @@ public class GUIRegistrarFD extends javax.swing.JFrame {
         rbtnIncorrecta.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         rbtnIncorrecta.setText("Incorrecta");
 
-        lblConcepto.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
-        lblConcepto.setText("Concepto:");
-
         rbtnAprobado.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         rbtnAprobado.setSelected(true);
         rbtnAprobado.setText("Aprobado");
 
         rbtnNoAprobado.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         rbtnNoAprobado.setText("No Aprobado");
+
+        lblConcepto.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
+        lblConcepto.setText("Concepto:");
 
         lblObservaciones.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         lblObservaciones.setText("Observaciones:");
@@ -174,30 +174,23 @@ public class GUIRegistrarFD extends javax.swing.JFrame {
                         .addGroup(pnlRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(lblEstructura)
                             .addComponent(lblConcepto)
-                            .addComponent(lblCodigo)
-                            .addComponent(lblObservaciones)))
+                            .addComponent(lblCodigo)))
                     .addGroup(pnlRegistroLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(btnVolver2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(47, 47, 47)
                 .addGroup(pnlRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlRegistroLayout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addGroup(pnlRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnlRegistroLayout.createSequentialGroup()
-                                .addComponent(rbtnAprobado)
-                                .addGap(10, 10, 10)
-                                .addComponent(rbtnNoAprobado)
-                                .addGap(0, 236, Short.MAX_VALUE))
-                            .addGroup(pnlRegistroLayout.createSequentialGroup()
-                                .addGroup(pnlRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(rbtnCorrecta)
-                                    .addComponent(cmbCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblTitulo))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(rbtnAprobado)
+                        .addGap(10, 10, 10)
+                        .addComponent(rbtnNoAprobado)
+                        .addGap(0, 236, Short.MAX_VALUE))
                     .addGroup(pnlRegistroLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 158, Short.MAX_VALUE))))
+                        .addGroup(pnlRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(rbtnCorrecta)
+                            .addComponent(cmbCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblTitulo))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(pnlRegistroLayout.createSequentialGroup()
                 .addGap(420, 420, 420)
                 .addComponent(rbtnIncorrecta)
@@ -206,6 +199,12 @@ public class GUIRegistrarFD extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnGuardar)
                 .addGap(332, 332, 332))
+            .addGroup(pnlRegistroLayout.createSequentialGroup()
+                .addGap(207, 207, 207)
+                .addComponent(lblObservaciones)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 158, Short.MAX_VALUE))
             .addGroup(pnlRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pnlRegistroLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -344,8 +343,6 @@ public class GUIRegistrarFD extends javax.swing.JFrame {
     private javax.swing.ButtonGroup boton_grupo_concepto;
     private javax.swing.ButtonGroup boton_grupo_estruc;
     private javax.swing.JButton btnGuardar;
-    private javax.swing.JButton btnVolver;
-    private javax.swing.JButton btnVolver1;
     private javax.swing.JButton btnVolver2;
     private javax.swing.JComboBox<String> cmbCodigo;
     private javax.swing.JLabel jLabel1;

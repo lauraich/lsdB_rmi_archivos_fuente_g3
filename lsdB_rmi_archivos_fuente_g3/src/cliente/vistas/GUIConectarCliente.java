@@ -23,6 +23,7 @@ public class GUIConectarCliente extends javax.swing.JFrame {
     public GUIConectarCliente() {
         
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

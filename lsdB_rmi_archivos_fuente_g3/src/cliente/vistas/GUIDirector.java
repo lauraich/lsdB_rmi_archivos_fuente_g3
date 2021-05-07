@@ -24,10 +24,12 @@ public class GUIDirector extends javax.swing.JFrame {
      */
     public GUIDirector() {
         initComponents();
+         this.setLocationRelativeTo(null);
     }
 
     public GUIDirector(GUIInicioSesion prmGUI) {
         initComponents();
+         this.setLocationRelativeTo(null);
         objGuiInicioSesion = prmGUI;
         try {
             objCO = ClienteDeObjetos.getInstancia();
@@ -321,6 +323,7 @@ public class GUIDirector extends javax.swing.JFrame {
         if(id2.compareTo("")==0){
             objFA.setIdEstudiante2(-1);
         }else{
+            
             objFA.setIdEstudiante2(Long.parseLong(id2));
         }
         

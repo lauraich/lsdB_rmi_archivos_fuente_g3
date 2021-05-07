@@ -27,6 +27,7 @@ public class GUIInicioSesion extends javax.swing.JFrame {
      */
     public GUIInicioSesion() {
         initComponents();
+         this.setLocationRelativeTo(null);
     }
 
     /**

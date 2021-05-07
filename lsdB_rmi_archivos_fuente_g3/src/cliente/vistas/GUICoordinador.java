@@ -26,11 +26,13 @@ public class GUICoordinador extends javax.swing.JFrame {
      */
     public GUICoordinador() {
         initComponents();
+         this.setLocationRelativeTo(null);
     }
 
     public GUICoordinador(GUIInicioSesion prmGUI) {
         initComponents();
         objGuiInicioSesion = prmGUI;
+         this.setLocationRelativeTo(null);
         mostrarAnteproyectos();
     }
 
