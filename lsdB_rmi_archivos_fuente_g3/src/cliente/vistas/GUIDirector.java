@@ -65,7 +65,7 @@ public class GUIDirector extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         mainPanel = new javax.swing.JPanel();
         lblCodigoAnteproyecto = new javax.swing.JLabel();
         txtCodigoAnteproyecto = new javax.swing.JTextField();
@@ -87,59 +87,91 @@ public class GUIDirector extends javax.swing.JFrame {
         lblObjetivos = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtObjetivos = new javax.swing.JTextArea();
-        btnGuardar = new javax.swing.JButton();
         txtIdEstudiante1 = new javax.swing.JTextField();
+        btnGuardar = new javax.swing.JButton();
         lblRegistrarFormatoA = new javax.swing.JLabel();
         btnCerrarSesion = new javax.swing.JButton();
         txtNotificaciones = new javax.swing.JTextField();
+        lblNotificaciones = new javax.swing.JLabel();
+        lblFondo = new javax.swing.JLabel();
 
         jLabel2.setText("jLabel2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setIconImage(getIconImage());
 
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblCodigoAnteproyecto.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         lblCodigoAnteproyecto.setText("Codigo Anteproyecto: ");
 
         txtCodigoAnteproyecto.setEditable(false);
+        txtCodigoAnteproyecto.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
 
+        lblNombrePrograma.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         lblNombrePrograma.setText("Nombre del Programa:");
 
+        txtNombrePrograma.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
+
+        txtTituloAnteproyecto.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
+
+        lblTituloAnteproyecto.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         lblTituloAnteproyecto.setText("Titulo del Anteproyecto:");
 
+        lblIdEstudiante1.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         lblIdEstudiante1.setText("Id Estudiante 1:");
 
-        lblNombreEstudiante1.setText("Nombre Estuadiante 1:");
+        lblNombreEstudiante1.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
+        lblNombreEstudiante1.setText("Nombre Estudiante 1:");
 
+        txtNombreEstudiante1.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
+
+        txtIdEstudiante2.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         txtIdEstudiante2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtIdEstudiante2KeyTyped(evt);
             }
         });
 
+        lblIdEstudiante2.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         lblIdEstudiante2.setText("Id Estudiante 2:");
 
+        txtNombreEstudiante2.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
+
+        lblNombreEstudiante2.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         lblNombreEstudiante2.setText("Nombre Estudiante 2:");
 
+        txtNombreDirector.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
+
+        lblNombreDirector.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         lblNombreDirector.setText("Nombre del Director:");
 
+        lblNombreCoDirector.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         lblNombreCoDirector.setText("Nombre del Codirector:");
 
+        txtNombreCoDirector.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
+
+        lblObjetivos.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         lblObjetivos.setText("Objetivos");
 
         txtObjetivos.setColumns(20);
+        txtObjetivos.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         txtObjetivos.setRows(5);
         jScrollPane1.setViewportView(txtObjetivos);
 
+        txtIdEstudiante1.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
+        txtIdEstudiante1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtIdEstudiante1KeyTyped(evt);
+            }
+        });
+
+        btnGuardar.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
+        btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/guardar.png"))); // NOI18N
         btnGuardar.setText("Guardar");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarActionPerformed(evt);
-            }
-        });
-
-        txtIdEstudiante1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtIdEstudiante1KeyTyped(evt);
             }
         });
 
@@ -152,38 +184,37 @@ public class GUIDirector extends javax.swing.JFrame {
                     .addGroup(mainPanelLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
-                                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblNombreDirector)
-                                    .addComponent(lblNombreEstudiante2)
-                                    .addComponent(lblIdEstudiante2)
-                                    .addComponent(lblNombreEstudiante1)
-                                    .addComponent(lblIdEstudiante1)
-                                    .addComponent(lblTituloAnteproyecto)
-                                    .addComponent(lblNombrePrograma)
-                                    .addComponent(lblCodigoAnteproyecto))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtCodigoAnteproyecto)
-                                    .addComponent(txtNombrePrograma)
-                                    .addComponent(txtTituloAnteproyecto)
-                                    .addComponent(txtNombreEstudiante1)
-                                    .addComponent(txtIdEstudiante2)
-                                    .addComponent(txtNombreEstudiante2)
-                                    .addComponent(txtNombreDirector)
-                                    .addComponent(txtIdEstudiante1, javax.swing.GroupLayout.DEFAULT_SIZE, 233, Short.MAX_VALUE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
-                                .addComponent(lblNombreCoDirector)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblObjetivos)
-                                    .addComponent(txtNombreCoDirector, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addComponent(jScrollPane1))
+                            .addComponent(lblNombreDirector)
+                            .addComponent(lblNombreEstudiante2)
+                            .addComponent(lblIdEstudiante2)
+                            .addComponent(lblNombreEstudiante1)
+                            .addComponent(lblIdEstudiante1)
+                            .addComponent(lblTituloAnteproyecto)
+                            .addComponent(lblNombrePrograma)
+                            .addComponent(lblCodigoAnteproyecto)
+                            .addComponent(lblNombreCoDirector))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtNombreCoDirector, javax.swing.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE)
+                            .addComponent(txtCodigoAnteproyecto)
+                            .addComponent(txtNombrePrograma)
+                            .addComponent(txtTituloAnteproyecto)
+                            .addComponent(txtNombreEstudiante1)
+                            .addComponent(txtIdEstudiante2)
+                            .addComponent(txtNombreEstudiante2)
+                            .addComponent(txtNombreDirector)
+                            .addComponent(txtIdEstudiante1, javax.swing.GroupLayout.Alignment.TRAILING)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 433, Short.MAX_VALUE)
+                    .addGroup(mainPanelLayout.createSequentialGroup()
+                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(mainPanelLayout.createSequentialGroup()
+                                .addGap(179, 179, 179)
+                                .addComponent(lblObjetivos))
+                            .addGroup(mainPanelLayout.createSequentialGroup()
+                                .addGap(156, 156, 156)
+                                .addComponent(btnGuardar)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(mainPanelLayout.createSequentialGroup()
-                .addGap(167, 167, 167)
-                .addComponent(btnGuardar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -222,65 +253,52 @@ public class GUIDirector extends javax.swing.JFrame {
                     .addComponent(txtNombreDirector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNombreCoDirector)
-                    .addComponent(txtNombreCoDirector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(txtNombreCoDirector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblNombreCoDirector))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
                 .addComponent(lblObjetivos)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(btnGuardar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(33, 33, 33))
         );
 
-        lblRegistrarFormatoA.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lblRegistrarFormatoA.setText("Registar Formato A");
+        jPanel1.add(mainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, -1, 610));
 
+        lblRegistrarFormatoA.setFont(new java.awt.Font("Yu Gothic UI", 1, 24)); // NOI18N
+        lblRegistrarFormatoA.setText("Registar Formato A");
+        jPanel1.add(lblRegistrarFormatoA, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, -1, -1));
+
+        btnCerrarSesion.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
+        btnCerrarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/logout.png"))); // NOI18N
         btnCerrarSesion.setText("Cerrar Sesion");
         btnCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCerrarSesionActionPerformed(evt);
             }
         });
+        jPanel1.add(btnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 20, -1, -1));
+
+        txtNotificaciones.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
+        jPanel1.add(txtNotificaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 780, 430, 130));
+
+        lblNotificaciones.setFont(new java.awt.Font("Yu Gothic UI", 1, 18)); // NOI18N
+        lblNotificaciones.setText("Notificaciones");
+        jPanel1.add(lblNotificaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 730, -1, -1));
+
+        lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondoRA.png"))); // NOI18N
+        jPanel1.add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 144, 580, 780));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(204, 204, 204)
-                .addComponent(lblRegistrarFormatoA)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnCerrarSesion))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(txtNotificaciones))
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnCerrarSesion)))
-                .addGap(12, 12, 12)
-                .addComponent(lblRegistrarFormatoA)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtNotificaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 926, Short.MAX_VALUE)
         );
 
         pack();
@@ -397,10 +415,11 @@ public class GUIDirector extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCerrarSesion;
     private javax.swing.JButton btnGuardar;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblCodigoAnteproyecto;
+    private javax.swing.JLabel lblFondo;
     private javax.swing.JLabel lblIdEstudiante1;
     private javax.swing.JLabel lblIdEstudiante2;
     private javax.swing.JLabel lblNombreCoDirector;
@@ -408,6 +427,7 @@ public class GUIDirector extends javax.swing.JFrame {
     private javax.swing.JLabel lblNombreEstudiante1;
     private javax.swing.JLabel lblNombreEstudiante2;
     private javax.swing.JLabel lblNombrePrograma;
+    private javax.swing.JLabel lblNotificaciones;
     private javax.swing.JLabel lblObjetivos;
     private javax.swing.JLabel lblRegistrarFormatoA;
     private javax.swing.JLabel lblTituloAnteproyecto;
