@@ -88,46 +88,61 @@ public class GUIFC extends javax.swing.JFrame {
         lblCodigoAnteproyecto = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("REGISTRAR FORMATO C");
         setIconImage(getIconImage());
 
-        lblRegistrarFormatoC.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblRegistrarFormatoC.setFont(new java.awt.Font("Yu Gothic UI", 1, 18)); // NOI18N
         lblRegistrarFormatoC.setText("Registrar Formato C");
 
+        rbAprobado1.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         rbAprobado1.setSelected(true);
         rbAprobado1.setText("Aprobado");
         rbAprobado1.setEnabled(false);
 
+        rbNoAprobado1.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         rbNoAprobado1.setText("No Aprobado");
         rbNoAprobado1.setEnabled(false);
 
+        lblConcepto1.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         lblConcepto1.setText("Concepto 1:");
 
+        lblConcepto2.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         lblConcepto2.setText("Concepto 2:");
 
+        rbAprobado2.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         rbAprobado2.setSelected(true);
         rbAprobado2.setText("Aprobado");
         rbAprobado2.setEnabled(false);
 
+        rbNoAprobado2.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         rbNoAprobado2.setText("No Aprobado");
         rbNoAprobado2.setEnabled(false);
 
+        jLabel2.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         jLabel2.setText("Estructura: ");
 
+        rbCorrecta.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         rbCorrecta.setText("Correcta");
 
+        rbIncorecta.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         rbIncorecta.setSelected(true);
         rbIncorecta.setText("Incorrecta");
 
+        lblConcepto3.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         lblConcepto3.setText("Concepto Departamento:");
 
+        rbAprobado3.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         rbAprobado3.setText("Aprobado");
 
+        rbNoAprobado3.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         rbNoAprobado3.setSelected(true);
         rbNoAprobado3.setText("No Aprobado");
 
+        lblObservaciones.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         lblObservaciones.setText("Observaciones");
 
         txtObservaciones.setColumns(20);
+        txtObservaciones.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         txtObservaciones.setRows(5);
         jScrollPane1.setViewportView(txtObservaciones);
 
@@ -213,6 +228,7 @@ public class GUIFC extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        btnGuardar.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         btnGuardar.setText("Guardar");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -220,8 +236,10 @@ public class GUIFC extends javax.swing.JFrame {
             }
         });
 
+        cmbCodigoAnteproyecto.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         cmbCodigoAnteproyecto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar Anteproyecto" }));
 
+        lblCodigoAnteproyecto.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         lblCodigoAnteproyecto.setText("Codigo Anteproyecto: ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -230,30 +248,29 @@ public class GUIFC extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(63, 63, 63)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(lblCodigoAnteproyecto)
+                            .addGap(18, 18, 18)
+                            .addComponent(cmbCodigoAnteproyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblRegistrarFormatoC)
-                                .addGap(93, 93, 93))
+                                .addContainerGap()
+                                .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblCodigoAnteproyecto)
-                                .addGap(18, 18, 18)
-                                .addComponent(cmbCodigoAnteproyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(183, 183, 183)
+                                .addComponent(btnGuardar))))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(183, 183, 183)
-                        .addComponent(btnGuardar)))
-                .addContainerGap(24, Short.MAX_VALUE))
+                        .addGap(143, 143, 143)
+                        .addComponent(lblRegistrarFormatoC)))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblRegistrarFormatoC)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cmbCodigoAnteproyecto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblCodigoAnteproyecto))

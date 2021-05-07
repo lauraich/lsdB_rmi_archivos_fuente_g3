@@ -95,31 +95,43 @@ public class GUIRegistrarFD extends javax.swing.JFrame {
         cmbCodigo = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("REGISTRAR FORMATO D");
         setIconImage(getIconImage());
 
-        lblTitulo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        pnlRegistro.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
+
+        lblTitulo.setFont(new java.awt.Font("Yu Gothic UI", 1, 18)); // NOI18N
         lblTitulo.setText("Registrar Formato TI-D");
 
+        lblEstructura.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         lblEstructura.setText("Estructura:");
 
+        rbtnCorrecta.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         rbtnCorrecta.setSelected(true);
         rbtnCorrecta.setText("Correcta");
 
+        rbtnIncorrecta.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         rbtnIncorrecta.setText("Incorrecta");
 
+        lblConcepto.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         lblConcepto.setText("Concepto:");
 
+        rbtnAprobado.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         rbtnAprobado.setSelected(true);
         rbtnAprobado.setText("Aprobado");
 
+        rbtnNoAprobado.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         rbtnNoAprobado.setText("No Aprobado");
 
+        lblObservaciones.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         lblObservaciones.setText("Observaciones:");
 
         txtObservaciones.setColumns(20);
+        txtObservaciones.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         txtObservaciones.setRows(5);
         jScrollPane1.setViewportView(txtObservaciones);
 
+        btnGuardar.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         btnGuardar.setText("Guardar");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -127,26 +139,16 @@ public class GUIRegistrarFD extends javax.swing.JFrame {
             }
         });
 
+        lblCodigo.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         lblCodigo.setText("Seleccione el codigo del anteproyecto:");
 
+        cmbCodigo.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         cmbCodigo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar Anteproyecto" }));
 
         javax.swing.GroupLayout pnlRegistroLayout = new javax.swing.GroupLayout(pnlRegistro);
         pnlRegistro.setLayout(pnlRegistroLayout);
         pnlRegistroLayout.setHorizontalGroup(
             pnlRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlRegistroLayout.createSequentialGroup()
-                .addGroup(pnlRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(pnlRegistroLayout.createSequentialGroup()
-                        .addGap(420, 420, 420)
-                        .addGroup(pnlRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(rbtnIncorrecta)
-                            .addComponent(rbtnNoAprobado))
-                        .addGap(0, 69, Short.MAX_VALUE))
-                    .addGroup(pnlRegistroLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(162, 162, 162))
             .addGroup(pnlRegistroLayout.createSequentialGroup()
                 .addGap(60, 60, 60)
                 .addGroup(pnlRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -154,21 +156,34 @@ public class GUIRegistrarFD extends javax.swing.JFrame {
                     .addComponent(lblConcepto)
                     .addComponent(lblCodigo)
                     .addComponent(lblObservaciones))
-                .addGap(47, 47, 47)
                 .addGroup(pnlRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlRegistroLayout.createSequentialGroup()
+                        .addGap(47, 47, 47)
                         .addGroup(pnlRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblTitulo)
-                            .addComponent(rbtnAprobado))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(pnlRegistroLayout.createSequentialGroup()
+                                .addGroup(pnlRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblTitulo)
+                                    .addComponent(rbtnAprobado))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(pnlRegistroLayout.createSequentialGroup()
+                                .addGroup(pnlRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(rbtnCorrecta)
+                                    .addComponent(cmbCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(pnlRegistroLayout.createSequentialGroup()
-                        .addGroup(pnlRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(rbtnCorrecta)
-                            .addComponent(cmbCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 140, Short.MAX_VALUE))))
             .addGroup(pnlRegistroLayout.createSequentialGroup()
-                .addGap(279, 279, 279)
-                .addComponent(btnGuardar)
+                .addGroup(pnlRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlRegistroLayout.createSequentialGroup()
+                        .addGap(420, 420, 420)
+                        .addGroup(pnlRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(rbtnIncorrecta)
+                            .addComponent(rbtnNoAprobado)))
+                    .addGroup(pnlRegistroLayout.createSequentialGroup()
+                        .addGap(279, 279, 279)
+                        .addComponent(btnGuardar)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlRegistroLayout.setVerticalGroup(
@@ -185,13 +200,13 @@ public class GUIRegistrarFD extends javax.swing.JFrame {
                     .addComponent(lblEstructura)
                     .addComponent(rbtnCorrecta)
                     .addComponent(rbtnIncorrecta))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addGroup(pnlRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(pnlRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(lblConcepto)
                         .addComponent(rbtnAprobado))
                     .addComponent(rbtnNoAprobado))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addGroup(pnlRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblObservaciones))

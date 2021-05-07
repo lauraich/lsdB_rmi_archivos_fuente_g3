@@ -7,6 +7,8 @@ package cliente.vistas;
 
 import SGestionAnteproyectos.dto.UsuarioDTO;
 import cliente.ClienteDeObjetos;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.rmi.RemoteException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -36,15 +38,18 @@ public class GUIFormularioUsuario extends javax.swing.JFrame {
         atrGUIAdmin = prmGUI;
         if (prmAccion == 1) {
             lblRegistrarUsuario.setText("Registrar Usuario");
+            setTitle("REGISTRAR USUARIO");
             panelMain.setVisible(true);
             btnBuscar.setVisible(false);
             banderaActualizar = false;
         } else if (prmAccion == 2) {
+            setTitle("ACTUALIZAR USUARIO");
             lblRegistrarUsuario.setText("Actualizar Usuario");
             panelMain.setVisible(false);
             btnBuscar.setVisible(true);
             banderaActualizar = true;
         } else {
+            setTitle("CONSULTAR USUARIO");
             banderaActualizar = false;
             lblRegistrarUsuario.setText("Info Usuario");
             //btnGuardar.setText("Volver");
@@ -52,7 +57,11 @@ public class GUIFormularioUsuario extends javax.swing.JFrame {
             btnBuscar.setVisible(true);
         }
     }
-
+@Override
+    public Image getIconImage() {
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("recursos/iconApp.png"));
+        return retValue;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -83,6 +92,8 @@ public class GUIFormularioUsuario extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("FORULARIO USUARIO");
+        setIconImage(getIconImage());
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());

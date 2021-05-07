@@ -68,8 +68,11 @@ public class GUIJefeDepto extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("JEDE DE DEPARTAMENTO");
+        setAlwaysOnTop(true);
         setIconImage(getIconImage());
 
+        tblFormatos.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         tblFormatos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -84,6 +87,7 @@ public class GUIJefeDepto extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tblFormatos);
 
         jMenu1.setText("Registrar Fomato C");
+        jMenu1.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMenu1MouseClicked(evt);
@@ -92,6 +96,7 @@ public class GUIJefeDepto extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Salir");
+        jMenu2.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMenu2MouseClicked(evt);

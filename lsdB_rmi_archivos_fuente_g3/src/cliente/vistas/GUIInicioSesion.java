@@ -48,7 +48,7 @@ public class GUIInicioSesion extends javax.swing.JFrame {
         lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Iniciar Sesion");
+        setTitle("INICIO DE SEION");
         setIconImage(getIconImage());
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
