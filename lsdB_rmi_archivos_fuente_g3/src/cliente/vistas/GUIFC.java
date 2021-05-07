@@ -227,6 +227,7 @@ public class GUIFC extends javax.swing.JFrame {
         );
 
         btnGuardar.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
+        btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/guardar.png"))); // NOI18N
         btnGuardar.setText("Guardar");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

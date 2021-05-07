@@ -61,8 +61,10 @@ public class GUIJefeDepto extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        pnlFondo = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblFormatos = new javax.swing.JTable();
+        lbFondo = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -71,6 +73,8 @@ public class GUIJefeDepto extends javax.swing.JFrame {
         setTitle("JEDE DE DEPARTAMENTO");
         setAlwaysOnTop(true);
         setIconImage(getIconImage());
+
+        pnlFondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tblFormatos.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         tblFormatos.setModel(new javax.swing.table.DefaultTableModel(
@@ -86,6 +90,12 @@ public class GUIJefeDepto extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblFormatos);
 
+        pnlFondo.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 470, 320));
+
+        lbFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondoJefeD.jpg"))); // NOI18N
+        pnlFondo.add(lbFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 360));
+
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/registrarFormato.png"))); // NOI18N
         jMenu1.setText("Registrar Fomato C");
         jMenu1.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -95,7 +105,8 @@ public class GUIJefeDepto extends javax.swing.JFrame {
         });
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Salir");
+        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/cerrarS.png"))); // NOI18N
+        jMenu2.setText("Cerrar Sesion");
         jMenu2.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -110,17 +121,11 @@ public class GUIJefeDepto extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(pnlFondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(pnlFondo, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -177,6 +182,8 @@ public class GUIJefeDepto extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lbFondo;
+    private javax.swing.JPanel pnlFondo;
     private javax.swing.JTable tblFormatos;
     // End of variables declaration//GEN-END:variables
 }

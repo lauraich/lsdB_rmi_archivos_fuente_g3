@@ -11,6 +11,9 @@
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="menuRegistrar">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/recursos/registrarFormato.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Registrar Formato TI-D"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Yu Gothic UI" size="14" style="0"/>
@@ -22,6 +25,9 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="menuAsignar">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/recursos/asignarEvaluadores.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Asignar Evaluadores"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Yu Gothic UI" size="14" style="0"/>
@@ -33,6 +39,9 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="menuCerrar">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/recursos/cerrarS.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Cerrar Sesion"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Yu Gothic UI" size="14" style="0"/>
@@ -94,7 +103,7 @@
               <Component id="lblListado" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jScrollPane2" min="-2" pref="250" max="-2" attributes="0"/>
-              <EmptySpace pref="32" max="32767" attributes="0"/>
+              <EmptySpace pref="20" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

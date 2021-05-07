@@ -105,6 +105,7 @@ public class GUICoordinador extends javax.swing.JFrame {
 
         jMenuBar1.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
 
+        menuRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/registrarFormato.png"))); // NOI18N
         menuRegistrar.setText("Registrar Formato TI-D");
         menuRegistrar.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         menuRegistrar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -114,6 +115,7 @@ public class GUICoordinador extends javax.swing.JFrame {
         });
         jMenuBar1.add(menuRegistrar);
 
+        menuAsignar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/asignarEvaluadores.png"))); // NOI18N
         menuAsignar.setText("Asignar Evaluadores");
         menuAsignar.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         menuAsignar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -123,6 +125,7 @@ public class GUICoordinador extends javax.swing.JFrame {
         });
         jMenuBar1.add(menuAsignar);
 
+        menuCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/cerrarS.png"))); // NOI18N
         menuCerrar.setText("Cerrar Sesion");
         menuCerrar.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         menuCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -155,7 +158,7 @@ public class GUICoordinador extends javax.swing.JFrame {
                 .addComponent(lblListado)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         pack();

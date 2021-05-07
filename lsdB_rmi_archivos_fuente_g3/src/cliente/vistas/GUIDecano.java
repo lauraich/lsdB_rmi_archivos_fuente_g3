@@ -142,7 +142,7 @@ public class GUIDecano extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(109, 109, 109)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(254, Short.MAX_VALUE))
+                .addContainerGap(242, Short.MAX_VALUE))
         );
 
         tabListar.addTab("Listar Anteproyectos", jPanel1);
@@ -182,7 +182,7 @@ public class GUIDecano extends javax.swing.JFrame {
                 .addComponent(lblTitulo)
                 .addGap(30, 30, 30)
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(127, Short.MAX_VALUE))
+                .addContainerGap(119, Short.MAX_VALUE))
         );
 
         tabListar.addTab("Consultar Aprobados", jPanel4);
@@ -323,7 +323,7 @@ public class GUIDecano extends javax.swing.JFrame {
                 .addComponent(lblFormatoC)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
                 .addComponent(lblFormatoD)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -408,7 +408,7 @@ public class GUIDecano extends javax.swing.JFrame {
                 .addGroup(pnlResolucionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblFecha)
                     .addComponent(lblFechaG))
-                .addContainerGap(341, Short.MAX_VALUE))
+                .addContainerGap(331, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -444,6 +444,7 @@ public class GUIDecano extends javax.swing.JFrame {
 
         tabListar.addTab("Generar Resolucion", jPanel2);
 
+        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/cerrarS.png"))); // NOI18N
         jMenu2.setText("Cerrar Sesion");
         jMenu2.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -463,7 +464,7 @@ public class GUIDecano extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(tabListar, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(tabListar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 671, Short.MAX_VALUE)
         );
 
         pack();

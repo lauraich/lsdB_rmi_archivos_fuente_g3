@@ -9,6 +9,7 @@ import SGestionAnteproyectos.dto.FormatoBDTO;
 import cliente.ClienteDeObjetos;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.rmi.RemoteException;
 import java.util.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -18,36 +19,41 @@ import javax.swing.JOptionPane;
  * @author juanf
  */
 public class GUIFB extends javax.swing.JFrame {
+
     GUIEvaluador atrGUIEvaluador;
     List<FormatoBDTO> listFB;
     ClienteDeObjetos atrCO;
     FormatoBDTO atrFormatoSeleccionado;
+
     /**
      * Creates new form GUIFB
      */
     public GUIFB() {
         initComponents();
     }
-    public GUIFB(GUIEvaluador prmGUIEvaluador, List<FormatoBDTO> prmFB){
+
+    public GUIFB(GUIEvaluador prmGUIEvaluador, List<FormatoBDTO> prmFB) {
         initComponents();
-        listFB=prmFB;
-        atrGUIEvaluador =prmGUIEvaluador;
+        listFB = prmFB;
+        atrGUIEvaluador = prmGUIEvaluador;
         buttonGroup1.add(rbAprobado);
         buttonGroup1.add(rbNoAprobado);
         txtIdEvaluador.setEnabled(false);
         for (FormatoBDTO formatoB : prmFB) {
             cmbCodigoAnteproyecto.addItem(String.valueOf(formatoB.getCodigoAnteproyecto()));
         }
-       btnGuardar.setEnabled(false);
-        cmbCodigoAnteproyecto.setSelectedIndex(1);
-                cmbCodigoAnteproyecto.setEnabled(true);
-        
+        btnGuardar.setEnabled(false);
+        cmbCodigoAnteproyecto.setSelectedIndex(0);
+        cmbCodigoAnteproyecto.setEnabled(true);
+
     }
+
     @Override
     public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("recursos/iconApp.png"));
         return retValue;
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -59,6 +65,8 @@ public class GUIFB extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         buttonGroup1 = new javax.swing.ButtonGroup();
+        jPanel1 = new javax.swing.JPanel();
+        btnVolver = new javax.swing.JButton();
         mainPanel = new javax.swing.JPanel();
         btnGuardar = new javax.swing.JButton();
         rbAprobado = new javax.swing.JRadioButton();
@@ -73,6 +81,7 @@ public class GUIFB extends javax.swing.JFrame {
         lblRegistrarForatoB = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         cmbCodigoAnteproyecto = new javax.swing.JComboBox<>();
+        lblFondo = new javax.swing.JLabel();
         btnBuscar = new javax.swing.JButton();
 
         jLabel1.setText("jLabel1");
@@ -81,7 +90,23 @@ public class GUIFB extends javax.swing.JFrame {
         setTitle("REGISTRAR FORMATO B");
         setIconImage(getIconImage());
 
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnVolver.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
+        btnVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/back.png"))); // NOI18N
+        btnVolver.setText("Volver");
+        btnVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolverActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 110, 40));
+        btnVolver.getAccessibleContext().setAccessibleParent(lblFondo);
+
+        mainPanel.setBackground(new java.awt.Color(204, 204, 204));
+
         btnGuardar.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
+        btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/guardar.png"))); // NOI18N
         btnGuardar.setText("Guardar");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -143,10 +168,10 @@ public class GUIFB extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jScrollPane1)))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(mainPanelLayout.createSequentialGroup()
+                .addGap(113, 113, 113)
                 .addComponent(btnGuardar)
-                .addGap(147, 147, 147))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(mainPanelLayout.createSequentialGroup()
                     .addGap(122, 122, 122)
@@ -176,92 +201,74 @@ public class GUIFB extends javax.swing.JFrame {
                 .addGroup(mainPanelLayout.createSequentialGroup()
                     .addGap(62, 62, 62)
                     .addComponent(txtCodigoAnteproyecto1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(201, Short.MAX_VALUE)))
+                    .addContainerGap(237, Short.MAX_VALUE)))
         );
 
-        lblRegistrarForatoB.setFont(new java.awt.Font("Yu Gothic UI", 1, 18)); // NOI18N
+        jPanel1.add(mainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, -1));
+
+        lblRegistrarForatoB.setFont(new java.awt.Font("Yu Gothic UI", 1, 24)); // NOI18N
+        lblRegistrarForatoB.setForeground(new java.awt.Color(255, 255, 255));
         lblRegistrarForatoB.setText("Registrar Formato B");
+        jPanel1.add(lblRegistrarForatoB, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Codigo Anteproyecto: ");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, -1, -1));
 
         cmbCodigoAnteproyecto.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         cmbCodigoAnteproyecto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "seleccionar Anteproyecto" }));
+        jPanel1.add(cmbCodigoAnteproyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, -1, -1));
+
+        lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondoB.jpg"))); // NOI18N
+        jPanel1.add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, 4, 420, 490));
 
         btnBuscar.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
+        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/lupaBuscar.png"))); // NOI18N
         btnBuscar.setText("Buscar");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarActionPerformed(evt);
             }
         });
+        jPanel1.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 130, 110, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(127, 127, 127)
-                                .addComponent(lblRegistrarForatoB))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(165, 165, 165)
-                                .addComponent(btnBuscar)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(cmbCodigoAnteproyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 428, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblRegistrarForatoB)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(cmbCodigoAnteproyecto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnBuscar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 496, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        if(cmbCodigoAnteproyecto.getSelectedIndex()==0){
-             JOptionPane.showMessageDialog(this, "Debe seleccionar un AnteProyecto", "INFO", JOptionPane.INFORMATION_MESSAGE);
-        }else{
-              FormatoBDTO objFormato=listFB.get(cmbCodigoAnteproyecto.getSelectedIndex()-1);
-              if(rbAprobado.isSelected()){
-                  objFormato.setAtrConcepto("APROBADO");
-              }else{
-                  objFormato.setAtrConcepto("NO APROBADO");
-              }
-              Date date = new Date();
-              objFormato.setFechaEvaluacion(date);
-              objFormato.setObservaciones(txtObservaciones.getText());
-              try {
-                atrCO=ClienteDeObjetos.getInstancia();
-                if(atrCO.getObjRemotoAnteproyectos().registrarFormatoB(objFormato)){
+        if (cmbCodigoAnteproyecto.getSelectedIndex() == 0) {
+            JOptionPane.showMessageDialog(this, "Debe seleccionar un AnteProyecto", "INFO", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            FormatoBDTO objFormato = listFB.get(cmbCodigoAnteproyecto.getSelectedIndex() - 1);
+            if (rbAprobado.isSelected()) {
+                objFormato.setAtrConcepto("APROBADO");
+            } else {
+                objFormato.setAtrConcepto("NO APROBADO");
+            }
+            Date date = new Date();
+            objFormato.setFechaEvaluacion(date);
+            objFormato.setObservaciones(txtObservaciones.getText());
+            try {
+                atrCO = ClienteDeObjetos.getInstancia();
+                if (atrCO.getObjRemotoAnteproyectos().registrarFormatoB(objFormato)) {
                     JOptionPane.showMessageDialog(this, "Formato registrado Correctamente", "INFO", JOptionPane.INFORMATION_MESSAGE);
                     this.dispose();
                     atrGUIEvaluador.cargarFormatos();
                     atrGUIEvaluador.setVisible(true);
-                }else{
-                     JOptionPane.showMessageDialog(this, "No se pudo registrar el Formato", "INFO", JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    JOptionPane.showMessageDialog(this, "No se pudo registrar el Formato", "INFO", JOptionPane.INFORMATION_MESSAGE);
                 }
             } catch (Exception e) {
             }
@@ -269,24 +276,30 @@ public class GUIFB extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        System.out.println("index:"+cmbCodigoAnteproyecto.getSelectedIndex());
-        if(cmbCodigoAnteproyecto.getSelectedIndex()==0){
-             JOptionPane.showMessageDialog(this, "Debe seleccionar un AnteProyecto", "INFO", JOptionPane.INFORMATION_MESSAGE);
-        }else{
+        System.out.println("index:" + cmbCodigoAnteproyecto.getSelectedIndex());
+        if (cmbCodigoAnteproyecto.getSelectedIndex() == 0) {
+            JOptionPane.showMessageDialog(this, "Debe seleccionar un AnteProyecto", "INFO", JOptionPane.INFORMATION_MESSAGE);
+        } else {
             try {
                 btnGuardar.setEnabled(true);
-                atrCO=ClienteDeObjetos.getInstancia();
-                atrFormatoSeleccionado=listFB.get(cmbCodigoAnteproyecto.getSelectedIndex()-1);
+                atrCO = ClienteDeObjetos.getInstancia();
+                atrFormatoSeleccionado = listFB.get(cmbCodigoAnteproyecto.getSelectedIndex() - 1);
                 System.out.println(atrFormatoSeleccionado.getIdEvaluador());
                 txtIdEvaluador.setText(String.valueOf(atrFormatoSeleccionado.getIdEvaluador()));
-                
+
                 cmbCodigoAnteproyecto.setEnabled(false);
-                
+
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
         }
     }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
+        this.dispose();
+        atrGUIEvaluador.setVisible(true);
+        atrGUIEvaluador.cargarFormatos();
+    }//GEN-LAST:event_btnVolverActionPerformed
 
     /**
      * @param args the command line arguments
@@ -326,13 +339,16 @@ public class GUIFB extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnVolver;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> cmbCodigoAnteproyecto;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblFondo;
     private javax.swing.JLabel lblIdEvaluador;
     private javax.swing.JLabel lblRegistrarForatoB;
     private javax.swing.JPanel mainPanel;
