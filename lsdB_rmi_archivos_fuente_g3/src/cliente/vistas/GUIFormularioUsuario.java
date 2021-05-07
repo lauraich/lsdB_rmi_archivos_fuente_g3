@@ -90,7 +90,7 @@ public class GUIFormularioUsuario extends javax.swing.JFrame {
         lblIdentificacion.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         lblIdentificacion.setForeground(new java.awt.Color(255, 255, 255));
         lblIdentificacion.setText("Identificación:");
-        jPanel1.add(lblIdentificacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, -1, -1));
+        jPanel1.add(lblIdentificacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, -1, -1));
 
         txtIdentificacion.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         txtIdentificacion.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -98,12 +98,12 @@ public class GUIFormularioUsuario extends javax.swing.JFrame {
                 txtIdentificacionKeyTyped(evt);
             }
         });
-        jPanel1.add(txtIdentificacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 90, 230, -1));
+        jPanel1.add(txtIdentificacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 100, 230, -1));
 
-        lblRegistrarUsuario.setFont(new java.awt.Font("Yu Gothic UI", 1, 18)); // NOI18N
+        lblRegistrarUsuario.setFont(new java.awt.Font("Yu Gothic UI", 1, 24)); // NOI18N
         lblRegistrarUsuario.setForeground(new java.awt.Color(255, 255, 255));
         lblRegistrarUsuario.setText("Registrar Usuario");
-        jPanel1.add(lblRegistrarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, -1, -1));
+        jPanel1.add(lblRegistrarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 30, -1, -1));
 
         panelMain.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -197,7 +197,7 @@ public class GUIFormularioUsuario extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel1.add(panelMain, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, -1, -1));
+        jPanel1.add(panelMain, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, -1, -1));
 
         btnBuscar.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/lupaBuscar.png"))); // NOI18N
@@ -207,7 +207,7 @@ public class GUIFormularioUsuario extends javax.swing.JFrame {
                 btnBuscarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 130, -1, -1));
+        jPanel1.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 140, -1, -1));
 
         btnVolver.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         btnVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/back.png"))); // NOI18N
