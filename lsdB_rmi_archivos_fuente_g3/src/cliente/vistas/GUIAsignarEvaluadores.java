@@ -93,17 +93,28 @@ public class GUIAsignarEvaluadores extends javax.swing.JFrame {
         btnVolver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("ASIGNAR EVALUADOR");
         setIconImage(getIconImage());
 
+        lblCodigo.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         lblCodigo.setText("Seleccione el codigo del anteproyecto");
 
-        lblTitulo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        cmbCodigo.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
+
+        lblTitulo.setFont(new java.awt.Font("Yu Gothic UI", 1, 18)); // NOI18N
         lblTitulo.setText("Asignar Evaluadores");
 
+        lblEvaluador1.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         lblEvaluador1.setText("Seleccione el ID del evaluador 1:");
 
+        cmbEvaluadores.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
+
+        lblEvaluador2.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         lblEvaluador2.setText("Seleccione el ID del evaluador 2:");
 
+        cmbEvaluadores2.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
+
+        btnAsignar.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         btnAsignar.setText("Asignar");
         btnAsignar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,6 +122,7 @@ public class GUIAsignarEvaluadores extends javax.swing.JFrame {
             }
         });
 
+        btnVolver.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         btnVolver.setText("Volver");
         btnVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,15 +148,15 @@ public class GUIAsignarEvaluadores extends javax.swing.JFrame {
                             .addComponent(lblEvaluador1)
                             .addComponent(lblCodigo)
                             .addComponent(lblEvaluador2))
-                        .addGap(81, 81, 81)
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(cmbCodigo, 0, 69, Short.MAX_VALUE)
-                            .addComponent(cmbEvaluadores, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cmbEvaluadores, 0, 142, Short.MAX_VALUE)
+                            .addComponent(cmbCodigo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(cmbEvaluadores2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(169, 169, 169)
                         .addComponent(btnAsignar)))
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -170,7 +182,7 @@ public class GUIAsignarEvaluadores extends javax.swing.JFrame {
                     .addComponent(cmbEvaluadores2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
                 .addComponent(btnAsignar)
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         pack();

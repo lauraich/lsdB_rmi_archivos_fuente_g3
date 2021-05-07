@@ -44,6 +44,7 @@ public class GUIConectarCliente extends javax.swing.JFrame {
         lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("CONECTAR CLIENTE");
         setIconImage(getIconImage());
 
         jPanel1.setPreferredSize(new java.awt.Dimension(425, 341));

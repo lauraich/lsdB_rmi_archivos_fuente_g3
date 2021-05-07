@@ -64,8 +64,11 @@ public class GUIEvaluador extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("EVALUADOR");
+        setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         setIconImage(getIconImage());
 
+        tblFormatosA.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         tblFormatosA.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
@@ -97,6 +100,7 @@ public class GUIEvaluador extends javax.swing.JFrame {
         );
 
         jMenu1.setText("Registrar Formato B");
+        jMenu1.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMenu1MouseClicked(evt);
@@ -105,6 +109,7 @@ public class GUIEvaluador extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Salir");
+        jMenu2.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMenu2MouseClicked(evt);

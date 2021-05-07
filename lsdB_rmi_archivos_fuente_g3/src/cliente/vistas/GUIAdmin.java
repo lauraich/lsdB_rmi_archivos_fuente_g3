@@ -80,6 +80,7 @@ public class GUIAdmin extends javax.swing.JFrame {
         lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("ADMINISTRADOR");
         setIconImage(getIconImage());
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());

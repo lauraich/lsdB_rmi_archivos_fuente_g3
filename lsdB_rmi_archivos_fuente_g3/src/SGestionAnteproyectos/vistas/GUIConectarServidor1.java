@@ -44,6 +44,7 @@ public class GUIConectarServidor1 extends javax.swing.JFrame {
         lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("CONECTAR SERVIDOR DE GESTION");
         setIconImage(getIconImage());
 
         jPanel1.setPreferredSize(new java.awt.Dimension(423, 250));

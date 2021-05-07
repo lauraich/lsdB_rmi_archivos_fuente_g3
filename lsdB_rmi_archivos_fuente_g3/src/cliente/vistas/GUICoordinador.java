@@ -77,8 +77,10 @@ public class GUICoordinador extends javax.swing.JFrame {
         menuCerrar = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("COORDINADOR");
         setIconImage(getIconImage());
 
+        tblAnteproyectos.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         tblAnteproyectos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -98,10 +100,13 @@ public class GUICoordinador extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tblAnteproyectos);
 
-        lblListado.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblListado.setFont(new java.awt.Font("Yu Gothic UI", 1, 18)); // NOI18N
         lblListado.setText("Listado de anteproyectos");
 
+        jMenuBar1.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
+
         menuRegistrar.setText("Registrar Formato TI-D");
+        menuRegistrar.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         menuRegistrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 menuRegistrarMouseClicked(evt);
@@ -110,6 +115,7 @@ public class GUICoordinador extends javax.swing.JFrame {
         jMenuBar1.add(menuRegistrar);
 
         menuAsignar.setText("Asignar Evaluadores");
+        menuAsignar.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         menuAsignar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 menuAsignarMouseClicked(evt);
@@ -118,6 +124,7 @@ public class GUICoordinador extends javax.swing.JFrame {
         jMenuBar1.add(menuAsignar);
 
         menuCerrar.setText("Cerrar Sesion");
+        menuCerrar.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         menuCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 menuCerrarMouseClicked(evt);
@@ -148,7 +155,7 @@ public class GUICoordinador extends javax.swing.JFrame {
                 .addComponent(lblListado)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         pack();

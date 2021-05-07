@@ -98,6 +98,7 @@ public class GUIDirector extends javax.swing.JFrame {
         jLabel2.setText("jLabel2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("REGISTRAR FORMATO A");
         setIconImage(getIconImage());
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());

@@ -69,18 +69,6 @@ public class GUIDecano extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblAnteproyectos = new javax.swing.JTable();
-        jPanel2 = new javax.swing.JPanel();
-        lblCodigo = new javax.swing.JLabel();
-        cmbCodigo = new javax.swing.JComboBox<>();
-        btnOK = new javax.swing.JButton();
-        pnlResolucion = new javax.swing.JPanel();
-        lblTituloRes = new javax.swing.JLabel();
-        lblCodigoAnte = new javax.swing.JLabel();
-        lblCodRes = new javax.swing.JLabel();
-        lblFecha = new javax.swing.JLabel();
-        lblCodigoA = new javax.swing.JLabel();
-        lblRes = new javax.swing.JLabel();
-        lblFechaG = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane6 = new javax.swing.JScrollPane();
         tblAprobados = new javax.swing.JTable();
@@ -98,12 +86,29 @@ public class GUIDecano extends javax.swing.JFrame {
         lblFormatoB = new javax.swing.JLabel();
         lblFormatoC = new javax.swing.JLabel();
         lblFormatoD = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        lblCodigo = new javax.swing.JLabel();
+        cmbCodigo = new javax.swing.JComboBox<>();
+        btnOK = new javax.swing.JButton();
+        pnlResolucion = new javax.swing.JPanel();
+        lblTituloRes = new javax.swing.JLabel();
+        lblCodigoAnte = new javax.swing.JLabel();
+        lblCodRes = new javax.swing.JLabel();
+        lblFecha = new javax.swing.JLabel();
+        lblCodigoA = new javax.swing.JLabel();
+        lblRes = new javax.swing.JLabel();
+        lblFechaG = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("DECANO");
+        setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         setIconImage(getIconImage());
 
+        tabListar.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
+
+        tblAnteproyectos.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         tblAnteproyectos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -130,22 +135,210 @@ public class GUIDecano extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(88, 88, 88)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 726, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(96, Short.MAX_VALUE))
+                .addContainerGap(148, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(109, 109, 109)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(229, Short.MAX_VALUE))
+                .addContainerGap(254, Short.MAX_VALUE))
         );
 
         tabListar.addTab("Listar Anteproyectos", jPanel1);
 
+        tblAprobados.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
+        tblAprobados.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Codigo Anteproyecto", "Codigo Resolución", "Fecha Registro"
+            }
+        ));
+        jScrollPane6.setViewportView(tblAprobados);
+
+        lblTitulo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblTitulo.setText("Listado de Anteproyectos aprobados");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(68, 68, 68)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 756, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(138, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblTitulo)
+                .addGap(325, 325, 325))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addComponent(lblTitulo)
+                .addGap(30, 30, 30)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(127, Short.MAX_VALUE))
+        );
+
+        tabListar.addTab("Consultar Aprobados", jPanel4);
+
+        tblFormatoA.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
+        tblFormatoA.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Codigo Anteproyecto", "Nombre Programa", "Ttiulo Anteproyecto", "Nombre Estudiante 1", "Codigo Estudiante 1", "Nombre Estudiante 2", "Codigo Estudiante 2", "Director", "Co-Director", "Objetivos"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(tblFormatoA);
+
+        tblFormatoC.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
+        tblFormatoC.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "Codigo Anteproyecto", "Concepto 1", "Concepto 2", "Estructura", "Concepto departamento", "Observaciones"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane3.setViewportView(tblFormatoC);
+
+        tblFormatoB.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
+        tblFormatoB.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Codigo Anteproyecto", "Id Evaluador", "Concepto", "Observaciones", "Fecha de Evaluación"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                true, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane4.setViewportView(tblFormatoB);
+
+        tblFormatoD.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
+        tblFormatoD.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Estructura", "Concepto del coordinador", "Observaciones"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane5.setViewportView(tblFormatoD);
+
+        lblFormatoA.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
+        lblFormatoA.setText("Formato A");
+
+        lblFormatoB.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
+        lblFormatoB.setText("Formato B");
+
+        lblFormatoC.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
+        lblFormatoC.setText("Formato C");
+
+        lblFormatoD.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
+        lblFormatoD.setText("Formato D");
+
+        javax.swing.GroupLayout lblCoDirectorLayout = new javax.swing.GroupLayout(lblCoDirector);
+        lblCoDirector.setLayout(lblCoDirectorLayout);
+        lblCoDirectorLayout.setHorizontalGroup(
+            lblCoDirectorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(lblCoDirectorLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addGroup(lblCoDirectorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 890, Short.MAX_VALUE)
+                    .addComponent(jScrollPane4)
+                    .addComponent(jScrollPane3)
+                    .addComponent(jScrollPane5))
+                .addContainerGap(32, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, lblCoDirectorLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(lblCoDirectorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, lblCoDirectorLayout.createSequentialGroup()
+                        .addComponent(lblFormatoA)
+                        .addGap(413, 413, 413))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, lblCoDirectorLayout.createSequentialGroup()
+                        .addComponent(lblFormatoB)
+                        .addGap(410, 410, 410))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, lblCoDirectorLayout.createSequentialGroup()
+                        .addComponent(lblFormatoC)
+                        .addGap(407, 407, 407))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, lblCoDirectorLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblFormatoD)
+                .addGap(403, 403, 403))
+        );
+        lblCoDirectorLayout.setVerticalGroup(
+            lblCoDirectorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(lblCoDirectorLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(lblFormatoA)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(lblFormatoB)
+                .addGap(29, 29, 29)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lblFormatoC)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addComponent(lblFormatoD)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40))
+        );
+
+        tabListar.addTab("Consultar Historial", lblCoDirector);
+
+        lblCodigo.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         lblCodigo.setText("Selecciones el codigo del anteproyecto:");
 
+        cmbCodigo.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         cmbCodigo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar Anteproyecto" }));
 
+        btnOK.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         btnOK.setText("OK");
         btnOK.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -155,19 +348,25 @@ public class GUIDecano extends javax.swing.JFrame {
 
         pnlResolucion.setEnabled(false);
 
-        lblTituloRes.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblTituloRes.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         lblTituloRes.setText("Resolucion Generada");
 
+        lblCodigoAnte.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         lblCodigoAnte.setText("Codigo Anteproyecto:");
 
+        lblCodRes.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         lblCodRes.setText("Codigo de Resolución:");
 
+        lblFecha.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         lblFecha.setText("Fecha de Generación:");
 
+        lblCodigoA.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         lblCodigoA.setText("-");
 
+        lblRes.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         lblRes.setText("-");
 
+        lblFechaG.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         lblFechaG.setText("-");
 
         javax.swing.GroupLayout pnlResolucionLayout = new javax.swing.GroupLayout(pnlResolucion);
@@ -209,7 +408,7 @@ public class GUIDecano extends javax.swing.JFrame {
                 .addGroup(pnlResolucionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblFecha)
                     .addComponent(lblFechaG))
-                .addContainerGap(345, Short.MAX_VALUE))
+                .addContainerGap(341, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -225,8 +424,8 @@ public class GUIDecano extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(lblCodigo)
                         .addGap(30, 30, 30)
-                        .addComponent(cmbCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28)
+                        .addComponent(cmbCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(btnOK)
                         .addGap(399, 399, 399))))
         );
@@ -245,183 +444,8 @@ public class GUIDecano extends javax.swing.JFrame {
 
         tabListar.addTab("Generar Resolucion", jPanel2);
 
-        tblAprobados.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "Codigo Anteproyecto", "Codigo Resolución", "Fecha Registro"
-            }
-        ));
-        jScrollPane6.setViewportView(tblAprobados);
-
-        lblTitulo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lblTitulo.setText("Listado de Anteproyectos aprobados");
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(68, 68, 68)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 756, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(86, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblTitulo)
-                .addGap(325, 325, 325))
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addComponent(lblTitulo)
-                .addGap(30, 30, 30)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(106, Short.MAX_VALUE))
-        );
-
-        tabListar.addTab("Consultar Aprobados", jPanel4);
-
-        tblFormatoA.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "Codigo Anteproyecto", "Nombre Programa", "Ttiulo Anteproyecto", "Nombre Estudiante 1", "Codigo Estudiante 1", "Nombre Estudiante 2", "Codigo Estudiante 2", "Director", "Co-Director", "Objetivos"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane2.setViewportView(tblFormatoA);
-
-        tblFormatoC.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
-            },
-            new String [] {
-                "Codigo Anteproyecto", "Concepto 1", "Concepto 2", "Estructura", "Concepto departamento", "Observaciones"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane3.setViewportView(tblFormatoC);
-
-        tblFormatoB.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null}
-            },
-            new String [] {
-                "Codigo Anteproyecto", "Id Evaluador", "Concepto", "Observaciones", "Fecha de Evaluación"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                true, false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane4.setViewportView(tblFormatoB);
-
-        tblFormatoD.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "Estructura", "Concepto del coordinador", "Observaciones"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane5.setViewportView(tblFormatoD);
-
-        lblFormatoA.setText("Formato A");
-
-        lblFormatoB.setText("Formato B");
-
-        lblFormatoC.setText("Formato C");
-
-        lblFormatoD.setText("Formato D");
-
-        javax.swing.GroupLayout lblCoDirectorLayout = new javax.swing.GroupLayout(lblCoDirector);
-        lblCoDirector.setLayout(lblCoDirectorLayout);
-        lblCoDirectorLayout.setHorizontalGroup(
-            lblCoDirectorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(lblCoDirectorLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addGroup(lblCoDirectorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 845, Short.MAX_VALUE)
-                    .addComponent(jScrollPane4)
-                    .addComponent(jScrollPane3)
-                    .addComponent(jScrollPane5))
-                .addContainerGap(25, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, lblCoDirectorLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(lblCoDirectorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, lblCoDirectorLayout.createSequentialGroup()
-                        .addComponent(lblFormatoA)
-                        .addGap(413, 413, 413))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, lblCoDirectorLayout.createSequentialGroup()
-                        .addComponent(lblFormatoB)
-                        .addGap(410, 410, 410))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, lblCoDirectorLayout.createSequentialGroup()
-                        .addComponent(lblFormatoC)
-                        .addGap(407, 407, 407))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, lblCoDirectorLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblFormatoD)
-                .addGap(403, 403, 403))
-        );
-        lblCoDirectorLayout.setVerticalGroup(
-            lblCoDirectorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(lblCoDirectorLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(lblFormatoA)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(lblFormatoB)
-                .addGap(29, 29, 29)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lblFormatoC)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
-                .addComponent(lblFormatoD)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40))
-        );
-
-        tabListar.addTab("Consultar Historial", lblCoDirector);
-
         jMenu2.setText("Cerrar Sesion");
+        jMenu2.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMenu2MouseClicked(evt);
