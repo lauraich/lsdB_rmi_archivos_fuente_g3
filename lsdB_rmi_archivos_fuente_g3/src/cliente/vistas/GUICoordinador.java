@@ -77,6 +77,7 @@ public class GUICoordinador extends javax.swing.JFrame {
         menuCerrar = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(getIconImage());
 
         tblAnteproyectos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

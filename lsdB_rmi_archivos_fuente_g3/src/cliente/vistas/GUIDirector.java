@@ -96,6 +96,7 @@ public class GUIDirector extends javax.swing.JFrame {
         jLabel2.setText("jLabel2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(getIconImage());
 
         lblCodigoAnteproyecto.setText("Codigo Anteproyecto: ");
 

@@ -8,6 +8,8 @@ package cliente.vistas;
 import SGestionAnteproyectos.dto.FormatoBDTO;
 import SGestionAnteproyectos.dto.UsuarioDTO;
 import cliente.ClienteDeObjetos;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
@@ -29,6 +31,11 @@ public class GUIJefeDepto extends javax.swing.JFrame {
         initComponents();
         objGuiInicioSesion=prmGUI;
         cargarFormatos();
+    }
+    @Override
+    public Image getIconImage() {
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("recursos/iconApp.png"));
+        return retValue;
     }
     public void cargarFormatos(){
         try {
@@ -61,6 +68,7 @@ public class GUIJefeDepto extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(getIconImage());
 
         tblFormatos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

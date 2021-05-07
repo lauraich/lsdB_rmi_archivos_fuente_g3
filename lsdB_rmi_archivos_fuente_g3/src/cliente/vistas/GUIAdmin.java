@@ -7,6 +7,8 @@ package cliente.vistas;
 
 import SGestionAnteproyectos.dto.UsuarioDTO;
 import cliente.ClienteDeObjetos;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.rmi.RemoteException;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
@@ -31,6 +33,11 @@ public class GUIAdmin extends javax.swing.JFrame {
         initComponents();
         objGuiInicioSesion=prmGUI;
         mostrarUsuarios();
+    }
+    @Override
+    public Image getIconImage() {
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("recursos/iconApp.png"));
+        return retValue;
     }
     public void mostrarUsuarios() throws RemoteException{
         this.setVisible(true);
@@ -73,6 +80,7 @@ public class GUIAdmin extends javax.swing.JFrame {
         lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(getIconImage());
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 

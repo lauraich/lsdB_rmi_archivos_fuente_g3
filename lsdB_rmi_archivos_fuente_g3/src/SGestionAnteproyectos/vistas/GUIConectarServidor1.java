@@ -6,6 +6,8 @@
 package SGestionAnteproyectos.vistas;
 
 import SGestionAnteproyectos.ServidorDeObjetos1;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.rmi.RemoteException;
 
 /**
@@ -42,6 +44,7 @@ public class GUIConectarServidor1 extends javax.swing.JFrame {
         lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(getIconImage());
 
         jPanel1.setPreferredSize(new java.awt.Dimension(423, 250));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -107,7 +110,11 @@ public class GUIConectarServidor1 extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnConectarS1ActionPerformed
 
-    
+    @Override
+    public Image getIconImage() {
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("recursos/iconApp.png"));
+        return retValue;
+    }
   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

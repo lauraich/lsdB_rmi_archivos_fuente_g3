@@ -6,6 +6,8 @@
 package SSeguimientoAnteproyectos.vistas;
 
 import SSeguimientoAnteproyectos.ServidorDeObjetos2;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.rmi.RemoteException;
 
 /**
@@ -40,6 +42,7 @@ public class GUIConectarServidor2 extends javax.swing.JFrame {
         lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(getIconImage());
         setPreferredSize(new java.awt.Dimension(425, 341));
 
         jPanel1.setPreferredSize(new java.awt.Dimension(980, 390));
@@ -109,7 +112,11 @@ public class GUIConectarServidor2 extends javax.swing.JFrame {
            System.err.println("No fue posible Arrancar el NS o Registrar el objeto remoto" +  ex.getMessage());
        }     
     }//GEN-LAST:event_btnConectarS2ActionPerformed
-
+@Override
+    public Image getIconImage() {
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("recursos/iconApp.png"));
+        return retValue;
+    }
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

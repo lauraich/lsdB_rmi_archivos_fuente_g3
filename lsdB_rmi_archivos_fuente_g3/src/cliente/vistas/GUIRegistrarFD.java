@@ -9,6 +9,8 @@ import SGestionAnteproyectos.dto.FormatoADTO;
 import SGestionAnteproyectos.dto.FormatoCDTO;
 import SGestionAnteproyectos.dto.FormatoDDTO;
 import cliente.ClienteDeObjetos;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.rmi.RemoteException;
 import java.util.List;
 import java.util.logging.Level;
@@ -48,7 +50,11 @@ public class GUIRegistrarFD extends javax.swing.JFrame {
         boton_grupo_estruc.add(rbtnCorrecta);
         cargarComboBox();
     }
-
+@Override
+    public Image getIconImage() {
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("recursos/iconApp.png"));
+        return retValue;
+    }
     public void cargarComboBox() {
         try {
             List<FormatoCDTO> listaAnteproyectos;
@@ -89,6 +95,7 @@ public class GUIRegistrarFD extends javax.swing.JFrame {
         cmbCodigo = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(getIconImage());
 
         lblTitulo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblTitulo.setText("Registrar Formato TI-D");

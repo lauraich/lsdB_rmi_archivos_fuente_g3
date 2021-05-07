@@ -8,6 +8,8 @@ package cliente.vistas;
 import SGestionAnteproyectos.dto.FormatoBDTO;
 import SGestionAnteproyectos.dto.FormatoCDTO;
 import cliente.ClienteDeObjetos;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.util.List;
 import javax.swing.JOptionPane;
 
@@ -40,6 +42,11 @@ public class GUIFC extends javax.swing.JFrame {
         // mainPanel.setVisible(false);
         cmbCodigoAnteproyecto.setEnabled(true);
         cargarFormatos();
+    }
+    @Override
+    public Image getIconImage() {
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("recursos/iconApp.png"));
+        return retValue;
     }
 
     public void cargarFormatos() {
@@ -81,6 +88,7 @@ public class GUIFC extends javax.swing.JFrame {
         lblCodigoAnteproyecto = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(getIconImage());
 
         lblRegistrarFormatoC.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblRegistrarFormatoC.setText("Registrar Formato C");

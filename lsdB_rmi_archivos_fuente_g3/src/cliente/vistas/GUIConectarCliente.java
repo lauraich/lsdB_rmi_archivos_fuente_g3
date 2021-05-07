@@ -6,6 +6,8 @@
 package cliente.vistas;
 
 import cliente.ClienteDeObjetos;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.rmi.RemoteException;
 
 /**
@@ -42,6 +44,7 @@ public class GUIConectarCliente extends javax.swing.JFrame {
         lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(getIconImage());
 
         jPanel1.setPreferredSize(new java.awt.Dimension(425, 341));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -110,7 +113,11 @@ public class GUIConectarCliente extends javax.swing.JFrame {
             System.err.println("No fue posible Arrancar el NS o Registrar el objeto remoto" + ex.getMessage());
         }
     }//GEN-LAST:event_btnConectarCActionPerformed
-
+    @Override
+    public Image getIconImage() {
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("recursos/iconApp.png"));
+        return retValue;
+    }
     /**
      * @param args the command line arguments
      */

@@ -9,6 +9,8 @@ import SGestionAnteproyectos.dto.FormatoADTO;
 import SGestionAnteproyectos.dto.FormatoBDTO;
 import SGestionAnteproyectos.dto.UsuarioDTO;
 import cliente.ClienteDeObjetos;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.rmi.RemoteException;
 import java.util.List;
 import java.util.logging.Level;
@@ -34,6 +36,11 @@ public class GUIAsignarEvaluadores extends javax.swing.JFrame {
     }
     public GUIAsignarEvaluadores(){
     initComponents();}
+    @Override
+    public Image getIconImage() {
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("recursos/iconApp.png"));
+        return retValue;
+    }
 
     public void cargarComboBox() {
         try {
@@ -86,6 +93,7 @@ public class GUIAsignarEvaluadores extends javax.swing.JFrame {
         btnVolver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(getIconImage());
 
         lblCodigo.setText("Seleccione el codigo del anteproyecto");
 

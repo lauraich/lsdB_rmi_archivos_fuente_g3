@@ -64,6 +64,7 @@ public class GUIEvaluador extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(getIconImage());
 
         tblFormatosA.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
