@@ -78,8 +78,10 @@ public class GUIFB extends javax.swing.JFrame {
         jLabel1.setText("jLabel1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("REGISTRAR FORMATO B");
         setIconImage(getIconImage());
 
+        btnGuardar.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         btnGuardar.setText("Guardar");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,21 +89,28 @@ public class GUIFB extends javax.swing.JFrame {
             }
         });
 
+        rbAprobado.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         rbAprobado.setText("Aprobado");
 
+        jLabel3.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         jLabel3.setText("Concepto:");
 
+        rbNoAprobado.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         rbNoAprobado.setText("No Aprobado");
 
+        lblIdEvaluador.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         lblIdEvaluador.setText("Id Evaluador:");
 
         txtCodigoAnteproyecto1.setEditable(false);
 
         txtIdEvaluador.setEditable(false);
+        txtIdEvaluador.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
 
+        jLabel4.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         jLabel4.setText("Observaciones");
 
         txtObservaciones.setColumns(20);
+        txtObservaciones.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         txtObservaciones.setRows(5);
         jScrollPane1.setViewportView(txtObservaciones);
 
@@ -170,13 +179,16 @@ public class GUIFB extends javax.swing.JFrame {
                     .addContainerGap(201, Short.MAX_VALUE)))
         );
 
-        lblRegistrarForatoB.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblRegistrarForatoB.setFont(new java.awt.Font("Yu Gothic UI", 1, 18)); // NOI18N
         lblRegistrarForatoB.setText("Registrar Formato B");
 
+        jLabel2.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         jLabel2.setText("Codigo Anteproyecto: ");
 
+        cmbCodigoAnteproyecto.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         cmbCodigoAnteproyecto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "seleccionar Anteproyecto" }));
 
+        btnBuscar.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         btnBuscar.setText("Buscar");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
