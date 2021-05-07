@@ -62,6 +62,7 @@ public class GUIAdmin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         btnCerrarSesion = new javax.swing.JButton();
         lblMenuAdmin = new javax.swing.JLabel();
         btnRegistrarUsu = new javax.swing.JButton();
@@ -69,8 +70,11 @@ public class GUIAdmin extends javax.swing.JFrame {
         btnConsultarInfo = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tableUsuarios = new javax.swing.JTable();
+        lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnCerrarSesion.setBackground(javax.swing.UIManager.getDefaults().getColor("EditorPane.selectionBackground"));
         btnCerrarSesion.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
@@ -81,9 +85,12 @@ public class GUIAdmin extends javax.swing.JFrame {
                 btnCerrarSesionActionPerformed(evt);
             }
         });
+        jPanel1.add(btnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 30, -1, -1));
 
         lblMenuAdmin.setFont(new java.awt.Font("Yu Gothic UI", 1, 24)); // NOI18N
+        lblMenuAdmin.setForeground(new java.awt.Color(255, 255, 255));
         lblMenuAdmin.setText("Menu Administrador");
+        jPanel1.add(lblMenuAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, -1, -1));
 
         btnRegistrarUsu.setBackground(javax.swing.UIManager.getDefaults().getColor("FormattedTextField.selectionBackground"));
         btnRegistrarUsu.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
@@ -94,6 +101,7 @@ public class GUIAdmin extends javax.swing.JFrame {
                 btnRegistrarUsuActionPerformed(evt);
             }
         });
+        jPanel1.add(btnRegistrarUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 200, 210, -1));
 
         btnModififcarUsu.setBackground(javax.swing.UIManager.getDefaults().getColor("EditorPane.selectionBackground"));
         btnModififcarUsu.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
@@ -104,6 +112,7 @@ public class GUIAdmin extends javax.swing.JFrame {
                 btnModififcarUsuActionPerformed(evt);
             }
         });
+        jPanel1.add(btnModififcarUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 300, 210, -1));
 
         btnConsultarInfo.setBackground(javax.swing.UIManager.getDefaults().getColor("EditorPane.selectionBackground"));
         btnConsultarInfo.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
@@ -114,6 +123,7 @@ public class GUIAdmin extends javax.swing.JFrame {
                 btnConsultarInfoActionPerformed(evt);
             }
         });
+        jPanel1.add(btnConsultarInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 400, 210, -1));
 
         tableUsuarios.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         tableUsuarios.setModel(new javax.swing.table.DefaultTableModel(
@@ -144,45 +154,20 @@ public class GUIAdmin extends javax.swing.JFrame {
         jScrollPane2.setViewportView(tableUsuarios);
         tableUsuarios.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 660, 420));
+
+        lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo-admin.jpg"))); // NOI18N
+        jPanel1.add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 940, 590));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 604, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(208, 208, 208)
-                        .addComponent(lblMenuAdmin)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(btnCerrarSesion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnRegistrarUsu, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnConsultarInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnModififcarUsu, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(31, 31, 31))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnCerrarSesion)
-                    .addComponent(lblMenuAdmin))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(99, 99, 99)
-                        .addComponent(btnRegistrarUsu)
-                        .addGap(36, 36, 36)
-                        .addComponent(btnModififcarUsu)
-                        .addGap(47, 47, 47)
-                        .addComponent(btnConsultarInfo))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(67, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 591, Short.MAX_VALUE)
         );
 
         pack();
@@ -250,7 +235,9 @@ public class GUIAdmin extends javax.swing.JFrame {
     private javax.swing.JButton btnConsultarInfo;
     private javax.swing.JButton btnModififcarUsu;
     private javax.swing.JButton btnRegistrarUsu;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lblFondo;
     private javax.swing.JLabel lblMenuAdmin;
     private javax.swing.JTable tableUsuarios;
     // End of variables declaration//GEN-END:variables
