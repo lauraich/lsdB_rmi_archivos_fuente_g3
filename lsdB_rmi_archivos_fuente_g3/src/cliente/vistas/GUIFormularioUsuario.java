@@ -62,6 +62,7 @@ public class GUIFormularioUsuario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         lblIdentificacion = new javax.swing.JLabel();
         txtIdentificacion = new javax.swing.JTextField();
         lblRegistrarUsuario = new javax.swing.JLabel();
@@ -79,11 +80,17 @@ public class GUIFormularioUsuario extends javax.swing.JFrame {
         btnGuardar = new javax.swing.JButton();
         btnBuscar = new javax.swing.JButton();
         btnVolver = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         lblIdentificacion.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
+        lblIdentificacion.setForeground(new java.awt.Color(255, 255, 255));
         lblIdentificacion.setText("Identificación:");
+        jPanel1.add(lblIdentificacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, -1, -1));
 
         txtIdentificacion.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         txtIdentificacion.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -91,9 +98,14 @@ public class GUIFormularioUsuario extends javax.swing.JFrame {
                 txtIdentificacionKeyTyped(evt);
             }
         });
+        jPanel1.add(txtIdentificacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 90, 230, -1));
 
         lblRegistrarUsuario.setFont(new java.awt.Font("Yu Gothic UI", 1, 18)); // NOI18N
+        lblRegistrarUsuario.setForeground(new java.awt.Color(255, 255, 255));
         lblRegistrarUsuario.setText("Registrar Usuario");
+        jPanel1.add(lblRegistrarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, -1, -1));
+
+        panelMain.setBackground(new java.awt.Color(204, 204, 204));
 
         txtPassword.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
 
@@ -185,6 +197,8 @@ public class GUIFormularioUsuario extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jPanel1.add(panelMain, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, -1, -1));
+
         btnBuscar.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/lupaBuscar.png"))); // NOI18N
         btnBuscar.setText("Buscar");
@@ -193,6 +207,7 @@ public class GUIFormularioUsuario extends javax.swing.JFrame {
                 btnBuscarActionPerformed(evt);
             }
         });
+        jPanel1.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 130, -1, -1));
 
         btnVolver.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         btnVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/back.png"))); // NOI18N
@@ -202,44 +217,20 @@ public class GUIFormularioUsuario extends javax.swing.JFrame {
                 btnVolverActionPerformed(evt);
             }
         });
+        jPanel1.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/FondoRegistroU.jpg"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 570, 440));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnVolver)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblRegistrarUsuario)
-                .addGap(112, 112, 112))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(135, 135, 135)
-                .addComponent(lblIdentificacion)
-                .addGap(40, 40, 40)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnBuscar)
-                    .addComponent(txtIdentificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(69, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(panelMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblRegistrarUsuario))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblIdentificacion, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtIdentificacion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(2, 2, 2)
-                .addComponent(panelMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -375,6 +366,8 @@ public class GUIFormularioUsuario extends javax.swing.JFrame {
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnVolver;
     private javax.swing.JComboBox<String> cmbRole;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblIDepartamento;
     private javax.swing.JLabel lblIdentificacion;
     private javax.swing.JLabel lblNombre;
