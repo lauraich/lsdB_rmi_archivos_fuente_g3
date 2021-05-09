@@ -314,10 +314,10 @@ public class GUIDirector extends javax.swing.JFrame {
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         FormatoADTO objFA = new FormatoADTO();
-        objFA.setCodigoAnteproyecto(Long.parseLong(txtCodigoAnteproyecto.getText()));
+        
         objFA.setNombrePrograma(txtNombrePrograma.getText());
         objFA.setTituloAnteproyecto(txtTituloAnteproyecto.getText());
-        objFA.setIdEstudiante1(Long.valueOf(txtIdEstudiante1.getText()));
+        
         objFA.setNomEstudiante1(txtNombreEstudiante1.getText());
         String id2=txtIdEstudiante2.getText();
         if(id2.compareTo("")==0){
@@ -333,6 +333,8 @@ public class GUIDirector extends javax.swing.JFrame {
         objFA.setObjetivos(txtObjetivos.getText());
         try {
             if (validarCamposVacios()) {
+                objFA.setCodigoAnteproyecto(Long.parseLong(txtCodigoAnteproyecto.getText()));
+                objFA.setIdEstudiante1(Long.valueOf(txtIdEstudiante1.getText()));
                 objCO = ClienteDeObjetos.getInstancia();
                 if (objCO.getObjRemotoAnteproyectos().registrarFormatoA(objFA)) {
                     JOptionPane.showMessageDialog(this, "Formato TI-A ha sido registrado correctamente", "INFO", JOptionPane.INFORMATION_MESSAGE);
