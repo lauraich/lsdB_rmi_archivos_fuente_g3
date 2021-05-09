@@ -13,7 +13,7 @@ import SGestionAnteproyectos.dto.FormatoCDTO;
 import SGestionAnteproyectos.dto.FormatoDDTO;
 import SGestionAnteproyectos.dto.RegistroDTO;
 import SGestionAnteproyectos.utilidades.UtilidadesRegistroC;
-import SSeguimientoAnteproyectos.sop_rmi.GestionSeguimientoInt;
+import SSeguimientoAnteProyectos.sop_rmi.GestionSeguimientoInt;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;

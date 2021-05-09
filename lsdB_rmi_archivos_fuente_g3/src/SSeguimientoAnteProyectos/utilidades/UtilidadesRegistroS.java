@@ -1,4 +1,4 @@
-package SSeguimientoAnteproyectos.utilidades;
+package SSeguimientoAnteProyectos.utilidades;
 
 
 import java.net.MalformedURLException;

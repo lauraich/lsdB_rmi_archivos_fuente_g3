@@ -7,8 +7,7 @@ package cliente;
 
 import SGestionAnteproyectos.sop_rmi.GestionAnteproyectosInt;
 import SGestionAnteproyectos.sop_rmi.GestionUsuariosInt;
-import SSeguimientoAnteproyectos.sop_rmi.GestionSeguimientoInt;
-import cliente.utilidades.UtilidadesConsola;
+import SSeguimientoAnteProyectos.sop_rmi.GestionSeguimientoInt;
 import cliente.utilidades.UtilidadesRegistroC;
 import cliente.vistas.GUIConectarCliente;
 import java.rmi.RemoteException;

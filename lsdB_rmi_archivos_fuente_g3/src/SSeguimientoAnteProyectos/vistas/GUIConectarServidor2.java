@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package SSeguimientoAnteproyectos.vistas;
+package SSeguimientoAnteProyectos.vistas;
 
-import SSeguimientoAnteproyectos.ServidorDeObjetos2;
+import SSeguimientoAnteProyectos.ServidorDeObjetos2;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.rmi.RemoteException;

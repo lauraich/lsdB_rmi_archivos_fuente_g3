@@ -6,7 +6,7 @@
 package cliente.vistas;
 
 import SGestionAnteproyectos.dto.*;
-import SSeguimientoAnteproyectos.dto.ResolucionDTO;
+import SSeguimientoAnteProyectos.dto.ResolucionDTO;
 import cliente.ClienteDeObjetos;
 import java.rmi.RemoteException;
 import java.text.DateFormat;

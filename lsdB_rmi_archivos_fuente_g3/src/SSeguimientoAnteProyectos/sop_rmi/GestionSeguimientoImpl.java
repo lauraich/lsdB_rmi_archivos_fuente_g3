@@ -1,8 +1,8 @@
-package SSeguimientoAnteproyectos.sop_rmi;
+package SSeguimientoAnteProyectos.sop_rmi;
 
 import SGestionAnteproyectos.dto.AnteproyectoDTO;
 import SSeguimientoAnteProyectos.utilidades.MiObjectOutputStream;
-import SSeguimientoAnteproyectos.dto.ResolucionDTO;
+import SSeguimientoAnteProyectos.dto.ResolucionDTO;
 import java.io.EOFException;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

@@ -9,7 +9,6 @@ import SGestionAnteproyectos.sop_rmi.GestionUsuariosImpl;
 import SGestionAnteproyectos.sop_rmi.GestionAnteproyectosImpl;
 import SGestionAnteproyectos.utilidades.*;
 import SGestionAnteproyectos.vistas.GUIConectarServidor1;
-import SSeguimientoAnteproyectos.sop_rmi.GestionSeguimientoImpl;
 import java.rmi.RemoteException;
 
 /**

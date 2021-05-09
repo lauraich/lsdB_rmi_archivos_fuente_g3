@@ -1,8 +1,8 @@
-package SSeguimientoAnteproyectos;
+package SSeguimientoAnteProyectos;
 
-import SSeguimientoAnteproyectos.utilidades.UtilidadesRegistroS;
-import SSeguimientoAnteproyectos.sop_rmi.GestionSeguimientoImpl;
-import SSeguimientoAnteproyectos.vistas.GUIConectarServidor2;
+import SSeguimientoAnteProyectos.utilidades.UtilidadesRegistroS;
+import SSeguimientoAnteProyectos.sop_rmi.GestionSeguimientoImpl;
+import SSeguimientoAnteProyectos.vistas.GUIConectarServidor2;
 import java.rmi.RemoteException;
 /**
  *

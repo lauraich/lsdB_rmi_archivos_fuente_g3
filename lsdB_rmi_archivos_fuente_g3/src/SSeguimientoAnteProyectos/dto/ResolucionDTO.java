@@ -1,5 +1,5 @@
 
-package SSeguimientoAnteproyectos.dto;
+package SSeguimientoAnteProyectos.dto;
 
 import java.io.Serializable;
 import java.time.LocalDate;

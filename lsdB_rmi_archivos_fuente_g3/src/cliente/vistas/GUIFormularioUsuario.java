@@ -254,14 +254,16 @@ public class GUIFormularioUsuario extends javax.swing.JFrame {
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         try {
             atrCO = ClienteDeObjetos.getInstancia();
-            long id = Long.parseLong(txtIdentificacion.getText());
+            
             String nombre = txtNombre.getText();
             String departamento = txtDepartamento.getText();
             String usuario = txtUsuario.getText();
             String password = txtPassword.getText();
             String rol = (String) cmbRole.getSelectedItem();
-            UsuarioDTO objUsuario = new UsuarioDTO(id, nombre, rol, departamento, usuario, password);
+           
             if (validarCamposVacios()) {
+                long id = Long.parseLong(txtIdentificacion.getText());
+                 UsuarioDTO objUsuario = new UsuarioDTO(id, nombre, rol, departamento, usuario, password);
                 if (atrCreacion == 1 && (atrCO.getObjRemotoUsuarios().consultarUsuario(id) != null || atrCO.getObjRemotoUsuarios().existeUsuario(usuario))) {
                     JOptionPane.showMessageDialog(this, "Ya existe un usuario con la información suministrada", "ADVERTENCIA", JOptionPane.WARNING_MESSAGE);
                 } else {
@@ -334,6 +336,9 @@ public class GUIFormularioUsuario extends javax.swing.JFrame {
 
         try {
             atrCO = ClienteDeObjetos.getInstancia();
+            if(txtIdentificacion.getText().compareTo("")!=0){
+                
+            
             long id = Long.parseLong(txtIdentificacion.getText());
             UsuarioDTO objUsuario = atrCO.getObjRemotoUsuarios().consultarUsuario(id);
             if (objUsuario != null) {
@@ -366,6 +371,9 @@ public class GUIFormularioUsuario extends javax.swing.JFrame {
                 }
             } else {
                 JOptionPane.showMessageDialog(this, "Usuario No Encontrado", "INFO", JOptionPane.INFORMATION_MESSAGE);
+            }
+            }else{
+                JOptionPane.showMessageDialog(this, "No ha ingresado ninguna identificación", "INFO", JOptionPane.INFORMATION_MESSAGE);
             }
         } catch (Exception e) {
             System.out.println("Error:" + e.getMessage());

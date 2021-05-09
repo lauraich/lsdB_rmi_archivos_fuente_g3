@@ -1,8 +1,8 @@
-package SSeguimientoAnteproyectos.sop_rmi;
+package SSeguimientoAnteProyectos.sop_rmi;
 
 import SGestionAnteproyectos.dto.AnteproyectoDTO;
 import java.rmi.Remote;
-import SSeguimientoAnteproyectos.dto.ResolucionDTO;
+import SSeguimientoAnteProyectos.dto.ResolucionDTO;
 import java.rmi.RemoteException;
 import java.util.List;
 /**
