@@ -1,13 +1,15 @@
 package SGestionAnteproyectos.dto;
+
 import java.io.Serializable;
 
 import cliente.sop_rmi.DirectorCllbckInt;
 
-public class RegistroDTO implements Serializable{
+public class RegistroDTO implements Serializable {
+
     private long idAnteproyecto;
     private long idDirector;
     private DirectorCllbckInt referenciaDirector;
-    
+
     public RegistroDTO(long idAnteproyecto, long idEvaluador, DirectorCllbckInt referenciaEvaluador) {
         this.idAnteproyecto = idAnteproyecto;
         this.idDirector = idEvaluador;
@@ -37,6 +39,5 @@ public class RegistroDTO implements Serializable{
     public void setReferenciaDirector(DirectorCllbckInt referenciaDirector) {
         this.referenciaDirector = referenciaDirector;
     }
-    
-    
+
 }

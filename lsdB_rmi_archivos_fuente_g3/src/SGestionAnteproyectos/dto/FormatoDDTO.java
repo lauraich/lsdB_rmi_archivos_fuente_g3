@@ -11,7 +11,8 @@ import java.io.Serializable;
  *
  * @author juanf
  */
-public class FormatoDDTO implements Serializable{
+public class FormatoDDTO implements Serializable {
+
     private long atrCodigoAnteproyecto;
     private String atrEstructura;
     String atrConceptoCoordinador;
@@ -55,5 +56,5 @@ public class FormatoDDTO implements Serializable{
     public void setObservaciones(String prmObservaciones) {
         this.atrObservaciones = prmObservaciones;
     }
-    
+
 }

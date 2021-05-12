@@ -5,7 +5,6 @@
  */
 package cliente.vistas;
 
-import SGestionAnteproyectos.dto.FormatoADTO;
 import SGestionAnteproyectos.dto.FormatoCDTO;
 import SGestionAnteproyectos.dto.FormatoDDTO;
 import cliente.ClienteDeObjetos;
@@ -31,7 +30,7 @@ public class GUIRegistrarFD extends javax.swing.JFrame {
      */
     public GUIRegistrarFD(GUICoordinador prmGUI) {
         initComponents();
-         this.setLocationRelativeTo(null);
+        this.setLocationRelativeTo(null);
         boton_grupo_concepto.add(rbtnAprobado);
         boton_grupo_concepto.add(rbtnNoAprobado);
         boton_grupo_estruc.add(rbtnIncorrecta);
@@ -43,18 +42,20 @@ public class GUIRegistrarFD extends javax.swing.JFrame {
 
     public GUIRegistrarFD() {
         initComponents();
-         this.setLocationRelativeTo(null);
+        this.setLocationRelativeTo(null);
         boton_grupo_concepto.add(rbtnAprobado);
         boton_grupo_concepto.add(rbtnNoAprobado);
         boton_grupo_estruc.add(rbtnIncorrecta);
         boton_grupo_estruc.add(rbtnCorrecta);
         cargarComboBox();
     }
-@Override
+
+    @Override
     public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("recursos/iconApp.png"));
         return retValue;
     }
+
     public void cargarComboBox() {
         try {
             List<FormatoCDTO> listaAnteproyectos;
@@ -304,40 +305,7 @@ public class GUIRegistrarFD extends javax.swing.JFrame {
         atrGUICoordinador.mostrarAnteproyectos();
     }//GEN-LAST:event_btnVolver2ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GUIRegistrarFD.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GUIRegistrarFD.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GUIRegistrarFD.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GUIRegistrarFD.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new GUIRegistrarFD().setVisible(true);
-            }
-        });
-    }
+  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup boton_grupo_concepto;

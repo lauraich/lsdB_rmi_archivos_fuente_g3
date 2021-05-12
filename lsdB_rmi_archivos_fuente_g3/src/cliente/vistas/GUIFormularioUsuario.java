@@ -30,12 +30,12 @@ public class GUIFormularioUsuario extends javax.swing.JFrame {
      */
     public GUIFormularioUsuario() {
         initComponents();
-         this.setLocationRelativeTo(null);
+        this.setLocationRelativeTo(null);
     }
 
     public GUIFormularioUsuario(GUIAdmin prmGUI, int prmAccion) {
         initComponents();
-         this.setLocationRelativeTo(null);
+        this.setLocationRelativeTo(null);
         atrCreacion = prmAccion;
         atrGUIAdmin = prmGUI;
         if (prmAccion == 1) {
@@ -254,16 +254,16 @@ public class GUIFormularioUsuario extends javax.swing.JFrame {
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         try {
             atrCO = ClienteDeObjetos.getInstancia();
-            
+
             String nombre = txtNombre.getText();
             String departamento = txtDepartamento.getText();
             String usuario = txtUsuario.getText();
             String password = txtPassword.getText();
             String rol = (String) cmbRole.getSelectedItem();
-           
+
             if (validarCamposVacios()) {
                 long id = Long.parseLong(txtIdentificacion.getText());
-                 UsuarioDTO objUsuario = new UsuarioDTO(id, nombre, rol, departamento, usuario, password);
+                UsuarioDTO objUsuario = new UsuarioDTO(id, nombre, rol, departamento, usuario, password);
                 if (atrCreacion == 1 && (atrCO.getObjRemotoUsuarios().consultarUsuario(id) != null || atrCO.getObjRemotoUsuarios().existeUsuario(usuario))) {
                     JOptionPane.showMessageDialog(this, "Ya existe un usuario con la información suministrada", "ADVERTENCIA", JOptionPane.WARNING_MESSAGE);
                 } else {
@@ -336,43 +336,42 @@ public class GUIFormularioUsuario extends javax.swing.JFrame {
 
         try {
             atrCO = ClienteDeObjetos.getInstancia();
-            if(txtIdentificacion.getText().compareTo("")!=0){
-                
-            
-            long id = Long.parseLong(txtIdentificacion.getText());
-            UsuarioDTO objUsuario = atrCO.getObjRemotoUsuarios().consultarUsuario(id);
-            if (objUsuario != null) {
-                if (banderaActualizar) {
-                    if (objUsuario.getRole().compareTo("ADMIN") == 0) {
-                        JOptionPane.showMessageDialog(this, "El usuario ingresado es admin por lo que no se puede modificar su información", "INFO", JOptionPane.INFORMATION_MESSAGE);
+            if (txtIdentificacion.getText().compareTo("") != 0) {
+
+                long id = Long.parseLong(txtIdentificacion.getText());
+                UsuarioDTO objUsuario = atrCO.getObjRemotoUsuarios().consultarUsuario(id);
+                if (objUsuario != null) {
+                    if (banderaActualizar) {
+                        if (objUsuario.getRole().compareTo("ADMIN") == 0) {
+                            JOptionPane.showMessageDialog(this, "El usuario ingresado es admin por lo que no se puede modificar su información", "INFO", JOptionPane.INFORMATION_MESSAGE);
+                        } else {
+                            panelMain.setVisible(true);
+                            btnBuscar.setVisible(false);
+                            txtNombre.setText(objUsuario.getNombreCompleto());
+                            cmbRole.setSelectedItem(objUsuario.getRole());
+                            txtDepartamento.setText(objUsuario.getDepartamento());
+                            txtUsuario.setText(objUsuario.getUsuario());
+                            txtPassword.setText(objUsuario.getPassword());
+                        }
                     } else {
                         panelMain.setVisible(true);
-                        btnBuscar.setVisible(false);
+                        btnGuardar.setVisible(false);
                         txtNombre.setText(objUsuario.getNombreCompleto());
                         cmbRole.setSelectedItem(objUsuario.getRole());
                         txtDepartamento.setText(objUsuario.getDepartamento());
                         txtUsuario.setText(objUsuario.getUsuario());
                         txtPassword.setText(objUsuario.getPassword());
+
+                        txtNombre.setEditable(false);
+                        cmbRole.setEnabled(false);
+                        txtDepartamento.setEditable(false);
+                        txtUsuario.setEditable(false);
+                        txtPassword.setEditable(false);
                     }
-                }else{
-                    panelMain.setVisible(true);
-                    btnGuardar.setVisible(false);
-                    txtNombre.setText(objUsuario.getNombreCompleto());
-                    cmbRole.setSelectedItem(objUsuario.getRole());
-                    txtDepartamento.setText(objUsuario.getDepartamento());
-                    txtUsuario.setText(objUsuario.getUsuario());
-                    txtPassword.setText(objUsuario.getPassword());
-                    
-                    txtNombre.setEditable(false);
-                    cmbRole.setEnabled(false);
-                    txtDepartamento.setEditable(false);
-                    txtUsuario.setEditable(false);
-                    txtPassword.setEditable(false);
+                } else {
+                    JOptionPane.showMessageDialog(this, "Usuario No Encontrado", "INFO", JOptionPane.INFORMATION_MESSAGE);
                 }
             } else {
-                JOptionPane.showMessageDialog(this, "Usuario No Encontrado", "INFO", JOptionPane.INFORMATION_MESSAGE);
-            }
-            }else{
                 JOptionPane.showMessageDialog(this, "No ha ingresado ninguna identificación", "INFO", JOptionPane.INFORMATION_MESSAGE);
             }
         } catch (Exception e) {

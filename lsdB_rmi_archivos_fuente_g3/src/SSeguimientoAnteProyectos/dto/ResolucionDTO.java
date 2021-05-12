@@ -1,4 +1,3 @@
-
 package SSeguimientoAnteProyectos.dto;
 
 import java.io.Serializable;
@@ -8,7 +7,8 @@ import java.time.LocalDate;
  *
  * @author Laura
  */
-public class ResolucionDTO implements Serializable{
+public class ResolucionDTO implements Serializable {
+
     private String atrCodigoResolucion;
     private long atrCodigoAnteproyecto;
     private LocalDate atrFecha;
@@ -42,6 +42,5 @@ public class ResolucionDTO implements Serializable{
     public void setAtrFecha(LocalDate atrFecha) {
         this.atrFecha = atrFecha;
     }
-    
-    
+
 }

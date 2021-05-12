@@ -9,7 +9,6 @@ import SGestionAnteproyectos.dto.FormatoBDTO;
 import cliente.ClienteDeObjetos;
 import java.awt.Image;
 import java.awt.Toolkit;
-import java.rmi.RemoteException;
 import java.util.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -30,12 +29,12 @@ public class GUIFB extends javax.swing.JFrame {
      */
     public GUIFB() {
         initComponents();
-         this.setLocationRelativeTo(null);
+        this.setLocationRelativeTo(null);
     }
 
     public GUIFB(GUIEvaluador prmGUIEvaluador, List<FormatoBDTO> prmFB) {
         initComponents();
-         this.setLocationRelativeTo(null);
+        this.setLocationRelativeTo(null);
         listFB = prmFB;
         atrGUIEvaluador = prmGUIEvaluador;
         buttonGroup1.add(rbAprobado);
@@ -279,7 +278,6 @@ public class GUIFB extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        System.out.println("index:" + cmbCodigoAnteproyecto.getSelectedIndex());
         if (cmbCodigoAnteproyecto.getSelectedIndex() == 0) {
             JOptionPane.showMessageDialog(this, "Debe seleccionar un AnteProyecto", "INFO", JOptionPane.INFORMATION_MESSAGE);
         } else {
@@ -287,7 +285,6 @@ public class GUIFB extends javax.swing.JFrame {
                 btnGuardar.setEnabled(true);
                 atrCO = ClienteDeObjetos.getInstancia();
                 atrFormatoSeleccionado = listFB.get(cmbCodigoAnteproyecto.getSelectedIndex() - 1);
-                System.out.println(atrFormatoSeleccionado.getIdEvaluador());
                 txtIdEvaluador.setText(String.valueOf(atrFormatoSeleccionado.getIdEvaluador()));
 
                 cmbCodigoAnteproyecto.setEnabled(false);
@@ -304,40 +301,7 @@ public class GUIFB extends javax.swing.JFrame {
         atrGUIEvaluador.cargarFormatos();
     }//GEN-LAST:event_btnVolverActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GUIFB.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GUIFB.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GUIFB.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GUIFB.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new GUIFB().setVisible(true);
-            }
-        });
-    }
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;

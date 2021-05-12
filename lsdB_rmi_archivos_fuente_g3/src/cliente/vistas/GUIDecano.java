@@ -14,6 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -31,13 +32,12 @@ public class GUIDecano extends javax.swing.JFrame {
      */
     public GUIDecano() {
         initComponents();
-         this.setLocationRelativeTo(null);
-
+        this.setLocationRelativeTo(null);
     }
 
     public GUIDecano(GUIInicioSesion prmGUI) {
         initComponents();
-         this.setLocationRelativeTo(null);
+        this.setLocationRelativeTo(null);
         objGuiInicioSesion = prmGUI;
         llenarTblAprobados();
         llenarTblHistorial();
@@ -50,9 +50,14 @@ public class GUIDecano extends javax.swing.JFrame {
             atrCO = ClienteDeObjetos.getInstancia();
             List<FormatoDDTO> listaAnteproyectos;
             listaAnteproyectos = atrCO.getObjRemotoAnteproyectos().consultarFormatoD();
+
+            DefaultComboBoxModel cmbAux = new DefaultComboBoxModel();
+            cmbAux.addElement("Seleccione un anteproyecto");
             for (FormatoDDTO formatoDDTO : listaAnteproyectos) {
-                cmbCodigo.addItem(String.valueOf(formatoDDTO.getCodigoAnteproyecto()));
+                cmbAux.addElement(String.valueOf(formatoDDTO.getCodigoAnteproyecto()));
+
             }
+            cmbCodigo.setModel(cmbAux);
         } catch (RemoteException ex) {
             Logger.getLogger(GUIRegistrarFD.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -417,7 +422,7 @@ public class GUIDecano extends javax.swing.JFrame {
                 .addGroup(pnlResolucionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblFecha)
                     .addComponent(lblFechaG))
-                .addContainerGap(334, Short.MAX_VALUE))
+                .addContainerGap(352, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -429,7 +434,7 @@ public class GUIDecano extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(pnlResolucion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(709, Short.MAX_VALUE))
+                        .addContainerGap(706, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(lblCodigo)
                         .addGap(30, 30, 30)
@@ -447,8 +452,7 @@ public class GUIDecano extends javax.swing.JFrame {
                     .addComponent(cmbCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnOK))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(pnlResolucion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18))
+                .addComponent(pnlResolucion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         tabListar.addTab("Generar Resolucion", jPanel2);
@@ -499,10 +503,10 @@ public class GUIDecano extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(this, "Resolucion generada correctamente", "INFO", JOptionPane.INFORMATION_MESSAGE);
                     //this.dispose();
                     atrCO.getObjRemotoAnteproyectos().eliminarAnteproyecto(codigo);
+                    cargarCombobox();
                     llenarTblAprobados();
                     llenarTblAnteproyectos();
 
-                    //cargarCombobox();
                 }
             } catch (RemoteException ex) {
                 Logger.getLogger(GUIDecano.class.getName()).log(Level.SEVERE, null, ex);
@@ -579,7 +583,6 @@ public class GUIDecano extends javax.swing.JFrame {
             tblFormatoC.setEnabled(false);
             tblFormatoD.setEnabled(false);
             for (AnteproyectoDTO Anteproyecto : listaAnteproyectos) {
-                System.out.println("Size: " + listaAnteproyectos.size());
                 Object[] objA = new Object[]{Anteproyecto.getFormatoA().getCodigoAnteproyecto(),
                     Anteproyecto.getFormatoA().getNombrePrograma(), Anteproyecto.getFormatoA().getTituloAnteproyecto(),
                     Anteproyecto.getFormatoA().getNomEstudiante1(), Anteproyecto.getFormatoA().getIdEstudiante1(),

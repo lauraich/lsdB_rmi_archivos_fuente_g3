@@ -7,7 +7,6 @@ package cliente.vistas;
 
 import SGestionAnteproyectos.dto.FormatoADTO;
 import cliente.ClienteDeObjetos;
-import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
 
 /**
@@ -24,12 +23,12 @@ public class GUIDirector extends javax.swing.JFrame {
      */
     public GUIDirector() {
         initComponents();
-         this.setLocationRelativeTo(null);
+        this.setLocationRelativeTo(null);
     }
 
     public GUIDirector(GUIInicioSesion prmGUI) {
         initComponents();
-         this.setLocationRelativeTo(null);
+        this.setLocationRelativeTo(null);
         objGuiInicioSesion = prmGUI;
         try {
             objCO = ClienteDeObjetos.getInstancia();
@@ -314,19 +313,19 @@ public class GUIDirector extends javax.swing.JFrame {
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         FormatoADTO objFA = new FormatoADTO();
-        
+
         objFA.setNombrePrograma(txtNombrePrograma.getText());
         objFA.setTituloAnteproyecto(txtTituloAnteproyecto.getText());
-        
+
         objFA.setNomEstudiante1(txtNombreEstudiante1.getText());
-        String id2=txtIdEstudiante2.getText();
-        if(id2.compareTo("")==0){
+        String id2 = txtIdEstudiante2.getText();
+        if (id2.compareTo("") == 0) {
             objFA.setIdEstudiante2(-1);
-        }else{
-            
+        } else {
+
             objFA.setIdEstudiante2(Long.parseLong(id2));
         }
-        
+
         objFA.setNomEstudiante2(txtNombreEstudiante2.getText());
         objFA.setNombreDirector(txtNombreDirector.getText());
         objFA.setNombreCoDirector(txtNombreCoDirector.getText());
@@ -353,8 +352,6 @@ public class GUIDirector extends javax.swing.JFrame {
                 } else {
                     JOptionPane.showMessageDialog(this, "Ha ocurrido un error al registrar el formato", "ERROR", JOptionPane.ERROR_MESSAGE);
                 }
-                System.out.println("Tamaño Lista: " + objCO.getObjRemotoAnteproyectos().consultarFormatoA().size());
-                System.out.println("Id Es1: " + txtIdEstudiante1.getText());
             }
         } catch (Exception e) {
         }
@@ -364,6 +361,11 @@ public class GUIDirector extends javax.swing.JFrame {
         if (txtNombrePrograma.getText().length() == 0 || txtTituloAnteproyecto.getText().length() == 0 || txtIdEstudiante1.getText().length() == 0 || txtNombreEstudiante1.getText().length() == 0 || txtNombreDirector.getText().length() == 0 || txtObjetivos.getText().length() == 0) {
             JOptionPane.showMessageDialog(this, "Se debe diligenciar todos los campos del formulario", "ADVERTENCIA", JOptionPane.WARNING_MESSAGE);
             return false;
+        }
+        if ((txtIdEstudiante2.getText().length() != 0 && txtNombreEstudiante2.getText().length() == 0) || (txtIdEstudiante2.getText().length() == 0 && txtNombreEstudiante2.getText().length() != 0)) {
+            JOptionPane.showMessageDialog(this, "Debe diligenciar completamente los datos del estudiante 2", "ADVERTENCIA", JOptionPane.WARNING_MESSAGE);
+            return false;
+
         }
         return true;
     }
@@ -383,40 +385,7 @@ public class GUIDirector extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtIdEstudiante2KeyTyped
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GUIDirector.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GUIDirector.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GUIDirector.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GUIDirector.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new GUIDirector().setVisible(true);
-            }
-        });
-    }
+ 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCerrarSesion;

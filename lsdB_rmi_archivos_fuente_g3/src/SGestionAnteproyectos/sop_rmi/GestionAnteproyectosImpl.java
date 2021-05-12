@@ -35,7 +35,7 @@ public class GestionAnteproyectosImpl extends UnicastRemoteObject implements Ges
     public GestionAnteproyectosImpl() throws RemoteException {
         listaAnteproyectos = new ArrayList<>();
         listAnteproyectosNoApro = new ArrayList<>();
-        atrDirectores=new ArrayList<>();
+        atrDirectores = new ArrayList<>();
     }
 
     @Override
@@ -89,16 +89,10 @@ public class GestionAnteproyectosImpl extends UnicastRemoteObject implements Ges
             for (int i = 0; i < listaAnteproyectos.size(); i++) {
                 AnteproyectoDTO objAnteproyecto = listaAnteproyectos.get(i);
 
-                System.out.println("codigo: " + objAnteproyecto.getCodigoAnteproyecto());
-                System.out.println("codigo: " + prmFormato.getCodigoAnteproyecto());
                 if (objAnteproyecto.getCodigoAnteproyecto() == prmFormato.getCodigoAnteproyecto()) {
 
-                    System.out.println("Entró al primer if");
-
                     if (objAnteproyecto.getFormatoB1() != null) {
-                        System.out.println("Entró al segundo if");
                         if (objAnteproyecto.getFormatoB1().getIdEvaluador() == prmFormato.getIdEvaluador()) {
-                            System.out.println("Entro tercer if");
                             objAnteproyecto.setFormatoB1(prmFormato);
                             if (objAnteproyecto.getFormatoB1().getConcepto() != null && objAnteproyecto.getFormatoB2().getConcepto() != null) {
                                 if (objAnteproyecto.getFormatoB1().getConcepto().compareTo("APROBADO") != 0 || objAnteproyecto.getFormatoB2().getConcepto().compareTo("APROBADO") != 0) {
@@ -107,7 +101,7 @@ public class GestionAnteproyectosImpl extends UnicastRemoteObject implements Ges
                                     System.out.println("===saliendo de RegistrarFormatoB()...===");
                                     return true;
                                 }
-                                if (objAnteproyecto.getFormatoB1().getConcepto().compareTo("APROBADO") == 0 && objAnteproyecto.getFormatoB2().getConcepto().compareTo("APROBADO") == 0){
+                                if (objAnteproyecto.getFormatoB1().getConcepto().compareTo("APROBADO") == 0 && objAnteproyecto.getFormatoB2().getConcepto().compareTo("APROBADO") == 0) {
                                     enviarNotificaciones(objAnteproyecto);
                                 }
                             }
@@ -122,7 +116,7 @@ public class GestionAnteproyectosImpl extends UnicastRemoteObject implements Ges
                                     System.out.println("===saliendo de RegistrarFormatoB()...===");
                                     return true;
                                 }
-                                if (objAnteproyecto.getFormatoB1().getConcepto().compareTo("APROBADO") == 0 && objAnteproyecto.getFormatoB2().getConcepto().compareTo("APROBADO") == 0){
+                                if (objAnteproyecto.getFormatoB1().getConcepto().compareTo("APROBADO") == 0 && objAnteproyecto.getFormatoB2().getConcepto().compareTo("APROBADO") == 0) {
                                     enviarNotificaciones(objAnteproyecto);
                                 }
                             }
@@ -135,7 +129,6 @@ public class GestionAnteproyectosImpl extends UnicastRemoteObject implements Ges
                         }
 
                     } else {
-                        System.out.println("Entró al else del segundo if");
                         objAnteproyecto.setFormatoB1(prmFormato);
                         System.out.println("===saliendo de RegistrarFormatoB()...===");
                         return true;
@@ -144,24 +137,25 @@ public class GestionAnteproyectosImpl extends UnicastRemoteObject implements Ges
             }
 
         } catch (Exception e) {
-            System.out.println("Mnesaje error: " + e.getMessage());
+            System.out.println("Mensaje error: " + e.getMessage());
         }
         System.out.println("===saliendo de RegistrarFormatoB()...===");
         return false;
     }
-    private void enviarNotificaciones(AnteproyectoDTO prmAnteproyecto){
+
+    private void enviarNotificaciones(AnteproyectoDTO prmAnteproyecto) {
         try {
             System.out.println("===Enviando Notificaciones()===");
-            AsignadoDTO objAsignado=new AsignadoDTO(prmAnteproyecto.getCodigoAnteproyecto(),prmAnteproyecto.getFormatoB1().getIdEvaluador(), prmAnteproyecto.getFormatoB2().getIdEvaluador());
+            AsignadoDTO objAsignado = new AsignadoDTO(prmAnteproyecto.getCodigoAnteproyecto(), prmAnteproyecto.getFormatoB1().getIdEvaluador(), prmAnteproyecto.getFormatoB2().getIdEvaluador());
             for (RegistroDTO objDirector : atrDirectores) {
-                    //if(objDirector.getIdAnteproyecto()==prmAnteproyecto.getCodigoAnteproyecto()){
-                        objDirector.getReferenciaDirector().informarNotificacion(objAsignado);
-                    //}
+
+                objDirector.getReferenciaDirector().informarNotificacion(objAsignado);
+
             }
-        
+
         } catch (Exception e) {
         }
-        
+
     }
 
     @Override
@@ -325,10 +319,11 @@ public class GestionAnteproyectosImpl extends UnicastRemoteObject implements Ges
         }
         return false;
     }
+
     @Override
-     public void registrarCallback(RegistroDTO prmRegistro)throws RemoteException{
+    public void registrarCallback(RegistroDTO prmRegistro) throws RemoteException {
         System.out.println("===Desde registrarCALLBACK===");
-        if(!atrDirectores.contains(prmRegistro)){
+        if (!atrDirectores.contains(prmRegistro)) {
             atrDirectores.add(prmRegistro);
         }
         System.out.println("===Saliendo de registrarCallback()...===");

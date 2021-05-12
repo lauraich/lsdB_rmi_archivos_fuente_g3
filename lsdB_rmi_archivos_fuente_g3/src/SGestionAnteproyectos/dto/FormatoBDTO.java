@@ -13,6 +13,7 @@ import java.util.Date;
  * @author juanf
  */
 public class FormatoBDTO implements Serializable {
+
     private long atrCodigoAnteproyecto;
     private String atrConcepto;
     private String atrObservaciones;
@@ -58,5 +59,5 @@ public class FormatoBDTO implements Serializable {
     public void setIdEvaluador(long prmIdEvaluador) {
         this.atrIdEvaluador = prmIdEvaluador;
     }
-    
+
 }

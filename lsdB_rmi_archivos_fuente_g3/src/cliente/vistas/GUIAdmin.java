@@ -12,56 +12,59 @@ import java.awt.Toolkit;
 import java.rmi.RemoteException;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
-import javax.swing.text.Element;
-import javax.swing.text.TableView;
 
 /**
  *
  * @author juanf
  */
 public class GUIAdmin extends javax.swing.JFrame {
+
     GUIInicioSesion objGuiInicioSesion;
-     ClienteDeObjetos atrCO;
+    ClienteDeObjetos atrCO;
+
     /**
      * Creates new form GUIAdmin
      */
     public GUIAdmin() {
         initComponents();
-         this.setLocationRelativeTo(null);
+        this.setLocationRelativeTo(null);
     }
+
     public GUIAdmin(GUIInicioSesion prmGUI) throws RemoteException {
         initComponents();
-         this.setLocationRelativeTo(null);
-        objGuiInicioSesion=prmGUI;
+        this.setLocationRelativeTo(null);
+        objGuiInicioSesion = prmGUI;
         mostrarUsuarios();
     }
+
     @Override
     public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("recursos/iconApp.png"));
         return retValue;
     }
-    public void mostrarUsuarios() throws RemoteException{
+
+    public void mostrarUsuarios() throws RemoteException {
         this.setVisible(true);
-        atrCO=ClienteDeObjetos.getInstancia();
-        List<UsuarioDTO> listaUsuarios= atrCO.getObjRemotoUsuarios().listarUsuarios();
-        DefaultTableModel modelo=new DefaultTableModel();
+        atrCO = ClienteDeObjetos.getInstancia();
+        List<UsuarioDTO> listaUsuarios = atrCO.getObjRemotoUsuarios().listarUsuarios();
+        DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("Identificación");
         modelo.addColumn("Nombre Completo");
         modelo.addColumn("Role");
         modelo.addColumn("Departameto");
         modelo.addColumn("Usuario");
         modelo.addColumn("Contraseña");
-        
+
         tableUsuarios.setEnabled(false);
         for (int i = 0; i < listaUsuarios.size(); i++) {
-            UsuarioDTO Usuario=listaUsuarios.get(i);
-            Object [] obj=new Object[]{Usuario.getIdentificacion(),Usuario.getNombreCompleto(),Usuario.getRole(),Usuario.getDepartamento(),Usuario.getUsuario(),Usuario.getPassword()};
+            UsuarioDTO Usuario = listaUsuarios.get(i);
+            Object[] obj = new Object[]{Usuario.getIdentificacion(), Usuario.getNombreCompleto(), Usuario.getRole(), Usuario.getDepartamento(), Usuario.getUsuario(), Usuario.getPassword()};
             modelo.addRow(obj);
         }
-        
+
         tableUsuarios.setModel(modelo);
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -185,61 +188,28 @@ public class GUIAdmin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarSesionActionPerformed
-       //this.setVisible(false);
-       this.dispose();
-       objGuiInicioSesion.setVisible(true);
-        
+        //this.setVisible(false);
+        this.dispose();
+        objGuiInicioSesion.setVisible(true);
+
     }//GEN-LAST:event_btnCerrarSesionActionPerformed
 
     private void btnRegistrarUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarUsuActionPerformed
         this.setVisible(false);
-        new GUIFormularioUsuario(this,1).setVisible(true);
+        new GUIFormularioUsuario(this, 1).setVisible(true);
     }//GEN-LAST:event_btnRegistrarUsuActionPerformed
 
     private void btnModififcarUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModififcarUsuActionPerformed
         this.setVisible(false);
-        new GUIFormularioUsuario(this,2).setVisible(true);
+        new GUIFormularioUsuario(this, 2).setVisible(true);
     }//GEN-LAST:event_btnModififcarUsuActionPerformed
 
     private void btnConsultarInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarInfoActionPerformed
-       this.setVisible(false);
-        new GUIFormularioUsuario(this,3).setVisible(true);
+        this.setVisible(false);
+        new GUIFormularioUsuario(this, 3).setVisible(true);
     }//GEN-LAST:event_btnConsultarInfoActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GUIAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GUIAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GUIAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GUIAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new GUIAdmin().setVisible(true);
-            }
-        });
-    }
+  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCerrarSesion;

@@ -8,11 +8,12 @@ package cliente.vistas;
 import SGestionAnteproyectos.dto.RegistroDTO;
 import SGestionAnteproyectos.dto.UsuarioDTO;
 import cliente.ClienteDeObjetos;
-import javax.swing.Icon;
 import javax.swing.JOptionPane;
 import cliente.sop_rmi.*;
 import java.awt.Image;
 import java.awt.Toolkit;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 
 /**
  *
@@ -27,7 +28,7 @@ public class GUIInicioSesion extends javax.swing.JFrame {
      */
     public GUIInicioSesion() {
         initComponents();
-         this.setLocationRelativeTo(null);
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -70,11 +71,9 @@ public class GUIInicioSesion extends javax.swing.JFrame {
         jPanel1.add(lblUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, -1, -1));
 
         txtUsuario.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
-        txtUsuario.setText("fernando");
         jPanel1.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 160, -1));
 
         txtPassword.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
-        txtPassword.setText("123321");
         jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 160, -1));
 
         btnIniciarSesion.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
@@ -110,92 +109,61 @@ public class GUIInicioSesion extends javax.swing.JFrame {
             String varPassword = txtPassword.getText();
             UsuarioDTO objUsuario = atrCO.getObjRemotoUsuarios().validarUsuario(varUsuario, varPassword);
             if (objUsuario != null) {
-                
+
                 switch (objUsuario.getRole()) {
                     case "ADMIN":
-                        GUIAdmin objGUIAdmin=new GUIAdmin(this);
+                        GUIAdmin objGUIAdmin = new GUIAdmin(this);
                         objGUIAdmin.setVisible(true);
                         this.setVisible(false);
                         break;
                     case "DIRECTOR":
-                        GUIDirector objGUIDirector=new GUIDirector(this);
-                        DirectorCllbckImpl objRemotoCallback=new DirectorCllbckImpl(objGUIDirector);
-                        RegistroDTO objRegistro=new RegistroDTO(-1, objUsuario.getIdentificacion(), objRemotoCallback);
+                        GUIDirector objGUIDirector = new GUIDirector(this);
+                        DirectorCllbckImpl objRemotoCallback = new DirectorCllbckImpl(objGUIDirector);
+                        RegistroDTO objRegistro = new RegistroDTO(-1, objUsuario.getIdentificacion(), objRemotoCallback);
                         atrCO.getObjRemotoAnteproyectos().registrarCallback(objRegistro);
                         objGUIDirector.setVisible(true);
                         this.setVisible(false);
                         break;
                     case "EVALUADOR":
-                        GUIEvaluador objGUIEvaluador=new GUIEvaluador(this, objUsuario);
+                        GUIEvaluador objGUIEvaluador = new GUIEvaluador(this, objUsuario);
                         objGUIEvaluador.setVisible(true);
                         this.setVisible(false);
                         break;
                     case "JEFE DEPARTAMENTO":
-                        GUIJefeDepto objGUIJefeDepto=new GUIJefeDepto(this);
+                        GUIJefeDepto objGUIJefeDepto = new GUIJefeDepto(this);
                         objGUIJefeDepto.setVisible(true);
                         this.setVisible(false);
                         break;
                     case "COORDINADOR":
-                        GUICoordinador objGUICoordinador=new GUICoordinador(this);
+                        GUICoordinador objGUICoordinador = new GUICoordinador(this);
                         objGUICoordinador.setVisible(true);
                         this.setVisible(false);
                         break;
                     case "DECANO":
-                        GUIDecano objGUIDecano=new GUIDecano(this);
+                        GUIDecano objGUIDecano = new GUIDecano(this);
                         objGUIDecano.setVisible(true);
                         this.setVisible(false);
                         break;
                 }
-            }else{
-               // lblErrorCredenciales.setVisible(true);
+            } else {
+                // lblErrorCredenciales.setVisible(true);
                 //txtUsuario.setText("");
                 //txtPassword.setText("");
-                JOptionPane.showMessageDialog(this,"Usuario o contraseña incorrecto","ERROR",JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrecto", "ERROR", JOptionPane.ERROR_MESSAGE);
             }
         } catch (Exception e) {
-            System.out.println("Error: "+e.getMessage());
+            System.out.println("Error: " + e.getMessage());
         }
-
+        txtUsuario.setText("");
+        txtPassword.setText("");
     }//GEN-LAST:event_btnIniciarSesionActionPerformed
     @Override
     public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("recursos/iconApp.png"));
         return retValue;
     }
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GUIInicioSesion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GUIInicioSesion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GUIInicioSesion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GUIInicioSesion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new GUIInicioSesion().setVisible(true);
-            }
-        });
-    }
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIniciarSesion;

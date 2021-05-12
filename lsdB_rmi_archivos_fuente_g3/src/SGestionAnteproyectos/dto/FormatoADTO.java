@@ -11,7 +11,8 @@ import java.io.Serializable;
  *
  * @author juanf
  */
-public class FormatoADTO implements Serializable{
+public class FormatoADTO implements Serializable {
+
     private long atrCodigoAnteproyecto;
     String atrNombrePrograma;
     String atrTituloAnteproyecto;
@@ -71,8 +72,6 @@ public class FormatoADTO implements Serializable{
         this.atrNomEstudiante2 = atrNomEstudiante2;
     }
 
-    
-
     public String getNombreDirector() {
         return atrNombreDirector;
     }
@@ -104,5 +103,5 @@ public class FormatoADTO implements Serializable{
     public void setCodigoAnteproyecto(long atrCodigoAnteproyecto) {
         this.atrCodigoAnteproyecto = atrCodigoAnteproyecto;
     }
-    
+
 }

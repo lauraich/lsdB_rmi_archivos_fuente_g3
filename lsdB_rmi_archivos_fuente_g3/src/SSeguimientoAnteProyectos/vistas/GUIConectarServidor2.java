@@ -15,13 +15,15 @@ import java.rmi.RemoteException;
  * @author Laura
  */
 public class GUIConectarServidor2 extends javax.swing.JFrame {
-    static GUIConectarServidor2  vistaSeguimiento;
+
+    static GUIConectarServidor2 vistaSeguimiento;
+
     /**
      * Creates new form GUIConectarServidor2
      */
     public GUIConectarServidor2() {
         initComponents();
-         this.setLocationRelativeTo(null);
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -61,11 +63,14 @@ public class GUIConectarServidor2 extends javax.swing.JFrame {
         jPanel1.add(lblDireccionIp2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, -1, -1));
 
         txtDireccionIp.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
-        txtDireccionIp.setText("localhost");
         jPanel1.add(txtDireccionIp, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 227, -1));
 
         txtPuerto.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
-        txtPuerto.setText("2021");
+        txtPuerto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPuertoKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtPuerto, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, 224, -1));
 
         lblPuerto.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
@@ -102,22 +107,30 @@ public class GUIConectarServidor2 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnConectarS2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConectarS2ActionPerformed
-       String IP=txtDireccionIp.getText();
-       int puerto=Integer.parseInt(txtPuerto.getText());
-       try{
-        ServidorDeObjetos2 SO = new ServidorDeObjetos2(IP,puerto);
-        SO.conectar();
-        this.dispose();
-       }catch(RemoteException ex){
-           System.err.println("No fue posible Arrancar el NS o Registrar el objeto remoto" +  ex.getMessage());
-       }     
+        String IP = txtDireccionIp.getText();
+        int puerto = Integer.parseInt(txtPuerto.getText());
+        try {
+            ServidorDeObjetos2 SO = new ServidorDeObjetos2(IP, puerto);
+            SO.conectar();
+            this.dispose();
+        } catch (RemoteException ex) {
+            System.err.println("No fue posible Arrancar el NS o Registrar el objeto remoto" + ex.getMessage());
+        }
     }//GEN-LAST:event_btnConectarS2ActionPerformed
-@Override
+
+    private void txtPuertoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPuertoKeyTyped
+        char c = evt.getKeyChar();
+        if (c < '0' || c > '9') {
+            evt.consume();
+            //JOptionPane.showMessageDialog(null, "Solo se puede ingresar numeros", "Advertencia", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_txtPuertoKeyTyped
+    @Override
     public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("recursos/iconApp.png"));
         return retValue;
     }
-   
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConectarS2;

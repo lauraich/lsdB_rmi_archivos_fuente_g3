@@ -57,7 +57,6 @@ public class GUIConectarServidor1 extends javax.swing.JFrame {
         jPanel1.add(lblDireccionIp1, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 79, -1, -1));
 
         txtDireccionIp1.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
-        txtDireccionIp1.setText("localhost");
         jPanel1.add(txtDireccionIp1, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 117, 227, -1));
 
         lblTituloCnx1.setFont(new java.awt.Font("Yu Gothic UI", 1, 18)); // NOI18N
@@ -71,7 +70,11 @@ public class GUIConectarServidor1 extends javax.swing.JFrame {
         jPanel1.add(lblPuerto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 172, -1, -1));
 
         txtPuerto1.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
-        txtPuerto1.setText("2021");
+        txtPuerto1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPuerto1KeyTyped(evt);
+            }
+        });
         jPanel1.add(txtPuerto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(94, 210, 224, -1));
 
         btnConectarS1.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
@@ -112,12 +115,20 @@ public class GUIConectarServidor1 extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnConectarS1ActionPerformed
 
+    private void txtPuerto1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPuerto1KeyTyped
+        char c = evt.getKeyChar();
+        if (c < '0' || c > '9') {
+            evt.consume();
+            //JOptionPane.showMessageDialog(null, "Solo se puede ingresar numeros", "Advertencia", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_txtPuerto1KeyTyped
+
     @Override
     public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("recursos/iconApp.png"));
         return retValue;
     }
-  
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConectarS1;

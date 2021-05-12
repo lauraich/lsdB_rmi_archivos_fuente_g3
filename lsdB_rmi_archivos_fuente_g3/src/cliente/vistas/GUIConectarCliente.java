@@ -15,13 +15,15 @@ import java.rmi.RemoteException;
  * @author Laura
  */
 public class GUIConectarCliente extends javax.swing.JFrame {
+
     ClienteDeObjetos atrCO;
     static GUIConectarCliente vistaCliente;
+
     /**
      * Creates new form GUIConectarCliente
      */
     public GUIConectarCliente() {
-        
+
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -62,7 +64,6 @@ public class GUIConectarCliente extends javax.swing.JFrame {
         jPanel1.add(lblDireccionIpclnt, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, -1, -1));
 
         txtDireccionIpclnt.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
-        txtDireccionIpclnt.setText("localhost");
         jPanel1.add(txtDireccionIpclnt, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, 227, -1));
 
         lblPuertoclnt.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
@@ -71,7 +72,11 @@ public class GUIConectarCliente extends javax.swing.JFrame {
         jPanel1.add(lblPuertoclnt, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, -1, -1));
 
         txtPuertoclnt.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
-        txtPuertoclnt.setText("2021");
+        txtPuertoclnt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPuertoclntKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtPuertoclnt, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, 228, -1));
 
         btnConectarC.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
@@ -104,57 +109,32 @@ public class GUIConectarCliente extends javax.swing.JFrame {
         String IP = txtDireccionIpclnt.getText();
         int puerto = Integer.parseInt(txtPuertoclnt.getText());
         try {
-            atrCO=ClienteDeObjetos.getInstancia();
+            atrCO = ClienteDeObjetos.getInstancia();
             atrCO.setDireccionNS(IP);
             atrCO.setNumPuertoNS(puerto);
             atrCO.conectar();
             this.dispose();
-            GUIInicioSesion objInicioSesion= new GUIInicioSesion();
+            GUIInicioSesion objInicioSesion = new GUIInicioSesion();
             objInicioSesion.setVisible(true);
         } catch (RemoteException ex) {
             System.err.println("No fue posible Arrancar el NS o Registrar el objeto remoto" + ex.getMessage());
         }
     }//GEN-LAST:event_btnConectarCActionPerformed
+
+    private void txtPuertoclntKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPuertoclntKeyTyped
+        char c = evt.getKeyChar();
+        if (c < '0' || c > '9') {
+            evt.consume();
+            //JOptionPane.showMessageDialog(null, "Solo se puede ingresar numeros", "Advertencia", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_txtPuertoclntKeyTyped
     @Override
     public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("recursos/iconApp.png"));
         return retValue;
     }
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GUIConectarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GUIConectarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GUIConectarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GUIConectarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                vistaCliente= new GUIConectarCliente();
-                vistaCliente.setVisible(true);
-            }
-        });
-    }
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConectarC;

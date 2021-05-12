@@ -18,55 +18,15 @@ import java.util.List;
 public class GestionUsuariosImpl extends UnicastRemoteObject implements GestionUsuariosInt {
 
     List<UsuarioDTO> listaUsuarios;
-    
-    public GestionUsuariosImpl() throws RemoteException{
+
+    public GestionUsuariosImpl() throws RemoteException {
         listaUsuarios = new ArrayList<>();
-        UsuarioDTO objAdmin=new UsuarioDTO();
+        UsuarioDTO objAdmin = new UsuarioDTO();
         objAdmin.setIdentificacion(1);
-        objAdmin.setNombreCompleto("jUAN f CM");
+        objAdmin.setNombreCompleto("JUAN f CM");
         objAdmin.setUsuario("fernando");
         objAdmin.setPassword("123321");
         objAdmin.setRole("ADMIN");
-        objAdmin.setDepartamento("Sistemas");
-        listaUsuarios.add(objAdmin);
-        objAdmin=new UsuarioDTO();
-        objAdmin.setIdentificacion(2);
-        objAdmin.setNombreCompleto("lasdf");
-        objAdmin.setUsuario("d");
-        objAdmin.setPassword("d");
-        objAdmin.setRole("DIRECTOR");
-        objAdmin.setDepartamento("Sistemas");
-        listaUsuarios.add(objAdmin);
-        objAdmin=new UsuarioDTO();
-        objAdmin.setIdentificacion(3);
-        objAdmin.setNombreCompleto("lasdf");
-        objAdmin.setUsuario("c");
-        objAdmin.setPassword("c");
-        objAdmin.setRole("COORDINADOR");
-        objAdmin.setDepartamento("Sistemas");
-        listaUsuarios.add(objAdmin);
-        objAdmin=new UsuarioDTO();
-        objAdmin.setIdentificacion(4);
-        objAdmin.setNombreCompleto("lasdf");
-        objAdmin.setUsuario("ev1");
-        objAdmin.setPassword("ev1");
-        objAdmin.setRole("EVALUADOR");
-        objAdmin.setDepartamento("Sistemas");
-        listaUsuarios.add(objAdmin);
-        objAdmin=new UsuarioDTO();
-        objAdmin.setIdentificacion(5);
-        objAdmin.setNombreCompleto("lasdf");
-        objAdmin.setUsuario("ev2");
-        objAdmin.setPassword("ev2");
-        objAdmin.setRole("EVALUADOR");
-        objAdmin.setDepartamento("Sistemas");
-        listaUsuarios.add(objAdmin);
-        objAdmin=new UsuarioDTO();
-        objAdmin.setIdentificacion(6);
-        objAdmin.setNombreCompleto("lasdf");
-        objAdmin.setUsuario("jf");
-        objAdmin.setPassword("jf");
-        objAdmin.setRole("JEFE DEPARTAMENTO");
         objAdmin.setDepartamento("Sistemas");
         listaUsuarios.add(objAdmin);
     }
@@ -83,11 +43,12 @@ public class GestionUsuariosImpl extends UnicastRemoteObject implements GestionU
             return false;
         }
     }
+
     @Override
-    public boolean existeUsuario(String pmrUser)throws RemoteException{
+    public boolean existeUsuario(String pmrUser) throws RemoteException {
         System.out.println("===desde existeUsuario()===");
         for (UsuarioDTO Usuario : listaUsuarios) {
-            if(Usuario.getUsuario().compareTo(pmrUser)==0){
+            if (Usuario.getUsuario().compareTo(pmrUser) == 0) {
                 System.out.println("======");
                 return true;
             }
@@ -101,8 +62,8 @@ public class GestionUsuariosImpl extends UnicastRemoteObject implements GestionU
         System.out.println("===desde de ModificarUsuario()===");
         try {
             boolean encontro = false;
-            for (int i=0;i<listaUsuarios.size();i++) {
-                UsuarioDTO Usuario=listaUsuarios.get(i);
+            for (int i = 0; i < listaUsuarios.size(); i++) {
+                UsuarioDTO Usuario = listaUsuarios.get(i);
                 if (Usuario.getIdentificacion() == prmUsuario.getIdentificacion()) {
                     listaUsuarios.remove(i);
                     listaUsuarios.add(prmUsuario);
@@ -130,7 +91,7 @@ public class GestionUsuariosImpl extends UnicastRemoteObject implements GestionU
                 }
             }
         } catch (Exception e) {
-            
+
         }
         System.out.println("===Saliendo de ConsultarUsuarios()...===");
         return null;
@@ -139,13 +100,13 @@ public class GestionUsuariosImpl extends UnicastRemoteObject implements GestionU
     @Override
     public UsuarioDTO validarUsuario(String prmUsuario, String prmPassword) throws RemoteException {
         System.out.println("===desde validarUsuario()===");
-        System.out.println("...Desde Validar Usuario: "+prmUsuario+"   "+prmPassword);
-            for (UsuarioDTO objUsuario : listaUsuarios) {
-                if (objUsuario.getUsuario().compareTo(prmUsuario)==0 && objUsuario.getPassword().compareTo(prmPassword)==0) {
-                    System.out.println("===Saliendo de validarUsuario()...===");
-                    return objUsuario;
-                }
+        System.out.println("...Desde Validar Usuario: " + prmUsuario + "   " + prmPassword);
+        for (UsuarioDTO objUsuario : listaUsuarios) {
+            if (objUsuario.getUsuario().compareTo(prmUsuario) == 0 && objUsuario.getPassword().compareTo(prmPassword) == 0) {
+                System.out.println("===Saliendo de validarUsuario()...===");
+                return objUsuario;
             }
+        }
         System.out.println("===Saliendo de validarUsuario()...===");
         return null;
     }
@@ -154,7 +115,7 @@ public class GestionUsuariosImpl extends UnicastRemoteObject implements GestionU
     public List<UsuarioDTO> listarUsuarios() {
         System.out.println("===Desde Listar Usuarios()===");
         System.out.println("===Saleindo de listar Usuarios()...===");
-       return listaUsuarios;
+        return listaUsuarios;
     }
 
 }

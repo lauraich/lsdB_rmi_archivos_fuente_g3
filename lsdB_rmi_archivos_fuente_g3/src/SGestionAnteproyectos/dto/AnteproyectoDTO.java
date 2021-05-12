@@ -11,7 +11,8 @@ import java.io.Serializable;
  *
  * @author juanf
  */
-public class AnteproyectoDTO implements Serializable{
+public class AnteproyectoDTO implements Serializable {
+
     private long atrCodigoAnteproyecto;
     private FormatoADTO atrFormatoA;
     private FormatoBDTO atrFormatoB1;
@@ -34,6 +35,7 @@ public class AnteproyectoDTO implements Serializable{
     public void setFormatoB1(FormatoBDTO prmFormatoB) {
         this.atrFormatoB1 = prmFormatoB;
     }
+
     public FormatoBDTO getFormatoB2() {
         return atrFormatoB2;
     }
@@ -65,5 +67,5 @@ public class AnteproyectoDTO implements Serializable{
     public void setCodigoAnteproyecto(long prmCodigoAnteproyecto) {
         this.atrCodigoAnteproyecto = prmCodigoAnteproyecto;
     }
-    
+
 }

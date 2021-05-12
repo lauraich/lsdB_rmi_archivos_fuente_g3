@@ -11,7 +11,8 @@ import java.io.Serializable;
  *
  * @author juanf
  */
-public class UsuarioDTO implements Serializable{
+public class UsuarioDTO implements Serializable {
+
     private long atrIdentificacion;
     private String atrNombreCompleto;
     private String atrRole;
@@ -21,7 +22,7 @@ public class UsuarioDTO implements Serializable{
 
     public UsuarioDTO() {
     }
-    
+
     public UsuarioDTO(long atrIdentificacion, String atrNombreCompleto, String atrRole, String atrDepartamento, String atrUsuario, String atrPassword) {
         this.atrIdentificacion = atrIdentificacion;
         this.atrNombreCompleto = atrNombreCompleto;
@@ -31,7 +32,6 @@ public class UsuarioDTO implements Serializable{
         this.atrPassword = atrPassword;
     }
 
-    
     public long getIdentificacion() {
         return atrIdentificacion;
     }
@@ -61,7 +61,7 @@ public class UsuarioDTO implements Serializable{
     }
 
     public void setDepartamento(String prmDepartamento) {
-        this.atrDepartamento =prmDepartamento;
+        this.atrDepartamento = prmDepartamento;
     }
 
     public String getUsuario() {
@@ -79,5 +79,5 @@ public class UsuarioDTO implements Serializable{
     public void setPassword(String prmPassword) {
         this.atrPassword = prmPassword;
     }
-    
+
 }

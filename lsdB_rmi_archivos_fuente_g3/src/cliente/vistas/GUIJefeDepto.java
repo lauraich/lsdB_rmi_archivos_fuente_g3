@@ -6,7 +6,6 @@
 package cliente.vistas;
 
 import SGestionAnteproyectos.dto.FormatoBDTO;
-import SGestionAnteproyectos.dto.UsuarioDTO;
 import cliente.ClienteDeObjetos;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -18,42 +17,48 @@ import javax.swing.table.DefaultTableModel;
  * @author juanf
  */
 public class GUIJefeDepto extends javax.swing.JFrame {
+
     GUIInicioSesion objGuiInicioSesion;
     ClienteDeObjetos atrCO;
     List<FormatoBDTO> atrList;
+
     /**
      * Creates new form GUIJefeDepto
      */
     public GUIJefeDepto() {
         initComponents();
-         this.setLocationRelativeTo(null);
+        this.setLocationRelativeTo(null);
     }
+
     public GUIJefeDepto(GUIInicioSesion prmGUI) {
         initComponents();
-         this.setLocationRelativeTo(null);
-        objGuiInicioSesion=prmGUI;
+        this.setLocationRelativeTo(null);
+        objGuiInicioSesion = prmGUI;
         cargarFormatos();
     }
+
     @Override
     public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("recursos/iconApp.png"));
         return retValue;
     }
-    public void cargarFormatos(){
+
+    public void cargarFormatos() {
         try {
-            atrCO=ClienteDeObjetos.getInstancia();
-            atrList=atrCO.getObjRemotoAnteproyectos().consultarFormatoB();
-            DefaultTableModel model=new DefaultTableModel();
+            atrCO = ClienteDeObjetos.getInstancia();
+            atrList = atrCO.getObjRemotoAnteproyectos().consultarFormatoB();
+            DefaultTableModel model = new DefaultTableModel();
             model.addColumn("Codigo Anteproyecto");
             model.addColumn("Id Evaluador");
             for (FormatoBDTO formatoB : atrList) {
-                Object [] obj=new Object[]{formatoB.getCodigoAnteproyecto(), formatoB.getIdEvaluador()};
+                Object[] obj = new Object[]{formatoB.getCodigoAnteproyecto(), formatoB.getIdEvaluador()};
                 model.addRow(obj);
             }
             tblFormatos.setModel(model);
         } catch (Exception e) {
         }
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -139,45 +144,12 @@ public class GUIJefeDepto extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenu2MouseClicked
 
     private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
-        GUIFC vtn=new GUIFC(this,atrList);
+        GUIFC vtn = new GUIFC(this, atrList);
         vtn.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jMenu1MouseClicked
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GUIJefeDepto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GUIJefeDepto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GUIJefeDepto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GUIJefeDepto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new GUIJefeDepto().setVisible(true);
-            }
-        });
-    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu jMenu1;
