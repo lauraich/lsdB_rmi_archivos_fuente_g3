@@ -53,7 +53,7 @@ public class GestionAnteproyectosImpl extends UnicastRemoteObject implements Ges
         varCodigo = varCodigo * 1000;
         varCodigo = varCodigo + secuencial;
         secuencial = secuencial + 1;
-        System.out.println("===Saliedo de generarCodigo()...===");
+        System.out.println("===Saliendo de generarCodigo()...===");
         return varCodigo;
     }
 
@@ -186,7 +186,7 @@ public class GestionAnteproyectosImpl extends UnicastRemoteObject implements Ges
 
     @Override
     public boolean registrarFormatoD(FormatoDDTO prmFormato) throws RemoteException {
-        System.out.println("===Desde registrar Formato A===");
+        System.out.println("===Desde registrar Formato D===");
         try {
             for (int i = 0; i < listaAnteproyectos.size(); i++) {
                 AnteproyectoDTO objAnteproyecto = listaAnteproyectos.get(i);
