@@ -39,5 +39,7 @@ public interface GestionAnteproyectosInt extends Remote {
     public boolean eliminarAnteproyecto(long prmCodigoAnteproyecto) throws RemoteException;
 
     public void registrarCallback(RegistroDTO prmRegistro) throws RemoteException;
+    
+    public void asociarAnteproyectoDirector(long idAnteproyecto, long idDirector) throws RemoteException;
 
 }

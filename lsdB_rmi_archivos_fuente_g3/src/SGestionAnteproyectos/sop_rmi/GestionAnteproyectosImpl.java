@@ -144,13 +144,21 @@ public class GestionAnteproyectosImpl extends UnicastRemoteObject implements Ges
     }
 
     private void enviarNotificaciones(AnteproyectoDTO prmAnteproyecto) {
+        boolean band = false;
         try {
             System.out.println("===Enviando Notificaciones()===");
             AsignadoDTO objAsignado = new AsignadoDTO(prmAnteproyecto.getCodigoAnteproyecto(), prmAnteproyecto.getFormatoB1().getIdEvaluador(), prmAnteproyecto.getFormatoB2().getIdEvaluador());
             for (RegistroDTO objDirector : atrDirectores) {
-
-                objDirector.getReferenciaDirector().informarNotificacion(objAsignado);
-
+                for (int i = 0; i < objDirector.getIdAnteproyecto().size(); i++) {
+                    if((long)objDirector.getIdAnteproyecto().get(i)==prmAnteproyecto.getCodigoAnteproyecto()){
+                         objDirector.getReferenciaDirector().informarNotificacion(objAsignado);
+                         band = true;
+                         break;
+                    }
+                }
+               if(band==true){
+                   break;
+               }
             }
 
         } catch (Exception e) {
@@ -323,9 +331,32 @@ public class GestionAnteproyectosImpl extends UnicastRemoteObject implements Ges
     @Override
     public void registrarCallback(RegistroDTO prmRegistro) throws RemoteException {
         System.out.println("===Desde registrarCALLBACK===");
+        boolean band = false;
+        /*
         if (!atrDirectores.contains(prmRegistro)) {
             atrDirectores.add(prmRegistro);
         }
+*/
+        for (RegistroDTO atrDirector : atrDirectores) {
+            if(atrDirector.getIdDirector()==prmRegistro.getIdDirector()){
+                atrDirector.setReferenciaDirector(prmRegistro.getReferenciaDirector());
+                band=true;
+                break;
+            }
+        }
+        
+        if(!band){
+            atrDirectores.add(prmRegistro);
+        }
         System.out.println("===Saliendo de registrarCallback()...===");
+    }
+
+    @Override
+    public void asociarAnteproyectoDirector(long idAnteproyecto, long idDirector) throws RemoteException {
+        for (RegistroDTO Director : atrDirectores) {
+            if(Director.getIdDirector()==idDirector){
+                Director.getIdAnteproyecto().add(idAnteproyecto);
+            }
+        }
     }
 }

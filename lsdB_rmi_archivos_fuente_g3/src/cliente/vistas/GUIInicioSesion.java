@@ -12,6 +12,8 @@ import javax.swing.JOptionPane;
 import cliente.sop_rmi.*;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
@@ -117,9 +119,10 @@ public class GUIInicioSesion extends javax.swing.JFrame {
                         this.setVisible(false);
                         break;
                     case "DIRECTOR":
-                        GUIDirector objGUIDirector = new GUIDirector(this);
+                        GUIDirector objGUIDirector = new GUIDirector(this,objUsuario.getIdentificacion());
                         DirectorCllbckImpl objRemotoCallback = new DirectorCllbckImpl(objGUIDirector);
-                        RegistroDTO objRegistro = new RegistroDTO(-1, objUsuario.getIdentificacion(), objRemotoCallback);
+                        List listaIdAnteproyectos =  new ArrayList();
+                        RegistroDTO objRegistro = new RegistroDTO(listaIdAnteproyectos, objUsuario.getIdentificacion(), objRemotoCallback);
                         atrCO.getObjRemotoAnteproyectos().registrarCallback(objRegistro);
                         objGUIDirector.setVisible(true);
                         this.setVisible(false);

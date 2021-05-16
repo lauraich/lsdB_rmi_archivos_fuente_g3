@@ -17,7 +17,7 @@ public class GUIDirector extends javax.swing.JFrame {
 
     GUIInicioSesion objGuiInicioSesion;
     ClienteDeObjetos objCO;
-
+    long atrIdDirector;
     /**
      * Creates new form GUIDirector
      */
@@ -26,10 +26,11 @@ public class GUIDirector extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
     }
 
-    public GUIDirector(GUIInicioSesion prmGUI) {
+    public GUIDirector(GUIInicioSesion prmGUI, long idDirector) {
         initComponents();
         this.setLocationRelativeTo(null);
         objGuiInicioSesion = prmGUI;
+        atrIdDirector=idDirector;
         try {
             objCO = ClienteDeObjetos.getInstancia();
             txtCodigoAnteproyecto.setText(String.valueOf(objCO.getObjRemotoAnteproyectos().generarCodigo()));
@@ -283,7 +284,7 @@ public class GUIDirector extends javax.swing.JFrame {
         jPanel1.add(btnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 20, -1, -1));
 
         txtNotificaciones.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
-        jPanel1.add(txtNotificaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 780, 430, 130));
+        jPanel1.add(txtNotificaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 780, 550, 130));
 
         lblNotificaciones.setFont(new java.awt.Font("Yu Gothic UI", 1, 18)); // NOI18N
         lblNotificaciones.setText("Notificaciones");
@@ -336,6 +337,7 @@ public class GUIDirector extends javax.swing.JFrame {
                 objFA.setIdEstudiante1(Long.valueOf(txtIdEstudiante1.getText()));
                 objCO = ClienteDeObjetos.getInstancia();
                 if (objCO.getObjRemotoAnteproyectos().registrarFormatoA(objFA)) {
+                    objCO.getObjRemotoAnteproyectos().asociarAnteproyectoDirector(Long.parseLong(txtCodigoAnteproyecto.getText()), atrIdDirector);
                     JOptionPane.showMessageDialog(this, "Formato TI-A ha sido registrado correctamente", "INFO", JOptionPane.INFORMATION_MESSAGE);
                     limpiar();
                     int mes = JOptionPane.showConfirmDialog(this, "Desea registrar otro Formato TI-A", "INFO", JOptionPane.YES_NO_OPTION);
