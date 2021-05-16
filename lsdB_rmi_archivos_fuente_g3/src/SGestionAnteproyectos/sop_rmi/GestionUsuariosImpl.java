@@ -29,48 +29,6 @@ public class GestionUsuariosImpl extends UnicastRemoteObject implements GestionU
         objAdmin.setRole("ADMIN");
         objAdmin.setDepartamento("Sistemas");
         listaUsuarios.add(objAdmin);
-        
-        //-------------------------------------
-         objAdmin = new UsuarioDTO();
-        objAdmin.setIdentificacion(2);
-        objAdmin.setNombreCompleto("lasdf");
-        objAdmin.setUsuario("d");
-        objAdmin.setPassword("d");
-        objAdmin.setRole("DIRECTOR");
-        objAdmin.setDepartamento("Sistemas");
-        listaUsuarios.add(objAdmin);
-        objAdmin = new UsuarioDTO();
-        objAdmin.setIdentificacion(3);
-        objAdmin.setNombreCompleto("lasdf");
-        objAdmin.setUsuario("c");
-        objAdmin.setPassword("c");
-        objAdmin.setRole("COORDINADOR");
-        objAdmin.setDepartamento("Sistemas");
-        listaUsuarios.add(objAdmin);
-        objAdmin = new UsuarioDTO();
-        objAdmin.setIdentificacion(4);
-        objAdmin.setNombreCompleto("lasdf");
-        objAdmin.setUsuario("ev1");
-        objAdmin.setPassword("ev1");
-        objAdmin.setRole("EVALUADOR");
-        objAdmin.setDepartamento("Sistemas");
-        listaUsuarios.add(objAdmin);
-        objAdmin = new UsuarioDTO();
-        objAdmin.setIdentificacion(5);
-        objAdmin.setNombreCompleto("lasdf");
-        objAdmin.setUsuario("ev2");
-        objAdmin.setPassword("ev2");
-        objAdmin.setRole("EVALUADOR");
-        objAdmin.setDepartamento("Sistemas");
-        listaUsuarios.add(objAdmin);
-        objAdmin = new UsuarioDTO();
-        objAdmin.setIdentificacion(6);
-        objAdmin.setNombreCompleto("lasdf");
-        objAdmin.setUsuario("jf");
-        objAdmin.setPassword("jf");
-        objAdmin.setRole("JEFE DEPARTAMENTO");
-        objAdmin.setDepartamento("Sistemas");
-        listaUsuarios.add(objAdmin);
     }
 
     @Override
