@@ -298,25 +298,25 @@ public class GUIDecano extends javax.swing.JFrame {
             .addGroup(lblCoDirectorLayout.createSequentialGroup()
                 .addGroup(lblCoDirectorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(lblCoDirectorLayout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addGroup(lblCoDirectorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 890, Short.MAX_VALUE)
-                            .addComponent(jScrollPane4)
-                            .addComponent(jScrollPane3)
-                            .addComponent(jScrollPane5)))
-                    .addGroup(lblCoDirectorLayout.createSequentialGroup()
-                        .addGap(455, 455, 455)
-                        .addComponent(lblFormatoA))
-                    .addGroup(lblCoDirectorLayout.createSequentialGroup()
-                        .addGap(456, 456, 456)
-                        .addComponent(lblFormatoB))
-                    .addGroup(lblCoDirectorLayout.createSequentialGroup()
-                        .addGap(456, 456, 456)
-                        .addComponent(lblFormatoC))
-                    .addGroup(lblCoDirectorLayout.createSequentialGroup()
-                        .addGap(453, 453, 453)
-                        .addComponent(lblFormatoD)))
-                .addContainerGap(145, Short.MAX_VALUE))
+                        .addGroup(lblCoDirectorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(lblCoDirectorLayout.createSequentialGroup()
+                                .addGap(455, 455, 455)
+                                .addComponent(lblFormatoA))
+                            .addGroup(lblCoDirectorLayout.createSequentialGroup()
+                                .addGap(456, 456, 456)
+                                .addComponent(lblFormatoB))
+                            .addGroup(lblCoDirectorLayout.createSequentialGroup()
+                                .addGap(456, 456, 456)
+                                .addComponent(lblFormatoC))
+                            .addGroup(lblCoDirectorLayout.createSequentialGroup()
+                                .addGap(453, 453, 453)
+                                .addComponent(lblFormatoD)))
+                        .addGap(0, 544, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap())
         );
         lblCoDirectorLayout.setVerticalGroup(
             lblCoDirectorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -492,7 +492,7 @@ public class GUIDecano extends javax.swing.JFrame {
                 atrCO = ClienteDeObjetos.getInstancia();
                 ResolucionDTO resolucion = atrCO.getObjRemotoSeguimiento().generarResolucion(codigo);
                 if (resolucion == null) {
-                    JOptionPane.showMessageDialog(this, "Error al generar la resolucion", "ERROR", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(this, "La resolución ya existe u ocurrio un error al registrarla", "ERROR", JOptionPane.ERROR_MESSAGE);
                 } else {
                     pnlResolucion.enable(true);
                     lblCodigoA.setText(String.valueOf(resolucion.getAtrCodigoAnteproyecto()));

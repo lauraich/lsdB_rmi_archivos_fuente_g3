@@ -95,6 +95,7 @@ public class GUIJefeDepto extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tblFormatos.setEnabled(false);
         jScrollPane1.setViewportView(tblFormatos);
 
         pnlFondo.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 470, 320));

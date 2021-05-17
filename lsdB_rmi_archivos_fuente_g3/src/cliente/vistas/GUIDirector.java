@@ -18,6 +18,7 @@ public class GUIDirector extends javax.swing.JFrame {
     GUIInicioSesion objGuiInicioSesion;
     ClienteDeObjetos objCO;
     long atrIdDirector;
+
     /**
      * Creates new form GUIDirector
      */
@@ -30,13 +31,7 @@ public class GUIDirector extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         objGuiInicioSesion = prmGUI;
-        atrIdDirector=idDirector;
-        try {
-            objCO = ClienteDeObjetos.getInstancia();
-            txtCodigoAnteproyecto.setText(String.valueOf(objCO.getObjRemotoAnteproyectos().generarCodigo()));
-        } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
-        }
+        atrIdDirector = idDirector;
     }
 
     public void mostrarNotificacion(String prmMensaje) {
@@ -96,6 +91,7 @@ public class GUIDirector extends javax.swing.JFrame {
         txtNotificaciones = new javax.swing.JTextField();
         lblNotificaciones = new javax.swing.JLabel();
         lblFondo = new javax.swing.JLabel();
+        btnCodigo = new javax.swing.JButton();
 
         jLabel2.setText("jLabel2");
 
@@ -106,26 +102,26 @@ public class GUIDirector extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblCodigoAnteproyecto.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
-        lblCodigoAnteproyecto.setText("Codigo Anteproyecto: ");
+        lblCodigoAnteproyecto.setText("Codigo Anteproyecto: * ");
 
         txtCodigoAnteproyecto.setEditable(false);
         txtCodigoAnteproyecto.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
 
         lblNombrePrograma.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
-        lblNombrePrograma.setText("Nombre del Programa:");
+        lblNombrePrograma.setText("Nombre del Programa: *");
 
         txtNombrePrograma.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
 
         txtTituloAnteproyecto.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
 
         lblTituloAnteproyecto.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
-        lblTituloAnteproyecto.setText("Titulo del Anteproyecto:");
+        lblTituloAnteproyecto.setText("Titulo del Anteproyecto: *");
 
         lblIdEstudiante1.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
-        lblIdEstudiante1.setText("Id Estudiante 1:");
+        lblIdEstudiante1.setText("Id Estudiante 1: *");
 
         lblNombreEstudiante1.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
-        lblNombreEstudiante1.setText("Nombre Estudiante 1:");
+        lblNombreEstudiante1.setText("Nombre Estudiante 1: *");
 
         txtNombreEstudiante1.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
 
@@ -147,7 +143,7 @@ public class GUIDirector extends javax.swing.JFrame {
         txtNombreDirector.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
 
         lblNombreDirector.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
-        lblNombreDirector.setText("Nombre del Director:");
+        lblNombreDirector.setText("Nombre del Director: *");
 
         lblNombreCoDirector.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         lblNombreCoDirector.setText("Nombre del Codirector:");
@@ -155,7 +151,7 @@ public class GUIDirector extends javax.swing.JFrame {
         txtNombreCoDirector.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
 
         lblObjetivos.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
-        lblObjetivos.setText("Objetivos");
+        lblObjetivos.setText("Objetivos *");
 
         txtObjetivos.setColumns(20);
         txtObjetivos.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
@@ -207,7 +203,6 @@ public class GUIDirector extends javax.swing.JFrame {
                             .addComponent(txtNombreEstudiante2)
                             .addComponent(txtNombreDirector)
                             .addComponent(txtIdEstudiante1, javax.swing.GroupLayout.Alignment.TRAILING)))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 433, Short.MAX_VALUE)
                     .addGroup(mainPanelLayout.createSequentialGroup()
                         .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(mainPanelLayout.createSequentialGroup()
@@ -216,8 +211,9 @@ public class GUIDirector extends javax.swing.JFrame {
                             .addGroup(mainPanelLayout.createSequentialGroup()
                                 .addGap(156, 156, 156)
                                 .addComponent(btnGuardar)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 166, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addComponent(jScrollPane1)
         );
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -281,23 +277,35 @@ public class GUIDirector extends javax.swing.JFrame {
                 btnCerrarSesionActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 20, -1, -1));
+        jPanel1.add(btnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 10, -1, -1));
 
         txtNotificaciones.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
-        jPanel1.add(txtNotificaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 780, 550, 130));
+        txtNotificaciones.setEnabled(false);
+        jPanel1.add(txtNotificaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 780, 630, 130));
 
         lblNotificaciones.setFont(new java.awt.Font("Yu Gothic UI", 1, 18)); // NOI18N
         lblNotificaciones.setText("Notificaciones");
-        jPanel1.add(lblNotificaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 730, -1, -1));
+        jPanel1.add(lblNotificaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 740, -1, -1));
 
         lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondoRA.png"))); // NOI18N
-        jPanel1.add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 144, 580, 780));
+        jPanel1.add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 154, 540, 770));
+
+        btnCodigo.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
+        btnCodigo.setText("Solicitar Codigo");
+        btnCodigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCodigoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 120, 140, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 674, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -340,17 +348,8 @@ public class GUIDirector extends javax.swing.JFrame {
                     objCO.getObjRemotoAnteproyectos().asociarAnteproyectoDirector(Long.parseLong(txtCodigoAnteproyecto.getText()), atrIdDirector);
                     JOptionPane.showMessageDialog(this, "Formato TI-A ha sido registrado correctamente", "INFO", JOptionPane.INFORMATION_MESSAGE);
                     limpiar();
-                    int mes = JOptionPane.showConfirmDialog(this, "Desea registrar otro Formato TI-A", "INFO", JOptionPane.YES_NO_OPTION);
-                    if (mes == 0) {
-                        try {
-                            txtCodigoAnteproyecto.setText(String.valueOf(objCO.getObjRemotoAnteproyectos().generarCodigo()));
-                            //txtIdEstudiante1 = new JFormattedTextField(new Long(3));
-                        } catch (Exception e) {
-                        }
-                    } else if (mes == 1) {
-                        objGuiInicioSesion.setVisible(true);
-                        this.dispose();
-                    }
+                    btnCodigo.setEnabled(true);
+                   
                 } else {
                     JOptionPane.showMessageDialog(this, "Ha ocurrido un error al registrar el formato", "ERROR", JOptionPane.ERROR_MESSAGE);
                 }
@@ -361,13 +360,17 @@ public class GUIDirector extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGuardarActionPerformed
     private boolean validarCamposVacios() {
         if (txtNombrePrograma.getText().length() == 0 || txtTituloAnteproyecto.getText().length() == 0 || txtIdEstudiante1.getText().length() == 0 || txtNombreEstudiante1.getText().length() == 0 || txtNombreDirector.getText().length() == 0 || txtObjetivos.getText().length() == 0) {
-            JOptionPane.showMessageDialog(this, "Se debe diligenciar todos los campos del formulario", "ADVERTENCIA", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Se debe diligenciar todos los campos del formulario obligatorios(*)", "ADVERTENCIA", JOptionPane.WARNING_MESSAGE);
             return false;
         }
         if ((txtIdEstudiante2.getText().length() != 0 && txtNombreEstudiante2.getText().length() == 0) || (txtIdEstudiante2.getText().length() == 0 && txtNombreEstudiante2.getText().length() != 0)) {
             JOptionPane.showMessageDialog(this, "Debe diligenciar completamente los datos del estudiante 2", "ADVERTENCIA", JOptionPane.WARNING_MESSAGE);
             return false;
 
+        }
+        if(txtCodigoAnteproyecto.getText().length()==0){
+             JOptionPane.showMessageDialog(this, "Debe generar el codigo del anteproyecto", "ADVERTENCIA", JOptionPane.WARNING_MESSAGE);
+            return false;
         }
         return true;
     }
@@ -387,10 +390,21 @@ public class GUIDirector extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtIdEstudiante2KeyTyped
 
- 
+    private void btnCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCodigoActionPerformed
+        try {
+                btnCodigo.setEnabled(true);
+                objCO = ClienteDeObjetos.getInstancia();
+                txtCodigoAnteproyecto.setText(String.valueOf(objCO.getObjRemotoAnteproyectos().generarCodigo()));
+                btnCodigo.setEnabled(false);
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }//GEN-LAST:event_btnCodigoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCerrarSesion;
+    private javax.swing.JButton btnCodigo;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

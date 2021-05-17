@@ -122,6 +122,7 @@ public class GUIFB extends javax.swing.JFrame {
         jLabel3.setText("Concepto:");
 
         rbNoAprobado.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
+        rbNoAprobado.setSelected(true);
         rbNoAprobado.setText("No Aprobado");
 
         lblIdEvaluador.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N

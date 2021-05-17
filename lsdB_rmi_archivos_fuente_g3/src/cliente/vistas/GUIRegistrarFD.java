@@ -114,17 +114,17 @@ public class GUIRegistrarFD extends javax.swing.JFrame {
         lblEstructura.setText("Estructura:");
 
         rbtnCorrecta.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
-        rbtnCorrecta.setSelected(true);
         rbtnCorrecta.setText("Correcta");
 
         rbtnIncorrecta.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
+        rbtnIncorrecta.setSelected(true);
         rbtnIncorrecta.setText("Incorrecta");
 
         rbtnAprobado.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
-        rbtnAprobado.setSelected(true);
         rbtnAprobado.setText("Aprobado");
 
         rbtnNoAprobado.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
+        rbtnNoAprobado.setSelected(true);
         rbtnNoAprobado.setText("No Aprobado");
 
         lblConcepto.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N

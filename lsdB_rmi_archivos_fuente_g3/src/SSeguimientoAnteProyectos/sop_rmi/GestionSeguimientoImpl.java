@@ -32,18 +32,14 @@ public class GestionSeguimientoImpl extends UnicastRemoteObject implements Gesti
     @Override
     public ResolucionDTO generarResolucion(long prmCodigoAnteproyecto) throws RemoteException {
         System.out.println("===desde GenerarResolución()===");
-        boolean band = false;
-        FileInputStream ficheroEntrada = null;
-        FileOutputStream ficheroSalida = null;
-        AnteproyectoDTO temp;
-
         ResolucionDTO resolucion = null;
 
         try {
 
-            if (leerResolucion(prmCodigoAnteproyecto) != true) {
-                resolucion = new ResolucionDTO("8.4.2" + "-" + "90.14/" + incremental, prmCodigoAnteproyecto, LocalDate.now());
+            if (leerResolucion(prmCodigoAnteproyecto) != true) {                
+                resolucion = new ResolucionDTO("8.4.2" + "-" + "90.14/" + String.format("%03d", incremental), prmCodigoAnteproyecto, LocalDate.now());
                 escribeFicheroRes("listadoTGIAprobados.txt", resolucion);
+                incremental++;
             }
 
         } catch (Exception ex) {

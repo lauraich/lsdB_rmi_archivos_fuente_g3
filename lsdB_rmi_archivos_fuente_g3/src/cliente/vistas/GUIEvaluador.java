@@ -93,6 +93,7 @@ public class GUIEvaluador extends javax.swing.JFrame {
                 "Codigo Anteproyecto", "Id Evaluador"
             }
         ));
+        tblFormatosA.setEnabled(false);
         jScrollPane1.setViewportView(tblFormatosA);
 
         lblListado.setFont(new java.awt.Font("Yu Gothic UI", 1, 18)); // NOI18N
