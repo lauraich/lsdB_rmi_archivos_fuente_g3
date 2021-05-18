@@ -7,6 +7,9 @@ package cliente.vistas;
 
 import SGestionAnteproyectos.dto.FormatoADTO;
 import cliente.ClienteDeObjetos;
+import java.rmi.RemoteException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -316,8 +319,15 @@ public class GUIDirector extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarSesionActionPerformed
-        objGuiInicioSesion.setVisible(true);
-        this.dispose();
+        try {
+            objCO = ClienteDeObjetos.getInstancia();
+            objCO.getObjRemotoAnteproyectos().actualizarSesion(atrIdDirector);
+            objGuiInicioSesion.setVisible(true);
+            this.dispose();
+        } catch (RemoteException ex) {
+            Logger.getLogger(GUIDirector.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_btnCerrarSesionActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
@@ -349,7 +359,7 @@ public class GUIDirector extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(this, "Formato TI-A ha sido registrado correctamente", "INFO", JOptionPane.INFORMATION_MESSAGE);
                     limpiar();
                     btnCodigo.setEnabled(true);
-                   
+
                 } else {
                     JOptionPane.showMessageDialog(this, "Ha ocurrido un error al registrar el formato", "ERROR", JOptionPane.ERROR_MESSAGE);
                 }
@@ -368,8 +378,8 @@ public class GUIDirector extends javax.swing.JFrame {
             return false;
 
         }
-        if(txtCodigoAnteproyecto.getText().length()==0){
-             JOptionPane.showMessageDialog(this, "Debe generar el codigo del anteproyecto", "ADVERTENCIA", JOptionPane.WARNING_MESSAGE);
+        if (txtCodigoAnteproyecto.getText().length() == 0) {
+            JOptionPane.showMessageDialog(this, "Debe generar el codigo del anteproyecto", "ADVERTENCIA", JOptionPane.WARNING_MESSAGE);
             return false;
         }
         return true;
@@ -392,10 +402,10 @@ public class GUIDirector extends javax.swing.JFrame {
 
     private void btnCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCodigoActionPerformed
         try {
-                btnCodigo.setEnabled(true);
-                objCO = ClienteDeObjetos.getInstancia();
-                txtCodigoAnteproyecto.setText(String.valueOf(objCO.getObjRemotoAnteproyectos().generarCodigo()));
-                btnCodigo.setEnabled(false);
+            btnCodigo.setEnabled(true);
+            objCO = ClienteDeObjetos.getInstancia();
+            txtCodigoAnteproyecto.setText(String.valueOf(objCO.getObjRemotoAnteproyectos().generarCodigo()));
+            btnCodigo.setEnabled(false);
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }

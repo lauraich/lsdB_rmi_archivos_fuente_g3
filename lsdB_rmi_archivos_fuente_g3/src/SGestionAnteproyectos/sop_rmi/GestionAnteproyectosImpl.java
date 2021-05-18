@@ -332,14 +332,11 @@ public class GestionAnteproyectosImpl extends UnicastRemoteObject implements Ges
     public void registrarCallback(RegistroDTO prmRegistro) throws RemoteException {
         System.out.println("===Desde registrarCALLBACK===");
         boolean band = false;
-        /*
-        if (!atrDirectores.contains(prmRegistro)) {
-            atrDirectores.add(prmRegistro);
-        }
-*/
+       
         for (RegistroDTO atrDirector : atrDirectores) {
             if(atrDirector.getIdDirector()==prmRegistro.getIdDirector()){
                 atrDirector.setReferenciaDirector(prmRegistro.getReferenciaDirector());
+                atrDirector.setSesion(true);
                 band=true;
                 break;
             }
@@ -356,6 +353,30 @@ public class GestionAnteproyectosImpl extends UnicastRemoteObject implements Ges
         for (RegistroDTO Director : atrDirectores) {
             if(Director.getIdDirector()==idDirector){
                 Director.getIdAnteproyecto().add(idAnteproyecto);
+            }
+        }
+    }
+
+    @Override
+    public boolean verificarSesion(long idDirector) throws RemoteException {
+        for (RegistroDTO director : atrDirectores) {
+            if(director.getIdDirector()==idDirector){
+                if(director.getSesion()){
+                    return false;
+                }else{
+                    return true;
+                }
+            }
+        }
+        return true;
+    }
+
+    @Override
+    public void actualizarSesion(long idDirector) throws RemoteException {
+         for (RegistroDTO director : atrDirectores) {
+            if(director.getIdDirector()==idDirector){
+                director.setSesion(false);
+                break;
             }
         }
     }

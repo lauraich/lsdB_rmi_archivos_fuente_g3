@@ -119,13 +119,17 @@ public class GUIInicioSesion extends javax.swing.JFrame {
                         this.setVisible(false);
                         break;
                     case "DIRECTOR":
+                        if(atrCO.getObjRemotoAnteproyectos().verificarSesion(objUsuario.getIdentificacion())){
                         GUIDirector objGUIDirector = new GUIDirector(this,objUsuario.getIdentificacion());
                         DirectorCllbckImpl objRemotoCallback = new DirectorCllbckImpl(objGUIDirector);
                         List listaIdAnteproyectos =  new ArrayList();
-                        RegistroDTO objRegistro = new RegistroDTO(listaIdAnteproyectos, objUsuario.getIdentificacion(), objRemotoCallback);
+                        RegistroDTO objRegistro = new RegistroDTO(listaIdAnteproyectos, objUsuario.getIdentificacion(), objRemotoCallback,true);
                         atrCO.getObjRemotoAnteproyectos().registrarCallback(objRegistro);
                         objGUIDirector.setVisible(true);
                         this.setVisible(false);
+                        }else{
+                            JOptionPane.showMessageDialog(this, "No es posible iniciar sesion, ya que, el usuario ya ha iniciado sesion", "ERROR", JOptionPane.ERROR_MESSAGE);
+                        }
                         break;
                     case "EVALUADOR":
                         GUIEvaluador objGUIEvaluador = new GUIEvaluador(this, objUsuario);
