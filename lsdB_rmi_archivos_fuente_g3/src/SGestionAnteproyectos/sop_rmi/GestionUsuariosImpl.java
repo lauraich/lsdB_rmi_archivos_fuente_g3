@@ -18,6 +18,7 @@ import java.util.List;
 public class GestionUsuariosImpl extends UnicastRemoteObject implements GestionUsuariosInt {
 
     List<UsuarioDTO> listaUsuarios;
+    boolean existeDecano = false;
 
     public GestionUsuariosImpl() throws RemoteException {
         listaUsuarios = new ArrayList<>();
@@ -35,6 +36,12 @@ public class GestionUsuariosImpl extends UnicastRemoteObject implements GestionU
     public boolean registrarUsuario(UsuarioDTO prmUsuario) throws RemoteException {
         System.out.println("===desde registrarUsuario()===");
         try {
+            if(existeDecano && prmUsuario.getRole().compareTo("DECANO")==0){
+                return false;
+            }
+            if(prmUsuario.getRole().compareTo("DECANO")==0){
+                existeDecano=true;
+            }
             listaUsuarios.add(prmUsuario);
             System.out.println("===saliendo de registrarUsuario()...===");
             return true;
@@ -118,4 +125,10 @@ public class GestionUsuariosImpl extends UnicastRemoteObject implements GestionU
         return listaUsuarios;
     }
 
+    @Override
+    public boolean existeDecano() throws RemoteException {
+        return existeDecano;
+    }
+    
+   
 }

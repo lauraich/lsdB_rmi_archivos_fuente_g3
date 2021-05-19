@@ -27,4 +27,5 @@ public interface GestionUsuariosInt extends Remote {
     public List<UsuarioDTO> listarUsuarios() throws RemoteException;
 
     public boolean existeUsuario(String pmrUser) throws RemoteException;
+    public boolean existeDecano() throws RemoteException;
 }

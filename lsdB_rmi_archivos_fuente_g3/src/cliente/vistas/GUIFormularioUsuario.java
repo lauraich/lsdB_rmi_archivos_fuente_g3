@@ -24,6 +24,7 @@ public class GUIFormularioUsuario extends javax.swing.JFrame {
     ClienteDeObjetos atrCO;
     int atrCreacion = 1;
     boolean banderaActualizar = false;
+    boolean banderaDecano = false;
 
     /**
      * Creates new form GUICrearUsuario
@@ -260,7 +261,6 @@ public class GUIFormularioUsuario extends javax.swing.JFrame {
             String usuario = txtUsuario.getText();
             String password = txtPassword.getText();
             String rol = (String) cmbRole.getSelectedItem();
-
             if (validarCamposVacios()) {
                 long id = Long.parseLong(txtIdentificacion.getText());
                 UsuarioDTO objUsuario = new UsuarioDTO(id, nombre, rol, departamento, usuario, password);
@@ -278,7 +278,11 @@ public class GUIFormularioUsuario extends javax.swing.JFrame {
                                     JOptionPane.showMessageDialog(this, "Usuario registrado correctamente", "INFO", JOptionPane.INFORMATION_MESSAGE);
                                     this.dispose();
                                 } else {
-                                    JOptionPane.showMessageDialog(this, "El usuario no se pudo registrar", "ERROR", JOptionPane.ERROR_MESSAGE);
+                                    if (atrCO.getObjRemotoUsuarios().existeDecano()) {
+                                        JOptionPane.showMessageDialog(this, "El usuario no se pudo registrar ya que solo se puede registrar un decano", "ERROR", JOptionPane.ERROR_MESSAGE);
+                                    } else {
+                                        JOptionPane.showMessageDialog(this, "El usuario no se pudo registrar", "ERROR", JOptionPane.ERROR_MESSAGE);
+                                    }
                                 }
                             } else if (atrCreacion == 2) {
                                 if (atrCO.getObjRemotoUsuarios().modificarUsuario(objUsuario)) {
@@ -291,6 +295,7 @@ public class GUIFormularioUsuario extends javax.swing.JFrame {
                     }
                 }
             }
+
         } catch (RemoteException ex) {
             Logger.getLogger(GUIFormularioUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
