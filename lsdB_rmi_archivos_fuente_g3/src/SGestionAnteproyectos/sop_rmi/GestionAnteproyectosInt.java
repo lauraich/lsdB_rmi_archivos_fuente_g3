@@ -45,5 +45,8 @@ public interface GestionAnteproyectosInt extends Remote {
     public boolean verificarSesion(long idDirector)throws RemoteException;
     
     public void actualizarSesion(long idDirector)throws RemoteException;
+    public List<Long> consultarNoRemitidos(long prmIdDirector)throws RemoteException;
+    public boolean remitir(long prmCodigoAnteproyecto)throws RemoteException;
+    
 
 }

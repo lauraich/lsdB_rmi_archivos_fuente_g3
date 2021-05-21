@@ -15,6 +15,7 @@ public class DirectorCllbckImpl extends UnicastRemoteObject implements DirectorC
 
     @Override
     public void informarNotificacion(AsignadoDTO objAsignado) throws RemoteException {
+        atrGui.cargarAnteproyectos();
         atrGui.mostrarNotificacion("El Anteproyecto con id " + objAsignado.getIdAnteproyecto() + " fue aprobado por los evaluadores con id [" + objAsignado.getIdEvaluador1() + "] y [" + objAsignado.getIdEvaluador2() + "]");
     }
 }

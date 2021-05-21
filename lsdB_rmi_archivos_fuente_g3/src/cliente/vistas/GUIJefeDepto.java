@@ -77,7 +77,7 @@ public class GUIJefeDepto extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("JEDE DE DEPARTAMENTO");
+        setTitle("JEFE DE DEPARTAMENTO");
         setAlwaysOnTop(true);
         setIconImage(getIconImage());
 

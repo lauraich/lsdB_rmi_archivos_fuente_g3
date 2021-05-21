@@ -29,6 +29,7 @@ public class GestionAnteproyectosImpl extends UnicastRemoteObject implements Ges
     private static int secuencial = 0;
     List<AnteproyectoDTO> listaAnteproyectos;
     List<AnteproyectoDTO> listAnteproyectosNoApro;
+    List<AnteproyectoDTO> listNoRemitidos;
     private GestionSeguimientoInt objReferenciaRemotaSeguimiento;
     private static List<RegistroDTO> atrDirectores;
 
@@ -36,6 +37,7 @@ public class GestionAnteproyectosImpl extends UnicastRemoteObject implements Ges
         listaAnteproyectos = new ArrayList<>();
         listAnteproyectosNoApro = new ArrayList<>();
         atrDirectores = new ArrayList<>();
+        listNoRemitidos = new ArrayList<>();
     }
 
     @Override
@@ -102,6 +104,7 @@ public class GestionAnteproyectosImpl extends UnicastRemoteObject implements Ges
                                     return true;
                                 }
                                 if (objAnteproyecto.getFormatoB1().getConcepto().compareTo("APROBADO") == 0 && objAnteproyecto.getFormatoB2().getConcepto().compareTo("APROBADO") == 0) {
+                                     listNoRemitidos.add(objAnteproyecto);
                                     enviarNotificaciones(objAnteproyecto);
                                 }
                             }
@@ -117,7 +120,9 @@ public class GestionAnteproyectosImpl extends UnicastRemoteObject implements Ges
                                     return true;
                                 }
                                 if (objAnteproyecto.getFormatoB1().getConcepto().compareTo("APROBADO") == 0 && objAnteproyecto.getFormatoB2().getConcepto().compareTo("APROBADO") == 0) {
+                                     listNoRemitidos.add(objAnteproyecto);
                                     enviarNotificaciones(objAnteproyecto);
+                                   
                                 }
                             }
                             System.out.println("===saliendo de RegistrarFormatoB()...===");
@@ -150,15 +155,15 @@ public class GestionAnteproyectosImpl extends UnicastRemoteObject implements Ges
             AsignadoDTO objAsignado = new AsignadoDTO(prmAnteproyecto.getCodigoAnteproyecto(), prmAnteproyecto.getFormatoB1().getIdEvaluador(), prmAnteproyecto.getFormatoB2().getIdEvaluador());
             for (RegistroDTO objDirector : atrDirectores) {
                 for (int i = 0; i < objDirector.getIdAnteproyecto().size(); i++) {
-                    if((long)objDirector.getIdAnteproyecto().get(i)==prmAnteproyecto.getCodigoAnteproyecto()){
-                         objDirector.getReferenciaDirector().informarNotificacion(objAsignado);
-                         band = true;
-                         break;
+                    if ((long) objDirector.getIdAnteproyecto().get(i) == prmAnteproyecto.getCodigoAnteproyecto()) {
+                        objDirector.getReferenciaDirector().informarNotificacion(objAsignado);
+                        band = true;
+                        break;
                     }
                 }
-               if(band==true){
-                   break;
-               }
+                if (band == true) {
+                    break;
+                }
             }
 
         } catch (Exception e) {
@@ -264,15 +269,25 @@ public class GestionAnteproyectosImpl extends UnicastRemoteObject implements Ges
         List<FormatoBDTO> varList = new ArrayList<>();
         try {
             for (AnteproyectoDTO objAnteproyecto : listaAnteproyectos) {
-                if (objAnteproyecto.getFormatoB1() != null && objAnteproyecto.getFormatoB2() != null && objAnteproyecto.getFormatoC() == null && objAnteproyecto.getFormatoB1().getConcepto().compareTo("") != 0 && objAnteproyecto.getFormatoB1().getConcepto().compareTo("") != 0) {
-                    varList.add(objAnteproyecto.getFormatoB1());
-                    //varList.add(objAnteproyecto.getFormatoB2());
+                if (objAnteproyecto.getFormatoB1() != null && objAnteproyecto.getFormatoB2() != null && objAnteproyecto.getFormatoC() == null) {
+                    if (objAnteproyecto.getFormatoB1().getConcepto().compareTo("") != 0 && objAnteproyecto.getFormatoB1().getConcepto().compareTo("") != 0 && isRemitido(objAnteproyecto.getCodigoAnteproyecto())) {
+                        varList.add(objAnteproyecto.getFormatoB1());
+                        //varList.add(objAnteproyecto.getFormatoB2());
+                    }
                 }
             }
         } catch (Exception e) {
         }
         System.out.println("===Saliendo de registrarFormatoB()...===");
         return varList;
+    }
+    private boolean isRemitido(long prmCodigoAnteproyectp){
+        for (AnteproyectoDTO NoRemitido : listNoRemitidos) {
+            if(NoRemitido.getCodigoAnteproyecto()==prmCodigoAnteproyectp){
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
@@ -332,17 +347,17 @@ public class GestionAnteproyectosImpl extends UnicastRemoteObject implements Ges
     public void registrarCallback(RegistroDTO prmRegistro) throws RemoteException {
         System.out.println("===Desde registrarCALLBACK===");
         boolean band = false;
-       
+
         for (RegistroDTO atrDirector : atrDirectores) {
-            if(atrDirector.getIdDirector()==prmRegistro.getIdDirector()){
+            if (atrDirector.getIdDirector() == prmRegistro.getIdDirector()) {
                 atrDirector.setReferenciaDirector(prmRegistro.getReferenciaDirector());
                 atrDirector.setSesion(true);
-                band=true;
+                band = true;
                 break;
             }
         }
-        
-        if(!band){
+
+        if (!band) {
             atrDirectores.add(prmRegistro);
         }
         System.out.println("===Saliendo de registrarCallback()...===");
@@ -351,7 +366,7 @@ public class GestionAnteproyectosImpl extends UnicastRemoteObject implements Ges
     @Override
     public void asociarAnteproyectoDirector(long idAnteproyecto, long idDirector) throws RemoteException {
         for (RegistroDTO Director : atrDirectores) {
-            if(Director.getIdDirector()==idDirector){
+            if (Director.getIdDirector() == idDirector) {
                 Director.getIdAnteproyecto().add(idAnteproyecto);
             }
         }
@@ -360,10 +375,10 @@ public class GestionAnteproyectosImpl extends UnicastRemoteObject implements Ges
     @Override
     public boolean verificarSesion(long idDirector) throws RemoteException {
         for (RegistroDTO director : atrDirectores) {
-            if(director.getIdDirector()==idDirector){
-                if(director.getSesion()){
+            if (director.getIdDirector() == idDirector) {
+                if (director.getSesion()) {
                     return false;
-                }else{
+                } else {
                     return true;
                 }
             }
@@ -373,11 +388,40 @@ public class GestionAnteproyectosImpl extends UnicastRemoteObject implements Ges
 
     @Override
     public void actualizarSesion(long idDirector) throws RemoteException {
-         for (RegistroDTO director : atrDirectores) {
-            if(director.getIdDirector()==idDirector){
+        for (RegistroDTO director : atrDirectores) {
+            if (director.getIdDirector() == idDirector) {
                 director.setSesion(false);
                 break;
             }
         }
     }
+
+    @Override
+    public List<Long> consultarNoRemitidos(long prmIdDirector) throws RemoteException {
+        List<Long> aux=new ArrayList<>();
+        for (AnteproyectoDTO NoRemitido : listNoRemitidos) {
+            for (RegistroDTO objDirector : atrDirectores) {
+                if(objDirector.getIdDirector()==prmIdDirector){
+                    for (int i = 0; i <objDirector.getIdAnteproyecto().size(); i++) {
+                        if(NoRemitido.getCodigoAnteproyecto()==(long)objDirector.getIdAnteproyecto().get(i)){
+                            aux.add(NoRemitido.getCodigoAnteproyecto());
+                        }
+                    }
+                }
+            }
+        }
+        return aux;
+    }
+
+    @Override
+    public boolean remitir(long prmCodigoAnteproyecto) throws RemoteException {
+        for (int i = 0; i < listNoRemitidos.size(); i++) {
+            if(prmCodigoAnteproyecto==listNoRemitidos.get(i).getCodigoAnteproyecto()){
+                listNoRemitidos.remove(i);
+                return true;
+            }
+        }
+        return false;
+    }
+
 }

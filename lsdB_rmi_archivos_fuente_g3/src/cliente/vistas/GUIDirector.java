@@ -8,6 +8,7 @@ package cliente.vistas;
 import SGestionAnteproyectos.dto.FormatoADTO;
 import cliente.ClienteDeObjetos;
 import java.rmi.RemoteException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -32,9 +33,24 @@ public class GUIDirector extends javax.swing.JFrame {
 
     public GUIDirector(GUIInicioSesion prmGUI, long idDirector) {
         initComponents();
+
         this.setLocationRelativeTo(null);
         objGuiInicioSesion = prmGUI;
         atrIdDirector = idDirector;
+        cargarAnteproyectos();
+    }
+
+    public void cargarAnteproyectos() {
+        try {
+            cmbAnteproyectos.removeAllItems();
+            cmbAnteproyectos.addItem("Seleccione un Anteproyecto");
+            objCO = ClienteDeObjetos.getInstancia();
+            List<Long> anteproyectos = objCO.getObjRemotoAnteproyectos().consultarNoRemitidos(atrIdDirector);
+            for (Long anteproyecto : anteproyectos) {
+                cmbAnteproyectos.addItem(anteproyecto.toString());
+            }
+        } catch (Exception e) {
+        }
     }
 
     public void mostrarNotificacion(String prmMensaje) {
@@ -312,6 +328,11 @@ public class GUIDirector extends javax.swing.JFrame {
 
         btnRemitir.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 14)); // NOI18N
         btnRemitir.setText("Remitir");
+        btnRemitir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRemitirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlRemitirLayout = new javax.swing.GroupLayout(pnlRemitir);
         pnlRemitir.setLayout(pnlRemitirLayout);
@@ -447,6 +468,23 @@ public class GUIDirector extends javax.swing.JFrame {
             System.out.println("Error: " + e.getMessage());
         }
     }//GEN-LAST:event_btnCodigoActionPerformed
+
+    private void btnRemitirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemitirActionPerformed
+        try {
+            if (cmbAnteproyectos.getSelectedIndex() > 0) {
+                objCO = ClienteDeObjetos.getInstancia();
+                if (objCO.getObjRemotoAnteproyectos().remitir(Long.parseLong(cmbAnteproyectos.getSelectedItem().toString()))) {
+                    JOptionPane.showMessageDialog(null, "Anteproyecto Remitido Exitosamente", "EXITO", JOptionPane.INFORMATION_MESSAGE);
+                    cargarAnteproyectos();
+                } else {
+                    JOptionPane.showMessageDialog(null, "No Fué Posible Remitir El Anteproyecto", "ERROR", JOptionPane.ERROR_MESSAGE);
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Debe seleccionar un anteproyecto", "ADVERTENCIA", JOptionPane.WARNING_MESSAGE);
+            }
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_btnRemitirActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
