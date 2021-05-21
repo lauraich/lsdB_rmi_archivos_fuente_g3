@@ -95,6 +95,9 @@ public class GUIDirector extends javax.swing.JFrame {
         lblNotificaciones = new javax.swing.JLabel();
         lblFondo = new javax.swing.JLabel();
         btnCodigo = new javax.swing.JButton();
+        pnlRemitir = new javax.swing.JPanel();
+        cmbAnteproyectos = new javax.swing.JComboBox<>();
+        btnRemitir = new javax.swing.JButton();
 
         jLabel2.setText("jLabel2");
 
@@ -280,7 +283,7 @@ public class GUIDirector extends javax.swing.JFrame {
                 btnCerrarSesionActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 10, -1, -1));
+        jPanel1.add(btnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 10, -1, -1));
 
         txtNotificaciones.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         txtNotificaciones.setEnabled(false);
@@ -302,13 +305,47 @@ public class GUIDirector extends javax.swing.JFrame {
         });
         jPanel1.add(btnCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 120, 140, 30));
 
+        pnlRemitir.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Remitir Anteproyecto", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Yu Gothic UI", 0, 12))); // NOI18N
+
+        cmbAnteproyectos.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
+        cmbAnteproyectos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione un anteproyecto" }));
+
+        btnRemitir.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 14)); // NOI18N
+        btnRemitir.setText("Remitir");
+
+        javax.swing.GroupLayout pnlRemitirLayout = new javax.swing.GroupLayout(pnlRemitir);
+        pnlRemitir.setLayout(pnlRemitirLayout);
+        pnlRemitirLayout.setHorizontalGroup(
+            pnlRemitirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlRemitirLayout.createSequentialGroup()
+                .addGroup(pnlRemitirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlRemitirLayout.createSequentialGroup()
+                        .addGap(70, 70, 70)
+                        .addComponent(cmbAnteproyectos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlRemitirLayout.createSequentialGroup()
+                        .addGap(121, 121, 121)
+                        .addComponent(btnRemitir, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(70, Short.MAX_VALUE))
+        );
+        pnlRemitirLayout.setVerticalGroup(
+            pnlRemitirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlRemitirLayout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(cmbAnteproyectos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42)
+                .addComponent(btnRemitir)
+                .addContainerGap(48, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(pnlRemitir, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 190, 350, 220));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 674, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1000, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -416,6 +453,8 @@ public class GUIDirector extends javax.swing.JFrame {
     private javax.swing.JButton btnCerrarSesion;
     private javax.swing.JButton btnCodigo;
     private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnRemitir;
+    private javax.swing.JComboBox<String> cmbAnteproyectos;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
@@ -433,6 +472,7 @@ public class GUIDirector extends javax.swing.JFrame {
     private javax.swing.JLabel lblRegistrarFormatoA;
     private javax.swing.JLabel lblTituloAnteproyecto;
     private javax.swing.JPanel mainPanel;
+    private javax.swing.JPanel pnlRemitir;
     private javax.swing.JTextField txtCodigoAnteproyecto;
     private javax.swing.JTextField txtIdEstudiante1;
     private javax.swing.JTextField txtIdEstudiante2;
